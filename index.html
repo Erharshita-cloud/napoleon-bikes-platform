@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Napoleon Bikes</title>
+
+<style>
+* {margin:0; padding:0; box-sizing:border-box;}
+
+body {
+    font-family: Arial;
+    color:white;
+    scroll-behavior: smooth;
+}
+
+/* SLIDESHOW */
+.slideshow {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
+.slide {
+    position: absolute;
+    width:100%; height:100%;
+    background-size: cover;
+    background-position: center;
+    opacity:0;
+    animation: fadeZoom 20s infinite;
+}
+.slide:nth-child(1){background:url('assets/napoleon1.jpg') center/cover;}
+.slide:nth-child(2){background:url('assets/napoleon2.webp') center/cover; animation-delay:4s;}
+.slide:nth-child(3){background:url('assets/napoleon3.png') center/cover; animation-delay:8s;}
+.slide:nth-child(4){background:url('assets/napoleon4.jpg') center/cover; animation-delay:12s;}
+.slide:nth-child(5){background:url('assets/napoleon5.webp') center/cover; animation-delay:16s;}
+
+@keyframes fadeZoom {
+    0%{opacity:0; transform:scale(1);}
+    5%{opacity:1;}
+    20%{opacity:1; transform:scale(1.08);}
+    25%{opacity:0;}
+}
+
+/* OVERLAY */
+.overlay {
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.6);
+    z-index:-1;
+}
+
+/* NAVBAR */
+nav {
+    position:fixed;
+    width:100%;
+    padding:15px;
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    backdrop-filter: blur(10px);
+    background:rgba(0,0,0,0.3);
+    z-index:10;
+}
+nav a {
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    transition:0.3s;
+}
+nav a:hover {
+    color:orange;
+    text-shadow:0 0 10px orange;
+}
+
+/* HERO (PERFECT CENTER FIXED) */
+.hero {
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.hero div {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:18px;
+    max-width:700px;
+    padding:0 20px;
+}
+
+/* TEXT */
+.hero h1 {
+    font-size:65px;
+    line-height:1.1;
+    letter-spacing:1px;
+    animation:fadeUp 1s ease;
+}
+
+.hero p {
+    font-size:22px;
+    opacity:0.9;
+    max-width:500px;
+    animation:fadeUp 1.3s ease;
+}
+
+/* BUTTON */
+.btn {
+    margin-top:10px;
+    padding:14px 35px;
+    background:orange;
+    color:black;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:bold;
+    transition:0.3s;
+    animation:fadeUp 1.6s ease;
+}
+.btn:hover {
+    transform:scale(1.1);
+    box-shadow:0 0 20px orange;
+}
+
+/* ANIMATION */
+@keyframes fadeUp {
+    from {opacity:0; transform:translateY(40px);}
+    to {opacity:1; transform:translateY(0);}
+}
+
+/* CHATBOT BUTTON */
+.chat-robot {
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    width:60px;
+    height:60px;
+    background:linear-gradient(135deg, orange, #ff6600);
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:28px;
+    cursor:pointer;
+    box-shadow:0 0 20px orange;
+    z-index:100;
+    animation:float 2s infinite ease-in-out;
+}
+
+@keyframes float {
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-8px);}
+}
+
+/* CHATBOX */
+.chatbox {
+    position:fixed;
+    right:20px;
+    bottom:90px;
+    width:320px;
+    height:420px;
+    background:#111;
+    border-radius:15px;
+    display:none;
+    flex-direction:column;
+    overflow:hidden;
+    box-shadow:0 0 20px rgba(0,0,0,0.8);
+}
+
+.chat-header {
+    background:orange;
+    padding:10px;
+    font-weight:bold;
+    text-align:center;
+}
+
+.chat-body {
+    flex:1;
+    padding:10px;
+    overflow-y:auto;
+    font-size:14px;
+}
+
+.chat-body p {
+    margin:5px 0;
+}
+
+.typing {
+    opacity:0.7;
+    font-style:italic;
+}
+
+.chat-input {
+    display:flex;
+}
+.chat-input input {
+    flex:1;
+    padding:10px;
+    border:none;
+    outline:none;
+}
+.chat-input button {
+    padding:10px;
+    background:orange;
+    border:none;
+    cursor:pointer;
+}
+
+.user {color:#0f0;}
+.bot {color:#ff9800;}
+</style>
+</head>
+
+<body>
+
+<!-- SLIDES -->
+<div class="slideshow">
+    <div class="slide"></div>
+    <div class="slide"></div>
+    <div class="slide"></div>
+    <div class="slide"></div>
+    <div class="slide"></div>
+</div>
+<div class="overlay"></div>
+
+<!-- NAVBAR -->
+<nav>
+    <a href="/">Home</a>
+    <a href="/bikes/">Models</a>
+    <a href="/pricing/">Pricing</a>
+    <a href="/contact/">Contact</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div>
+        <h1>Napoleon Bikes</h1>
+        <p>Ride the Legend. Feel the Power.</p>
+        <a href="/bikes/" class="btn">Explore Models</a>
+    </div>
+</section>
+
+<!-- CHATBOT -->
+<div class="chat-robot" onclick="toggleChat()">🤖</div>
+
+<div class="chatbox" id="chatbox">
+    <div class="chat-header">Napoleon AI Assistant</div>
+    <div class="chat-body" id="chatBody"></div>
+    <div class="chat-input">
+        <input type="text" id="userInput" placeholder="Ask about bikes...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+</div>
+
+<script>
+function toggleChat() {
+    let box = document.getElementById("chatbox");
+    box.style.display = box.style.display === "flex" ? "none" : "flex";
+}
+
+function sendMessage() {
+    let input = document.getElementById("userInput");
+    let chat = document.getElementById("chatBody");
+
+    if(input.value.trim() === "") return;
+
+    let userText = input.value;
+    chat.innerHTML += `<p class="user"><b>You:</b> ${userText}</p>`;
+    input.value = "";
+
+    let typing = document.createElement("p");
+    typing.classList.add("typing");
+    typing.innerText = "Bot is typing...";
+    chat.appendChild(typing);
+
+    setTimeout(() => {
+        typing.remove();
+        let reply = getBotReply(userText);
+        chat.innerHTML += `<p class="bot"><b>Bot:</b> ${reply}</p>`;
+        chat.scrollTop = chat.scrollHeight;
+    }, 1000);
+}
+
+function getBotReply(msg){
+    msg = msg.toLowerCase();
+
+    if(msg.includes("hi") || msg.includes("hello"))
+        return "Welcome to Napoleon Bikes 👋";
+
+    if(msg.includes("price"))
+        return "Prices range from ₹2.5L to ₹6.0L.";
+
+    if(msg.includes("250"))
+        return "250 is best for city rides.";
+
+    if(msg.includes("500"))
+        return "500 gives power + style.";
+
+    if(msg.includes("pro"))
+        return "Pro is ultimate performance machine.";
+
+    if(msg.includes("book"))
+        return "Go to Pricing page to book.";
+
+    return "Ask me about bikes, prices or booking 👍";
+}
+</script>
+
+</body>
+</html>
