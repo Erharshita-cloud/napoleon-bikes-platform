@@ -4,14 +4,6 @@
   <b>Ride the Legend. Feel the Power.</b>
 </p>
 
----
-
-## 🎬 Live Demo
-
-👉 http://YOUR-PUBLIC-IP/
-
----
-
 ## 🎥 Project Preview
 
 <p align="center">
@@ -58,7 +50,7 @@
 ![Pricing](screenshots/pricing.png)
 
 ### 📝 Booking System
-![Booking](screenshots/booking.png)
+![Booking](screenshots/contact.png)
 
 ### 🎉 Success Page
 ![Thank You](screenshots/thankyou.png)
