@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Napoleon Bikes - Models</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial;
+    background: #0d0d0d;
+    color: white;
+}
+
+/* Navbar */
+nav {
+    background: rgba(0,0,0,0.8);
+    padding: 15px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Section */
+.section {
+    padding: 80px 40px;
+}
+
+.section h1 {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 40px;
+}
+
+/* Grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+/* Card */
+.card {
+    background: #1a1a1a;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: 0.4s;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+    animation: fadeUp 0.8s ease;
+}
+
+.card:hover {
+    transform: translateY(-12px) scale(1.03);
+}
+
+/* Image */
+.card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+/* Content */
+.card-content {
+    padding: 20px;
+    text-align: center;
+}
+
+.card-content h2 {
+    margin-bottom: 10px;
+}
+
+.card-content p {
+    color: #ccc;
+    margin-bottom: 10px;
+}
+
+/* Price */
+.price {
+    color: orange;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* Stars */
+.stars {
+    color: gold;
+    margin-bottom: 15px;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    margin: 5px;
+    padding: 10px 15px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.buy {
+    background: orange;
+    color: black;
+}
+
+.test {
+    background: #333;
+    color: white;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+}
+
+/* Animation */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media(max-width: 768px) {
+    .section {
+        padding: 40px 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav>
+    <a href="../index.html">Home</a>
+    <a href="../bikes/">Models</a>
+    <a href="../pricing/">Pricing</a>
+    <a href="../contact/">Contact</a>
+</nav>
+
+<!-- Section -->
+<div class="section">
+    <h1>Our Premium Bikes</h1>
+
+    <div class="grid">
+
+        <!-- Bike 1 -->
+        <div class="card">
+            <img src="images/napoleon1.webp">
+            <div class="card-content">
+                <h2>Napoleon X</h2>
+                <p>1200cc • Bobber</p>
+                <div class="price">₹12,00,000</div>
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <a href="/contact/index.html" class="btn buy">Buy</a>
+                <a href="/contact/index.html" class="btn test">Test Ride</a>
+            </div>
+        </div>
+
+        <!-- Bike 2 -->
+        <div class="card">
+            <img src="images/napoleon2.webp">
+            <div class="card-content">
+                <h2>Napoleon Pro</h2>
+                <p>1400cc • Premium</p>
+                <div class="price">₹14,50,000</div>
+                <div class="stars">⭐⭐⭐⭐</div>
+                <a href="/contact/index.html" class="btn buy">Buy</a>
+                <a href="/contact/index.html" class="btn test">Test Ride</a>
+            </div>
+        </div>
+
+        <!-- Bike 3 -->
+        <div class="card">
+            <img src="images/napoleon3.png">
+            <div class="card-content">
+                <h2>Napoleon Elite</h2>
+                <p>1600cc • ABS</p>
+                <div class="price">₹16,00,000</div>
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <a href="/contact/index.html" class="btn buy">Buy</a>
+                <a href="/contact/index.html" class="btn test">Test Ride</a>
+            </div>
+        </div>
+
+        <!-- More Bikes -->
+        <div class="card">
+            <img src="images/napoleon4.jpg">
+            <div class="card-content">
+                <h2>Napoleon R</h2>
+                <p>Sport Edition</p>
+                <div class="price">₹11,00,000</div>
+                <div class="stars">⭐⭐⭐⭐</div>
+                <a href="/contact/index.html" class="btn buy">Buy</a>
+                <a href="/contact/index.html" class="btn test">Test Ride</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images/napoleon5.webp">
+            <div class="card-content">
+                <h2>Napoleon GT</h2>
+                <p>Touring Bike</p>
+                <div class="price">₹13,00,000</div>
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <a href="/contact/index.html" class="btn buy">Buy</a>
+                <a href="/contact/index.html" class="btn test">Test Ride</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images/napoleon6.webp">
+            <div class="card-content">
+                <h2>Napoleon Shadow</h2>
+                <p>Dark Edition</p>
+                <div class="price">₹12,80,000</div>
+                <div class="stars">⭐⭐⭐⭐</div>
+                <a href="/contact/index.html" class="btn buy">Buy</a>
+                <a href="/contact/index.html" class="btn test">Test Ride</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images/napoleon7.webp">
+            <div class="card-content">
+                <h2>Napoleon Cruiser</h2>
+                <p>Comfort Ride</p>
+                <div class="price">₹13,50,000</div>
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <a href="/contact/index.html" class="btn buy">Buy</a>
+                <a href="/contact/index.html" class="btn test">Test Ride</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images/napoleon8.jpg">
+            <div class="card-content">
+                <h2>Napoleon Urban</h2>
+                <p>City Ride</p>
+                <div class="price">₹10,50,000</div>
+                <div class="stars">⭐⭐⭐⭐</div>
+                <a href="/contact/index.html" class="btn buy">Buy</a>
+                <a href="/contact/index.html" class="btn test">Test Ride</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images/napoleon9.webp">
+            <div class="card-content">
+                <h2>Napoleon Sport</h2>
+                <p>High Speed</p>
+                <div class="price">₹15,00,000</div>
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <a href="/contact/index.html" class="btn buy">Buy</a>
+                <a href="/contact/index.html" class="btn test">Test Ride</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images/napoleon10.webp">
+            <div class="card-content">
+                <h2>Napoleon Beast</h2>
+                <p>Extreme Power</p>
+                <div class="price">₹18,00,000</div>
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <a href="/contact/index.html" class="btn buy">Buy</a>
+                <a href="/contact/index.html" class="btn test">Test Ride</a>
+            </div>
+        </div>
+
+	<div class="card">
+        <img src="images/napoleon11.webp">
+        <div class="card-content">
+            <h2>Napoleon 250</h2>
+            <p>250cc • City Ride</p>
+            <div class="price">₹2,50,000</div>
+            <div class="stars">⭐ ⭐ ⭐ ⭐</div>
+            <a href="/contact/index.html" class="btn buy">Buy</a>
+            <a href="/contact/index.html" class="btn test">Test Ride</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="images/napoleon13.webp">
+        <div class="card-content">
+            <h2>Napoleon 400</h2>
+            <p>400cc • Street Power</p>
+            <div class="price">₹3,80,000</div>
+            <div class="stars">⭐ ⭐ ⭐ ⭐</div>
+            <a href="/contact/index.html" class="btn buy">Buy</a>
+            <a href="/contact/index.html" class="btn test">Test Ride</a>
+        </div>
+    </div>
+    
+
+    </div>
+</div>
+
+</body>
+</html>

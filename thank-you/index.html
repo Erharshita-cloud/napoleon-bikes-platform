@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thank You - Napoleon Bikes</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* BACKGROUND */
+.bg {
+    position: fixed;
+    inset: 0;
+    background: url('../bikes/images/napoleon12.webp') center/cover no-repeat;
+    z-index: -2;
+    animation: zoomBg 20s infinite alternate ease-in-out;
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.65);
+    z-index: -1;
+}
+
+@keyframes zoomBg {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.1); }
+}
+
+/* CARD */
+.card {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(20px);
+    padding: 50px;
+    border-radius: 20px;
+    width: 380px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+    animation: fadeUp 1s ease, float 4s infinite ease-in-out;
+}
+
+/* FLOAT */
+@keyframes float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* ICON */
+.icon {
+    font-size: 60px;
+    margin-bottom: 20px;
+    animation: pop 0.6s ease;
+}
+
+@keyframes pop {
+    0% { transform: scale(0); opacity:0; }
+    100% { transform: scale(1); opacity:1; }
+}
+
+/* TEXT */
+h1 { margin-bottom: 15px; }
+p { color: #ddd; margin-bottom: 15px; }
+
+/* BUTTONS */
+.btn {
+    display: inline-block;
+    margin: 10px;
+    padding: 12px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.home {
+    background: orange;
+    color: black;
+    box-shadow: 0 0 15px orange;
+}
+
+.whatsapp {
+    background: #25D366;
+    color: white;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+}
+
+/* FADE */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 🎉 CONFETTI */
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    top: -10px;
+    opacity: 0.8;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+<div class="overlay"></div>
+
+<div class="card">
+    <div class="icon">🎉</div>
+    <h1>Thank You!</h1>
+    <p>Your request has been submitted successfully.</p>
+    <p>📞 Our team will contact you within <b>24 hours</b>.</p>
+    <p>📍 Mumbai Showroom, India</p>
+
+    <a href="/" class="btn home">⬅ Back to Home</a>
+    <a href="https://wa.me/91XXXXXXXXXX" target="_blank" class="btn whatsapp">
+        💬 Chat on WhatsApp
+    </a>
+</div>
+
+<script>
+// 🎉 CONFETTI GENERATOR
+function createConfetti() {
+    const colors = ["#ff9800", "#ffc107", "#ffffff", "#ff5722"];
+
+    for (let i = 0; i < 80; i++) {
+        let confetti = document.createElement("div");
+        confetti.classList.add("confetti");
+
+        confetti.style.left = Math.random() * 100 + "vw";
+        confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+        confetti.style.animationDuration = (Math.random() * 3 + 2) + "s";
+        confetti.style.width = confetti.style.height = (Math.random() * 8 + 4) + "px";
+
+        document.body.appendChild(confetti);
+
+        setTimeout(() => {
+            confetti.remove();
+        }, 5000);
+    }
+}
+
+// TRIGGER ON LOAD
+window.onload = createConfetti;
+</script>
+
+</body>
+</html>

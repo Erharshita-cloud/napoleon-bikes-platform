@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact - Napoleon Bikes</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+    font-family:'Segoe UI',sans-serif;
+    height:100vh;
+    overflow:hidden;
+    color:white;
+}
+
+/* 🔥 BACKGROUND IMAGE */
+.bg{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:url('../assets/napoleon1.jpg') center/cover no-repeat;
+    filter:brightness(0.5);
+    z-index:-2;
+}
+
+/* OVERLAY */
+.overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.6);
+    z-index:-1;
+}
+
+/* NAVBAR */
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    padding:15px;
+    backdrop-filter:blur(10px);
+    background:rgba(0,0,0,0.4);
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:orange;
+}
+
+/* CENTER */
+.container{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* CARD */
+.card{
+    width:360px;
+    padding:35px;
+    border-radius:20px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(20px);
+    box-shadow:0 20px 60px rgba(0,0,0,0.8);
+    animation:fadeUp 0.8s ease;
+}
+
+/* TITLE */
+.card h2{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+/* INPUT */
+.input{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:none;
+    border-radius:10px;
+    background:rgba(255,255,255,0.1);
+    color:white;
+    outline:none;
+}
+
+/* BUTTON */
+.btn{
+    width:100%;
+    padding:14px;
+    margin-top:10px;
+    border:none;
+    border-radius:30px;
+    background:orange;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+    box-shadow:0 0 15px orange;
+}
+
+.btn:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 25px orange;
+}
+
+/* INFO */
+.info{
+    text-align:center;
+    margin-top:15px;
+    color:#ccc;
+}
+
+/* SUCCESS POPUP */
+.popup{
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%) scale(0.7);
+    background:#111;
+    padding:30px;
+    border-radius:15px;
+    text-align:center;
+    opacity:0;
+    pointer-events:none;
+    transition:0.4s;
+}
+
+.popup.active{
+    opacity:1;
+    transform:translate(-50%,-50%) scale(1);
+    pointer-events:auto;
+}
+
+/* ANIMATION */
+@keyframes fadeUp{
+    from{opacity:0;transform:translateY(40px);}
+    to{opacity:1;transform:translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+<div class="overlay"></div>
+
+<!-- NAVBAR (FIXED) -->
+<nav>
+    <a href="/">Home</a>
+    <a href="/bikes/index.html">Models</a>
+    <a href="/pricing/index.html">Pricing</a>
+    <a href="/contact/index.html">Contact</a>
+</nav>
+
+<!-- FORM -->
+<div class="container">
+    <div class="card">
+        <h2>Book Test Ride / Buy</h2>
+
+        <form id="bookingForm">
+            <input class="input" name="name" placeholder="Name" required>
+            <input class="input" name="email" placeholder="Email" required>
+            <input class="input" name="phone" placeholder="Phone">
+            <textarea class="input" name="message" placeholder="Message"></textarea>
+
+            <button class="btn">Submit</button>
+        </form>
+
+        <div class="info">
+            📍 Mumbai Showroom, India <br>
+            ⏰ 10AM – 8PM
+        </div>
+    </div>
+</div>
+
+<!-- POPUP -->
+<div class="popup" id="popup">
+    <h3>✅ Booking Successful</h3>
+    <p>Redirecting...</p>
+</div>
+
+<script>
+document.getElementById("bookingForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const formData = new FormData(this);
+
+    fetch("../api/book.php", {
+        method:"POST",
+        body:formData
+    })
+    .then(res => res.text())
+    .then(() => {
+        document.getElementById("popup").classList.add("active");
+
+        setTimeout(()=>{
+            window.location.href="/thank-you/index.html";
+        },2000);
+    });
+});
+</script>
+
+</body>
+</html>
