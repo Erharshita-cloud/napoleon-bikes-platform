@@ -1,15 +1,19 @@
 # 🚀 Napoleon Bikes – Full Stack Web App
 
 <p align="center">
-  <img src="https://media.giphy.com/media/ZVik7pBtu9dNS/giphy.gif" width="120" />
+  <img src="https://media.giphy.com/media/3o7TKtnuHOHHUjR38Y/giphy.gif" width="120"/>
 </p>
 
-<h2 align="center">Ride the Legend. Feel the Power.</h2>
+<h1 align="center">🏍 Napoleon Bikes</h1>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Status-Live-success?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Project-FullStack-blue?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Made%20With-Love-red?style=for-the-badge"/>
+  <b>Ride the Legend. Feel the Power.</b>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/STATUS-LIVE-00C853?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/PROJECT-FULLSTACK-2196F3?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/MADE%20WITH-LOVE-FF5252?style=for-the-badge"/>
 </p>
 
 ---
@@ -17,7 +21,11 @@
 ## 🎥 Project Preview
 
 <p align="center">
-  <img src="screenshots/demo.gif" width="85%" style="border-radius:10px;">
+  <img src="screenshots/demo.gif" width="85%" style="border-radius:12px;"/>
+</p>
+
+<p align="center">
+  🎬 <b>Full Demo:</b> <a href="#">Watch Here</a>
 </p>
 
 ---
@@ -25,28 +33,27 @@
 ## ✨ Features
 
 <p align="center">
-  ⚡ Smooth • 🎨 Modern • 🚀 Fast • 📱 Responsive
+  ⚡ Smooth UI • 🎨 Cinematic Design • 🚀 Fast • 📱 Responsive
 </p>
 
-- 🔥 Cinematic animated UI with premium effects  
-- 🏍 Dynamic bike showcase experience  
+- 🔥 Premium animated UI (cinematic background & effects)  
+- 🏍 Dynamic bike models showcase  
 - 💰 Interactive pricing section  
-- 🤖 Smart chatbot (rule-based)  
+- 🤖 Smart chatbot for customer queries  
 - 📝 Booking & test ride system (PHP backend)  
 - 🎉 Animated success page with confetti  
-- 📱 Fully responsive across devices  
+- 📱 Fully responsive design  
 
 ---
 
 ## ⚙️ Tech Stack
 
 <p align="center">
+  <img src="https://skillicons.dev/icons?i=html,css,js,php" />
+</p>
 
-<img src="https://skillicons.dev/icons?i=html,css,js,php" />
-<br><br>
-
-<img src="https://img.shields.io/badge/Server-Apache-red?style=for-the-badge"/>
-
+<p align="center">
+  <img src="https://img.shields.io/badge/Server-Apache-D32F2F?style=for-the-badge"/>
 </p>
 
 ---
