@@ -1,10 +1,8 @@
 # 🚀 Napoleon Bikes – Full Stack Web App
 
 <p align="center">
-  <img src="https://media.giphy.com/media/3o7TKtnuHOHHUjR38Y/giphy.gif" width="120"/>
+  <img src="https://readme-typing-svg.herokuapp.com?size=28&duration=3000&color=00C853&center=true&vCenter=true&width=600&lines=Napoleon+Bikes;Full+Stack+Web+App;Ride+the+Legend+⚡" />
 </p>
-
-<h1 align="center">🏍 Napoleon Bikes</h1>
 
 <p align="center">
   <b>Ride the Legend. Feel the Power.</b>
@@ -21,11 +19,7 @@
 ## 🎥 Project Preview
 
 <p align="center">
-  <img src="screenshots/demo.gif" width="85%" style="border-radius:12px;"/>
-</p>
-
-<p align="center">
-  🎬 <b>Full Demo:</b> <a href="#">Watch Here</a>
+  <img src="screenshots/demo.gif" width="85%" />
 </p>
 
 ---
@@ -33,16 +27,16 @@
 ## ✨ Features
 
 <p align="center">
-  ⚡ Smooth UI • 🎨 Cinematic Design • 🚀 Fast • 📱 Responsive
+  ⚡ Smooth UI • 🎨 Cinematic • 🚀 Fast • 📱 Responsive
 </p>
 
 - 🔥 Premium animated UI (cinematic background & effects)  
 - 🏍 Dynamic bike models showcase  
 - 💰 Interactive pricing section  
-- 🤖 Smart chatbot for customer queries  
+- 🤖 Smart chatbot  
 - 📝 Booking & test ride system (PHP backend)  
-- 🎉 Animated success page with confetti  
-- 📱 Fully responsive design  
+- 🎉 Animated success page  
+- 📱 Fully responsive  
 
 ---
 
@@ -53,7 +47,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Server-Apache-D32F2F?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Server-Apache-red?style=for-the-badge"/>
 </p>
 
 ---
@@ -61,19 +55,17 @@
 ## 📸 Screenshots
 
 <p align="center">
+  <img src="screenshots/home.png" width="45%" />
+  <img src="screenshots/models.png" width="45%" />
+</p>
 
-<img src="screenshots/home.png" width="45%" />
-<img src="screenshots/models.png" width="45%" />
+<p align="center">
+  <img src="screenshots/pricing.png" width="45%" />
+  <img src="screenshots/contact.png" width="45%" />
+</p>
 
-<br><br>
-
-<img src="screenshots/pricing.png" width="45%" />
-<img src="screenshots/contact.png" width="45%" />
-
-<br><br>
-
-<img src="screenshots/thankyou.png" width="60%" />
-
+<p align="center">
+  <img src="screenshots/thankyou.png" width="50%" />
 </p>
 
 ---
@@ -82,7 +74,7 @@
 
 ```bash
 /api          → Backend (PHP)
-/assets       → Images & media
+/assets       → Images
 /bikes        → Models page
 /pricing      → Pricing UI
 /contact      → Booking form
