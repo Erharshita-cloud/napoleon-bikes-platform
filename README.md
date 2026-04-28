@@ -49,10 +49,10 @@
 ### 💰 Pricing Section
 ![Pricing](screenshots/pricing.png)
 
-### 📝 Booking System
-![Booking](screenshots/contact.png)
+### 📝 Contact Page
+![Contact](screenshots/contact.png)
 
-### 🎉 Success Page
+### 🎉 Thank You Page
 ![Thank You](screenshots/thankyou.png)
 
 ---
