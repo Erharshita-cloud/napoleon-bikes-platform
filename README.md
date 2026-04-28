@@ -1,7 +1,7 @@
 # 🚀 Napoleon Bikes – Full Stack Web App
 
 <p align="center">
-  <img src="https://media.giphy.com/media/l0HlBO7eyXzSZkJri/giphy.gif" width="250"/>
+  <img src="https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif" width="400"/>
 </p>
 
 <p align="center">
