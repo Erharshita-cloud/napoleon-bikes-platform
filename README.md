@@ -1,7 +1,7 @@
 # 🚀 Napoleon Bikes – Full Stack Web App
 
 <p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?size=28&duration=3000&color=00C853&center=true&vCenter=true&width=600&lines=Napoleon+Bikes;Full+Stack+Web+App;Ride+the+Legend+⚡" />
+  <img src="https://media.giphy.com/media/l0HlBO7eyXzSZkJri/giphy.gif" width="250"/>
 </p>
 
 <p align="center">
