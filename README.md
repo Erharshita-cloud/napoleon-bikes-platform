@@ -1,12 +1,9 @@
 # 🚀 Napoleon Bikes – Full Stack Web App
 
 <p align="center">
-  <img src="https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif" width="350"/>
+  <img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&text=Napoleon%20Bikes&fontSize=40&fontColor=ffffff&height=150"/>
 </p>
 
-<p align="center">
-  <b>Ride the Legend. Feel the Power.</b>
-</p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/STATUS-LIVE-00C853?style=for-the-badge"/>
