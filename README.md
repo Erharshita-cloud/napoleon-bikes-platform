@@ -1,26 +1,40 @@
 # 🚀 Napoleon Bikes – Full Stack Web App
 
 <p align="center">
-  <b>Ride the Legend. Feel the Power.</b>
+  <img src="https://media.giphy.com/media/ZVik7pBtu9dNS/giphy.gif" width="120" />
 </p>
+
+<h2 align="center">Ride the Legend. Feel the Power.</h2>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Status-Live-success?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Project-FullStack-blue?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Made%20With-Love-red?style=for-the-badge"/>
+</p>
+
+---
 
 ## 🎥 Project Preview
 
 <p align="center">
-  <img src="screenshots/demo.gif" width="800">
+  <img src="screenshots/demo.gif" width="85%" style="border-radius:10px;">
 </p>
 
 ---
 
 ## ✨ Features
 
-- 🔥 Premium animated UI (cinematic background & effects)
-- 🏍 Dynamic bike models showcase
-- 💰 Interactive pricing section
-- 🤖 Smart chatbot for customer queries
-- 📝 Booking & test ride system (PHP backend)
-- 🎉 Animated success page with confetti
-- 📱 Fully responsive design
+<p align="center">
+  ⚡ Smooth • 🎨 Modern • 🚀 Fast • 📱 Responsive
+</p>
+
+- 🔥 Cinematic animated UI with premium effects  
+- 🏍 Dynamic bike showcase experience  
+- 💰 Interactive pricing section  
+- 🤖 Smart chatbot (rule-based)  
+- 📝 Booking & test ride system (PHP backend)  
+- 🎉 Animated success page with confetti  
+- 📱 Fully responsive across devices  
 
 ---
 
@@ -28,11 +42,10 @@
 
 <p align="center">
 
-![HTML](https://img.shields.io/badge/HTML-5-orange?style=for-the-badge)
-![CSS](https://img.shields.io/badge/CSS-3-blue?style=for-the-badge)
-![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow?style=for-the-badge)
-![PHP](https://img.shields.io/badge/PHP-Backend-purple?style=for-the-badge)
-![Apache](https://img.shields.io/badge/Apache-Server-red?style=for-the-badge)
+<img src="https://skillicons.dev/icons?i=html,css,js,php" />
+<br><br>
+
+<img src="https://img.shields.io/badge/Server-Apache-red?style=for-the-badge"/>
 
 </p>
 
@@ -40,59 +53,30 @@
 
 ## 📸 Screenshots
 
-### 🏠 Homepage
-![Home](screenshots/home.png)
+<p align="center">
 
-### 🏍 Models Page
-![Models](screenshots/models.png)
+<img src="screenshots/home.png" width="45%" />
+<img src="screenshots/models.png" width="45%" />
 
-### 💰 Pricing Section
-![Pricing](screenshots/pricing.png)
+<br><br>
 
-### 📝 Contact Page
-![Contact](screenshots/contact.png)
+<img src="screenshots/pricing.png" width="45%" />
+<img src="screenshots/contact.png" width="45%" />
 
-### 🎉 Thank You Page
-![Thank You](screenshots/thankyou.png)
+<br><br>
+
+<img src="screenshots/thankyou.png" width="60%" />
+
+</p>
 
 ---
 
 ## 📂 Project Structure
 
-
-/api → Backend (PHP)
-/assets → Images
-/bikes → Models page
-/pricing → Pricing UI
-/contact → Booking form
-/thank-you → Success page
-
-
----
-
-## 🧠 Learning Outcomes
-
-- Built a full-stack application without frameworks  
-- Connected frontend UI with backend logic  
-- Handled real user data and storage  
-- Designed modern UI with animations  
-- Deployed on a live server  
-
----
-
-## 🚀 Future Improvements
-
-- 💳 Payment integration  
-- 📧 Email notifications  
-- 📊 Admin dashboard  
-- 🤖 Real AI chatbot (API-based)  
-
---
-
-## 👨‍💻 Author
-
-**Harshita Goel**
-
----
-
-⭐ If you like this project, give it a star!
+```bash
+/api          → Backend (PHP)
+/assets       → Images & media
+/bikes        → Models page
+/pricing      → Pricing UI
+/contact      → Booking form
+/thank-you    → Success page
