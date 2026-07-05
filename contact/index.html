@@ -167,13 +167,65 @@ nav a:hover{
     <div class="card">
         <h2>Book Test Ride / Buy</h2>
 
-        <form id="bookingForm">
-            <input class="input" name="name" placeholder="Name" required>
-            <input class="input" name="email" placeholder="Email" required>
-            <input class="input" name="phone" placeholder="Phone">
-            <textarea class="input" name="message" placeholder="Message"></textarea>
+        <form id="bookingForm" action="api/booking.php" method="POST">
 
-            <button class="btn">Submit</button>
+            <input
+                class="input"
+                type="text"
+                name="customer_name"
+                placeholder="Full Name"
+                required>
+
+            <input
+                class="input"
+                type="email"
+                name="email"
+                placeholder="Email Address"
+                required>
+
+            <input
+                class="input"
+                type="tel"
+                name="phone"
+                placeholder="Phone Number"
+                required>
+
+            <select
+                class="input"
+                name="bike_name"
+                required>
+
+                <option value="">Select Bike</option>
+                <option>Napoleon Classic 350</option>
+                <option>Napoleon Street 500</option>
+                <option>Napoleon Adventure X</option>
+                <option>Napoleon Sport R</option>
+
+            </select>
+
+            <input
+                class="input"
+                type="text"
+                name="city"
+                placeholder="City"
+                required>
+
+            <input
+                class="input"
+                type="date"
+                name="booking_date"
+                required>
+
+            <textarea
+                class="input"
+                name="message"
+                rows="4"
+                placeholder="Any Additional Requirement (Optional)"></textarea>
+
+            <button class="btn" type="submit">
+                Book Now
+            </button>
+
         </form>
 
         <div class="info">

@@ -1,11 +1,12 @@
 <?php
 // Database Configuration
 
-define('DB_HOST', getenv('DB_HOST') ?: 'localhost');
-define('DB_PORT', getenv('DB_PORT') ?: '3306');
-define('DB_NAME', getenv('DB_NAME') ?: 'bikesdb');
-define('DB_USER', getenv('DB_USER') ?: 'root');
-define('DB_PASS', getenv('DB_PASS') ?: '');
+
+define('DB_HOST', 'systemthreetier-rds.chm8wsuk08mo.ap-south-1.rds.amazonaws.com');
+define('DB_PORT', 3306);
+define('DB_NAME', 'bikesdb');
+define('DB_USER', 'admin');
+define('DB_PASS', 'Goelaparna15');
 
 // Application Configuration
 date_default_timezone_set('Asia/Kolkata');
