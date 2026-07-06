@@ -63,7 +63,7 @@ if ($stmt->execute()) {
 
 } else {
 
-    echo "Booking failed.";
+    die("Booking failed: " . $stmt->error);
 
 }
 
