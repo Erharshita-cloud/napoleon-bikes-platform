@@ -1,13 +1,22 @@
 <?php
 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 require_once "db.php";
 
+echo "<h2>Step 1: bookings.php loaded</h2>";
+
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
-    http_response_code(405);
-    exit("Method Not Allowed");
+    die("ERROR: Request is not POST");
 }
 
-// Collect form data
+echo "<h2>Step 2: POST request received</h2>";
+
+echo "<pre>";
+print_r($_POST);
+echo "</pre>";
+
 $customer_name = trim($_POST['customer_name'] ?? '');
 $email = trim($_POST['email'] ?? '');
 $phone = trim($_POST['phone'] ?? '');
@@ -15,7 +24,6 @@ $bike_name = trim($_POST['bike_name'] ?? '');
 $city = trim($_POST['city'] ?? '');
 $booking_date = trim($_POST['booking_date'] ?? '');
 
-// Validation
 if (
     empty($customer_name) ||
     empty($email) ||
@@ -24,27 +32,18 @@ if (
     empty($city) ||
     empty($booking_date)
 ) {
-    die("All fields are required.");
+    die("ERROR: One or more fields are empty.");
 }
 
-if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    die("Invalid email address.");
-}
-
-// Prepare SQL
 $stmt = $conn->prepare("
-    INSERT INTO bookings
-    (
-        customer_name,
-        email,
-        phone,
-        bike_name,
-        city,
-        booking_date
-    )
-    VALUES
-    (?, ?, ?, ?, ?, ?)
+INSERT INTO bookings
+(customer_name,email,phone,bike_name,city,booking_date)
+VALUES (?,?,?,?,?,?)
 ");
+
+if (!$stmt) {
+    die("Prepare Failed: " . $conn->error);
+}
 
 $stmt->bind_param(
     "ssssss",
@@ -58,16 +57,14 @@ $stmt->bind_param(
 
 if ($stmt->execute()) {
 
-    header("Location: ../thank-you/index.html");
-    exit();
+    echo "<h2>SUCCESS: Booking inserted successfully.</h2>";
 
 } else {
 
-    die("Booking failed: " . $stmt->error);
+    die("Execute Failed: " . $stmt->error);
 
 }
 
 $stmt->close();
 $conn->close();
-
 ?>
