@@ -2,7 +2,7 @@
 // Database Configuration
 
 
-define('DB_HOST', 'systemthreetier-rds.chm8wsuk08mo.ap-south-1.rds.amazonaws.com');
+define('DB_HOST', 'threetier-rds.chm8wsuk08mo.ap-south-1.rds.amazonaws.com');
 define('DB_PORT', 3306);
 define('DB_NAME', 'bikesdb');
 define('DB_USER', 'admin');
