@@ -1,16 +1,22 @@
 CREATE DATABASE IF NOT EXISTS bikesdb;
+
 USE bikesdb;
 
-CREATE TABLE bookings (
+CREATE TABLE IF NOT EXISTS bookings (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(100),
-    bike VARCHAR(100),
+    customer_name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    phone VARCHAR(15) NOT NULL,
+    bike_name VARCHAR(100) NOT NULL,
+    city VARCHAR(100) NOT NULL,
+    booking_date DATE NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE bikes (
+CREATE TABLE IF NOT EXISTS bikes (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(100),
-    price INT,
-    description TEXT
+    name VARCHAR(100) NOT NULL,
+    price DECIMAL(10,2) NOT NULL,
+    description TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
