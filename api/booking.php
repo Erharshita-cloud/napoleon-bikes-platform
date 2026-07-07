@@ -2,6 +2,12 @@
 
 require_once "db.php";
 
+file_put_contents(
+    "/tmp/booking.log",
+    date("Y-m-d H:i:s") . " Booking.php executed\n",
+    FILE_APPEND
+);
+
 // Only allow POST requests
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
     http_response_code(405);
