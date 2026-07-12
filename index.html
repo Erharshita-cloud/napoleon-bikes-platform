@@ -6,44 +6,79 @@
 <title>Napoleon Bikes</title>
 
 <style>
-* {margin:0; padding:0; box-sizing:border-box;}
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-body {
-    font-family: Arial;
+body{
+    font-family:Arial, sans-serif;
     color:white;
-    scroll-behavior: smooth;
+    scroll-behavior:smooth;
 }
 
 /* SLIDESHOW */
-.slideshow {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    z-index: -2;
+.slideshow{
+    position:fixed;
+    width:100%;
+    height:100%;
+    z-index:-2;
 }
-.slide {
-    position: absolute;
-    width:100%; height:100%;
-    background-size: cover;
-    background-position: center;
-    opacity:0;
-    animation: fadeZoom 20s infinite;
-}
-.slide:nth-child(1){background:url('assets/napoleon1.jpg') center/cover;}
-.slide:nth-child(2){background:url('assets/napoleon2.webp') center/cover; animation-delay:4s;}
-.slide:nth-child(3){background:url('assets/napoleon3.png') center/cover; animation-delay:8s;}
-.slide:nth-child(4){background:url('assets/napoleon4.jpg') center/cover; animation-delay:12s;}
-.slide:nth-child(5){background:url('assets/napoleon5.webp') center/cover; animation-delay:16s;}
 
-@keyframes fadeZoom {
-    0%{opacity:0; transform:scale(1);}
-    5%{opacity:1;}
-    20%{opacity:1; transform:scale(1.08);}
-    25%{opacity:0;}
+.slide{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background-size:cover;
+    background-position:center;
+    opacity:0;
+    animation:fadeZoom 20s infinite;
+}
+
+.slide:nth-child(1){
+    background:url('assets/napoleon1.jpg') center/cover;
+}
+
+.slide:nth-child(2){
+    background:url('assets/napoleon2.webp') center/cover;
+    animation-delay:4s;
+}
+
+.slide:nth-child(3){
+    background:url('assets/napoleon3.png') center/cover;
+    animation-delay:8s;
+}
+
+.slide:nth-child(4){
+    background:url('assets/napoleon4.jpg') center/cover;
+    animation-delay:12s;
+}
+
+.slide:nth-child(5){
+    background:url('assets/napoleon5.webp') center/cover;
+    animation-delay:16s;
+}
+
+@keyframes fadeZoom{
+    0%{
+        opacity:0;
+        transform:scale(1);
+    }
+    5%{
+        opacity:1;
+    }
+    20%{
+        opacity:1;
+        transform:scale(1.08);
+    }
+    25%{
+        opacity:0;
+    }
 }
 
 /* OVERLAY */
-.overlay {
+.overlay{
     position:fixed;
     inset:0;
     background:rgba(0,0,0,0.6);
@@ -51,86 +86,140 @@ body {
 }
 
 /* NAVBAR */
-nav {
+nav{
     position:fixed;
     width:100%;
-    padding:15px;
+    padding:18px;
     display:flex;
     justify-content:center;
     gap:30px;
-    backdrop-filter: blur(10px);
+    backdrop-filter:blur(10px);
     background:rgba(0,0,0,0.3);
     z-index:10;
+    transition:0.3s;
 }
-nav a {
+
+nav a{
     color:white;
     text-decoration:none;
     font-weight:bold;
     transition:0.3s;
 }
-nav a:hover {
+
+nav a:hover{
     color:orange;
     text-shadow:0 0 10px orange;
 }
 
-/* HERO (PERFECT CENTER FIXED) */
-.hero {
-    height:100vh;
+/* HERO */
+.hero{
+    min-height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
     text-align:center;
 }
 
-.hero div {
+.hero-content{
     display:flex;
     flex-direction:column;
     align-items:center;
-    gap:18px;
-    max-width:700px;
+    gap:20px;
+    max-width:900px;
     padding:0 20px;
 }
 
-/* TEXT */
-.hero h1 {
+.hero h1{
     font-size:65px;
     line-height:1.1;
-    letter-spacing:1px;
     animation:fadeUp 1s ease;
 }
 
-.hero p {
+.hero p{
     font-size:22px;
+    max-width:700px;
     opacity:0.9;
-    max-width:500px;
     animation:fadeUp 1.3s ease;
 }
 
-/* BUTTON */
-.btn {
-    margin-top:10px;
+.hero-buttons{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.btn{
     padding:14px 35px;
     background:orange;
     color:black;
     border-radius:30px;
     text-decoration:none;
     font-weight:bold;
+    border:none;
+    cursor:pointer;
     transition:0.3s;
-    animation:fadeUp 1.6s ease;
 }
-.btn:hover {
-    transform:scale(1.1);
+
+.btn:hover{
+    transform:scale(1.08);
     box-shadow:0 0 20px orange;
 }
 
+.voice-btn{
+    padding:14px 35px;
+    border:none;
+    border-radius:30px;
+    background:#222;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.voice-btn:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 20px cyan;
+}
+
+/* STATS */
+.stats{
+    display:flex;
+    gap:50px;
+    margin-top:25px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.stats div{
+    text-align:center;
+}
+
+.stats h2{
+    font-size:36px;
+    color:orange;
+}
+
+.stats span{
+    font-size:15px;
+    opacity:0.8;
+}
+
 /* ANIMATION */
-@keyframes fadeUp {
-    from {opacity:0; transform:translateY(40px);}
-    to {opacity:1; transform:translateY(0);}
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
 /* CHATBOT BUTTON */
-.chat-robot {
+.chat-robot{
     position:fixed;
     right:20px;
     bottom:20px;
@@ -148,13 +237,18 @@ nav a:hover {
     animation:float 2s infinite ease-in-out;
 }
 
-@keyframes float {
-    0%,100%{transform:translateY(0);}
-    50%{transform:translateY(-8px);}
+@keyframes float{
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-8px);
+    }
 }
 
 /* CHATBOX */
-.chatbox {
+.chatbox{
     position:fixed;
     right:20px;
     bottom:90px;
@@ -168,53 +262,85 @@ nav a:hover {
     box-shadow:0 0 20px rgba(0,0,0,0.8);
 }
 
-.chat-header {
+.chat-header{
     background:orange;
     padding:10px;
     font-weight:bold;
     text-align:center;
+    color:black;
 }
 
-.chat-body {
+.chat-body{
     flex:1;
     padding:10px;
     overflow-y:auto;
     font-size:14px;
 }
 
-.chat-body p {
-    margin:5px 0;
+.chat-body p{
+    margin:8px 0;
 }
 
-.typing {
+.typing{
     opacity:0.7;
     font-style:italic;
 }
 
-.chat-input {
+.chat-input{
     display:flex;
 }
-.chat-input input {
+
+.chat-input input{
     flex:1;
     padding:10px;
     border:none;
     outline:none;
 }
-.chat-input button {
+
+.chat-input button{
     padding:10px;
     background:orange;
     border:none;
     cursor:pointer;
 }
 
-.user {color:#0f0;}
-.bot {color:#ff9800;}
+.user{
+    color:#00ff00;
+}
+
+.bot{
+    color:#ff9800;
+}
+
+@media(max-width:768px){
+
+    .hero h1{
+        font-size:42px;
+    }
+
+    .hero p{
+        font-size:18px;
+    }
+
+    .stats{
+        gap:25px;
+    }
+
+    .stats h2{
+        font-size:28px;
+    }
+
+    .chatbox{
+        width:90%;
+        right:5%;
+    }
+}
 </style>
 </head>
 
 <body>
 
-<!-- SLIDES -->
+<!-- BACKGROUND -->
 <div class="slideshow">
     <div class="slide"></div>
     <div class="slide"></div>
@@ -222,10 +348,11 @@ nav a:hover {
     <div class="slide"></div>
     <div class="slide"></div>
 </div>
+
 <div class="overlay"></div>
 
 <!-- NAVBAR -->
-<nav>
+<nav id="navbar">
     <a href="/">Home</a>
     <a href="/bikes/">Models</a>
     <a href="/pricing/">Pricing</a>
@@ -234,10 +361,46 @@ nav a:hover {
 
 <!-- HERO -->
 <section class="hero">
-    <div>
-        <h1>Napoleon Bikes</h1>
-        <p>Ride the Legend. Feel the Power.</p>
-        <a href="/bikes/" class="btn">Explore Models</a>
+    <div class="hero-content">
+
+        <h1>Ride the Future with Napoleon AI</h1>
+
+        <p>
+            Discover your perfect motorcycle using AI recommendations,
+            voice search, AR visualization and instant test ride booking.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="/bikes/" class="btn">
+                Explore Models
+            </a>
+
+            <button class="voice-btn" onclick="startVoiceSearch()">
+                🎤 Ask AI
+            </button>
+
+        </div>
+
+        <div class="stats">
+
+            <div>
+                <h2>50+</h2>
+                <span>Models</span>
+            </div>
+
+            <div>
+                <h2>10K+</h2>
+                <span>Happy Riders</span>
+            </div>
+
+            <div>
+                <h2>24x7</h2>
+                <span>AI Support</span>
+            </div>
+
+        </div>
+
     </div>
 </section>
 
@@ -245,70 +408,144 @@ nav a:hover {
 <div class="chat-robot" onclick="toggleChat()">🤖</div>
 
 <div class="chatbox" id="chatbox">
-    <div class="chat-header">Napoleon AI Assistant</div>
+
+    <div class="chat-header">
+        Napoleon AI Assistant
+    </div>
+
     <div class="chat-body" id="chatBody"></div>
+
     <div class="chat-input">
-        <input type="text" id="userInput" placeholder="Ask about bikes...">
+        <input
+            type="text"
+            id="userInput"
+            placeholder="Ask about bikes..."
+        >
         <button onclick="sendMessage()">Send</button>
     </div>
+
 </div>
 
 <script>
-function toggleChat() {
-    let box = document.getElementById("chatbox");
-    box.style.display = box.style.display === "flex" ? "none" : "flex";
+
+window.addEventListener("scroll",function(){
+
+    const nav=document.getElementById("navbar");
+
+    if(window.scrollY>50){
+        nav.style.background="rgba(0,0,0,0.8)";
+    }
+    else{
+        nav.style.background="rgba(0,0,0,0.3)";
+    }
+
+});
+
+function toggleChat(){
+
+    const box=document.getElementById("chatbox");
+
+    box.style.display=
+        box.style.display==="flex"
+        ? "none"
+        : "flex";
 }
 
-function sendMessage() {
-    let input = document.getElementById("userInput");
-    let chat = document.getElementById("chatBody");
+function sendMessage(){
 
-    if(input.value.trim() === "") return;
+    const input=document.getElementById("userInput");
+    const chat=document.getElementById("chatBody");
 
-    let userText = input.value;
-    chat.innerHTML += `<p class="user"><b>You:</b> ${userText}</p>`;
-    input.value = "";
+    if(input.value.trim()===""){
+        return;
+    }
 
-    let typing = document.createElement("p");
+    const userText=input.value;
+
+    chat.innerHTML +=
+        `<p class="user"><b>You:</b> ${userText}</p>`;
+
+    input.value="";
+
+    const typing=document.createElement("p");
+
     typing.classList.add("typing");
-    typing.innerText = "Bot is typing...";
+    typing.innerText="Bot is typing...";
+
     chat.appendChild(typing);
 
-    setTimeout(() => {
+    setTimeout(()=>{
+
         typing.remove();
-        let reply = getBotReply(userText);
-        chat.innerHTML += `<p class="bot"><b>Bot:</b> ${reply}</p>`;
-        chat.scrollTop = chat.scrollHeight;
-    }, 1000);
+
+        const reply=getBotReply(userText);
+
+        chat.innerHTML +=
+            `<p class="bot"><b>Bot:</b> ${reply}</p>`;
+
+        chat.scrollTop=chat.scrollHeight;
+
+    },1000);
 }
 
 function getBotReply(msg){
-    msg = msg.toLowerCase();
+
+    msg=msg.toLowerCase();
 
     if(msg.includes("hi") || msg.includes("hello"))
         return "Welcome to Napoleon Bikes 👋";
 
     if(msg.includes("price"))
-        return "Prices range from ₹2.5L to ₹6.0L.";
+        return "Our motorcycles range from ₹2.5L to ₹6L.";
 
     if(msg.includes("250"))
-        return "250 is best for city rides.";
+        return "Napoleon 250 is ideal for city riding and daily commuting.";
 
     if(msg.includes("500"))
-        return "500 gives power + style.";
+        return "Napoleon 500 delivers premium touring performance.";
 
     if(msg.includes("pro"))
-        return "Pro is ultimate performance machine.";
+        return "Napoleon Pro is our flagship performance machine.";
 
     if(msg.includes("book"))
-        return "Go to Pricing page to book.";
+        return "Visit the Pricing page to book your ride.";
 
-    return "Ask me about bikes, prices or booking 👍";
+    if(msg.includes("best bike"))
+        return "Tell me your budget and riding style for recommendations.";
+
+    return "Ask me about bikes, prices, booking or recommendations.";
+}
+
+function startVoiceSearch(){
+
+    if(
+        !('webkitSpeechRecognition' in window) &&
+        !('SpeechRecognition' in window)
+    ){
+        alert("Voice search is not supported in this browser.");
+        return;
+    }
+
+    const SpeechRecognition =
+        window.SpeechRecognition ||
+        window.webkitSpeechRecognition;
+
+    const recognition=new SpeechRecognition();
+
+    recognition.lang="en-US";
+
+    recognition.start();
+
+    recognition.onresult=function(event){
+
+        const text=event.results[0][0].transcript;
+
+        document.getElementById("userInput").value=text;
+
+        sendMessage();
+    };
 }
 </script>
 
-<div id="napoleon-ai-chatbot"></div>
-<script src="assets/js/chatbot.js"></script>
-    
 </body>
 </html>
