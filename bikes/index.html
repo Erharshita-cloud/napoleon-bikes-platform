@@ -3,314 +3,232 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Napoleon Bikes - Models</title>
+
+<title>Napoleon Bikes | Machines With Personalities</title>
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-body {
-    font-family: Arial;
-    background: #0d0d0d;
-    color: white;
+body{
+    font-family:Arial, sans-serif;
+    background:
+        radial-gradient(circle at top left,#ff7b0015,transparent 35%),
+        radial-gradient(circle at top right,#ff450010,transparent 35%),
+        linear-gradient(135deg,#050505,#0d0d0d,#050505);
+    color:white;
 }
 
-/* Navbar */
-nav {
-    background: rgba(0,0,0,0.8);
-    padding: 15px;
-    text-align: center;
+/* NAVBAR */
+
+nav{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(0,0,0,0.75);
+    backdrop-filter:blur(12px);
+    padding:20px;
+    display:flex;
+    justify-content:center;
+    gap:40px;
 }
 
-nav a {
-    color: white;
-    margin: 0 15px;
-    text-decoration: none;
-    font-weight: bold;
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.3s;
 }
 
-/* Section */
-.section {
-    padding: 80px 40px;
+nav a:hover{
+    color:#ff7b00;
 }
 
-.section h1 {
-    text-align: center;
-    margin-bottom: 50px;
-    font-size: 40px;
+/* HERO */
+
+.hero{
+    text-align:center;
+    padding:100px 20px 60px;
 }
 
-/* Grid */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
+.hero h1{
+    font-size:60px;
+    background:linear-gradient(90deg,#ffffff,#ff7b00,#ffffff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
 }
 
-/* Card */
-.card {
-    background: #1a1a1a;
-    border-radius: 15px;
-    overflow: hidden;
-    transition: 0.4s;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.7);
-    animation: fadeUp 0.8s ease;
+.hero p{
+    max-width:900px;
+    margin:25px auto;
+    color:#cccccc;
+    font-size:20px;
+    line-height:1.8;
 }
 
-.card:hover {
-    transform: translateY(-12px) scale(1.03);
+/* GRID */
+
+.grid{
+    width:90%;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:35px;
+    padding-bottom:80px;
 }
 
-/* Image */
-.card img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
+/* CARD */
+
+.card{
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:25px;
+    overflow:hidden;
+    backdrop-filter:blur(15px);
+    transition:.4s;
 }
 
-/* Content */
-.card-content {
-    padding: 20px;
-    text-align: center;
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 30px rgba(255,123,0,.4);
 }
 
-.card-content h2 {
-    margin-bottom: 10px;
+.card img{
+    width:100%;
+    height:240px;
+    object-fit:cover;
 }
 
-.card-content p {
-    color: #ccc;
-    margin-bottom: 10px;
+.content{
+    padding:25px;
 }
 
-/* Price */
-.price {
-    color: orange;
-    font-size: 18px;
-    margin-bottom: 10px;
+.category{
+    display:inline-block;
+    background:#ff7b00;
+    color:black;
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:bold;
 }
 
-/* Stars */
-.stars {
-    color: gold;
-    margin-bottom: 15px;
+.content h2{
+    margin:15px 0;
 }
 
-/* Buttons */
-.btn {
-    display: inline-block;
-    margin: 5px;
-    padding: 10px 15px;
-    border-radius: 20px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: 0.3s;
+.quote{
+    color:#cfcfcf;
+    font-style:italic;
+    line-height:1.6;
 }
 
-.buy {
-    background: orange;
-    color: black;
+.specs{
+    margin-top:20px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
 }
 
-.test {
-    background: #333;
-    color: white;
+.specs span{
+    background:#1b1b1b;
+    padding:8px 12px;
+    border-radius:20px;
+    font-size:13px;
 }
 
-.btn:hover {
-    transform: scale(1.1);
+.price{
+    margin-top:20px;
+    color:#ff7b00;
+    font-size:28px;
+    font-weight:bold;
 }
 
-/* Animation */
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.buttons{
+    margin-top:20px;
 }
 
-/* Responsive */
-@media(max-width: 768px) {
-    .section {
-        padding: 40px 20px;
-    }
+.btn{
+    display:inline-block;
+    padding:12px 18px;
+    margin:5px;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:bold;
 }
+
+.buy{
+    background:#ff7b00;
+    color:black;
+}
+
+.test{
+    background:#1f1f1f;
+    color:white;
+}
+
+.buy:hover,
+.test:hover{
+    opacity:.85;
+}
+
 </style>
 </head>
 
 <body>
 
-<!-- Navbar -->
 <nav>
     <a href="../index.html">Home</a>
-    <a href="../bikes/">Models</a>
-    <a href="../pricing/">Pricing</a>
-    <a href="../contact/">Contact</a>
+    <a href="../bikes/index.html">Models</a>
+    <a href="../pricing/index.html">Pricing</a>
+    <a href="../contact/index.html">Contact</a>
 </nav>
 
-<!-- Section -->
-<div class="section">
-    <h1>Our Premium Bikes</h1>
+<section class="hero">
+    <h1>Machines With Personalities</h1>
 
-    <div class="grid">
+    <p>
+        Every Napoleon motorcycle is built for a different kind of rider.
+        Discover the machine that matches your ambition, your road and your story.
+    </p>
+</section>
 
-        <!-- Bike 1 -->
-        <div class="card">
-            <img src="images/napoleon1.webp">
-            <div class="card-content">
-                <h2>Napoleon X</h2>
-                <p>1200cc • Bobber</p>
-                <div class="price">₹12,00,000</div>
-                <div class="stars">⭐⭐⭐⭐⭐</div>
-                <a href="/contact/index.html" class="btn buy">Buy</a>
-                <a href="/contact/index.html" class="btn test">Test Ride</a>
-            </div>
-        </div>
+<div class="grid">
 
-        <!-- Bike 2 -->
-        <div class="card">
-            <img src="images/napoleon2.webp">
-            <div class="card-content">
-                <h2>Napoleon Pro</h2>
-                <p>1400cc • Premium</p>
-                <div class="price">₹14,50,000</div>
-                <div class="stars">⭐⭐⭐⭐</div>
-                <a href="/contact/index.html" class="btn buy">Buy</a>
-                <a href="/contact/index.html" class="btn test">Test Ride</a>
-            </div>
-        </div>
-
-        <!-- Bike 3 -->
-        <div class="card">
-            <img src="images/napoleon3.png">
-            <div class="card-content">
-                <h2>Napoleon Elite</h2>
-                <p>1600cc • ABS</p>
-                <div class="price">₹16,00,000</div>
-                <div class="stars">⭐⭐⭐⭐⭐</div>
-                <a href="/contact/index.html" class="btn buy">Buy</a>
-                <a href="/contact/index.html" class="btn test">Test Ride</a>
-            </div>
-        </div>
-
-        <!-- More Bikes -->
-        <div class="card">
-            <img src="images/napoleon4.jpg">
-            <div class="card-content">
-                <h2>Napoleon R</h2>
-                <p>Sport Edition</p>
-                <div class="price">₹11,00,000</div>
-                <div class="stars">⭐⭐⭐⭐</div>
-                <a href="/contact/index.html" class="btn buy">Buy</a>
-                <a href="/contact/index.html" class="btn test">Test Ride</a>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="images/napoleon5.webp">
-            <div class="card-content">
-                <h2>Napoleon GT</h2>
-                <p>Touring Bike</p>
-                <div class="price">₹13,00,000</div>
-                <div class="stars">⭐⭐⭐⭐⭐</div>
-                <a href="/contact/index.html" class="btn buy">Buy</a>
-                <a href="/contact/index.html" class="btn test">Test Ride</a>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="images/napoleon6.webp">
-            <div class="card-content">
-                <h2>Napoleon Shadow</h2>
-                <p>Dark Edition</p>
-                <div class="price">₹12,80,000</div>
-                <div class="stars">⭐⭐⭐⭐</div>
-                <a href="/contact/index.html" class="btn buy">Buy</a>
-                <a href="/contact/index.html" class="btn test">Test Ride</a>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="images/napoleon7.webp">
-            <div class="card-content">
-                <h2>Napoleon Cruiser</h2>
-                <p>Comfort Ride</p>
-                <div class="price">₹13,50,000</div>
-                <div class="stars">⭐⭐⭐⭐⭐</div>
-                <a href="/contact/index.html" class="btn buy">Buy</a>
-                <a href="/contact/index.html" class="btn test">Test Ride</a>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="images/napoleon8.jpg">
-            <div class="card-content">
-                <h2>Napoleon Urban</h2>
-                <p>City Ride</p>
-                <div class="price">₹10,50,000</div>
-                <div class="stars">⭐⭐⭐⭐</div>
-                <a href="/contact/index.html" class="btn buy">Buy</a>
-                <a href="/contact/index.html" class="btn test">Test Ride</a>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="images/napoleon9.webp">
-            <div class="card-content">
-                <h2>Napoleon Sport</h2>
-                <p>High Speed</p>
-                <div class="price">₹15,00,000</div>
-                <div class="stars">⭐⭐⭐⭐⭐</div>
-                <a href="/contact/index.html" class="btn buy">Buy</a>
-                <a href="/contact/index.html" class="btn test">Test Ride</a>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="images/napoleon10.webp">
-            <div class="card-content">
-                <h2>Napoleon Beast</h2>
-                <p>Extreme Power</p>
-                <div class="price">₹18,00,000</div>
-                <div class="stars">⭐⭐⭐⭐⭐</div>
-                <a href="/contact/index.html" class="btn buy">Buy</a>
-                <a href="/contact/index.html" class="btn test">Test Ride</a>
-            </div>
-        </div>
-
-	<div class="card">
-        <img src="images/napoleon11.webp">
-        <div class="card-content">
-            <h2>Napoleon 250</h2>
-            <p>250cc • City Ride</p>
-            <div class="price">₹2,50,000</div>
-            <div class="stars">⭐ ⭐ ⭐ ⭐</div>
-            <a href="/contact/index.html" class="btn buy">Buy</a>
-            <a href="/contact/index.html" class="btn test">Test Ride</a>
-        </div>
-    </div>
+    <!-- Copy this card and change the values for all your bikes -->
 
     <div class="card">
-        <img src="images/napoleon13.webp">
-        <div class="card-content">
-            <h2>Napoleon 400</h2>
-            <p>400cc • Street Power</p>
-            <div class="price">₹3,80,000</div>
-            <div class="stars">⭐ ⭐ ⭐ ⭐</div>
-            <a href="/contact/index.html" class="btn buy">Buy</a>
-            <a href="/contact/index.html" class="btn test">Test Ride</a>
+        <img src="../assets/images/napoleon1.jpg" alt="Napoleon Emperor 1200">
+
+        <div class="content">
+            <span class="category">Luxury Cruiser</span>
+
+            <h2>Napoleon Emperor 1200</h2>
+
+            <p class="quote">
+                "Built for riders who believe journeys matter more than destinations."
+            </p>
+
+            <div class="specs">
+                <span>1200cc</span>
+                <span>ABS</span>
+                <span>Cruise Control</span>
+                <span>Ride Modes</span>
+            </div>
+
+            <div class="price">₹18,90,000</div>
+
+            <div class="buttons">
+                <a href="../contact/index.html" class="btn buy">Reserve</a>
+                <a href="../contact/index.html" class="btn test">Test Ride</a>
+            </div>
         </div>
     </div>
-    
 
-    </div>
 </div>
 
 </body>
