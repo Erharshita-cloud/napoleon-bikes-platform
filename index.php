@@ -3,10 +3,11 @@ declare(strict_types=1);
 
 session_start();
 
-$currentPage = "home";
-
 require_once 'includes/config.php';
 require_once "includes/functions.php";
+
+$currentPage = "home";
+
 ?>
 
 <!DOCTYPE html>
