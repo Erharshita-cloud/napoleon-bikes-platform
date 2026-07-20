@@ -7,20 +7,63 @@ declare(strict_types=1);
 |--------------------------------------------------------------------------
 */
 
-define('SITE_NAME', 'Napoleon Bikes');
-define('SITE_TAGLINE', 'Ride Beyond Limits');
-define('SITE_DESCRIPTION', 'Premium motorcycles engineered for every journey.');
-define('SITE_KEYWORDS', 'motorcycles,bikes,sports bike,electric bikes,napoleon bikes');
-define('SITE_AUTHOR', 'Napoleon Bikes');
 
 /*
 |--------------------------------------------------------------------------
-| Base URL
+| Website Information
 |--------------------------------------------------------------------------
-| Change this when deploying
 */
 
-define('BASE_URL', '/');
+define('SITE_NAME', 'Napoleon Bikes');
+
+define(
+    'SITE_TAGLINE',
+    'Ride Beyond Limits'
+);
+
+define(
+    'SITE_DESCRIPTION',
+    'Premium motorcycles engineered for every journey.'
+);
+
+define(
+    'SITE_KEYWORDS',
+    'motorcycles,bikes,sports bike,electric bikes,napoleon bikes'
+);
+
+define(
+    'SITE_AUTHOR',
+    'Napoleon Bikes'
+);
+
+
+
+/*
+|--------------------------------------------------------------------------
+| Base URL (Portable)
+|--------------------------------------------------------------------------
+*/
+
+$basePath = str_replace(
+    '\\',
+    '/',
+    dirname($_SERVER['SCRIPT_NAME'])
+);
+
+
+if ($basePath === '/' || $basePath === '\\') {
+
+    $basePath = '';
+
+}
+
+
+define(
+    'BASE_URL',
+    $basePath . '/'
+);
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -28,22 +71,55 @@ define('BASE_URL', '/');
 |--------------------------------------------------------------------------
 */
 
-define('ASSETS', BASE_URL . 'assets/');
-define('CSS', ASSETS . 'css/');
-define('JS', ASSETS . 'js/');
-define('IMG', ASSETS . 'images/');
+define(
+    'ASSETS',
+    BASE_URL . 'assets/'
+);
+
+
+define(
+    'CSS',
+    ASSETS . 'css/'
+);
+
+
+define(
+    'JS',
+    ASSETS . 'js/'
+);
+
+
+define(
+    'IMG',
+    ASSETS . 'images/'
+);
+
+
 
 /*
 |--------------------------------------------------------------------------
-| Company
+| Company Information
 |--------------------------------------------------------------------------
 */
 
-define('COMPANY_EMAIL', 'info@napoleonbikes.com');
-define('COMPANY_PHONE', '+91-9876543210');
+define(
+    'COMPANY_EMAIL',
+    'info@napoleonbikes.com'
+);
 
-define('COMPANY_ADDRESS',
-'Meerut, Uttar Pradesh, India');
+
+define(
+    'COMPANY_PHONE',
+    '+91-9876543210'
+);
+
+
+define(
+    'COMPANY_ADDRESS',
+    'Meerut, Uttar Pradesh, India'
+);
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -53,15 +129,17 @@ define('COMPANY_ADDRESS',
 
 $social = [
 
-'facebook' => '#',
+    'facebook' => '#',
 
-'instagram' => '#',
+    'instagram' => '#',
 
-'linkedin' => '#',
+    'linkedin' => '#',
 
-'youtube' => '#'
+    'youtube' => '#'
 
 ];
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -71,14 +149,16 @@ $social = [
 
 $navigation = [
 
-'Home' => BASE_URL,
+    'Home' => BASE_URL,
 
-'Bikes' => BASE_URL . 'bikes/',
+    'Bikes' => BASE_URL . 'bikes/',
 
-'Booking' => BASE_URL . 'booking/',
+    'Booking' => BASE_URL . 'booking/',
 
-'Pricing' => BASE_URL . 'pricing/',
+    'Pricing' => BASE_URL . 'pricing/',
 
-'Contact' => BASE_URL . 'contact/'
+    'Contact' => BASE_URL . 'contact/'
 
 ];
+
+?>
