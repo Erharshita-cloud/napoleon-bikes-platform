@@ -1,53 +1,51 @@
 <?php
 declare(strict_types=1);
 
-session_start();
+require_once __DIR__ . '/includes/config.php';
+require_once __DIR__ . '/includes/database.php';
+require_once __DIR__ . '/includes/functions.php';
 
-require_once 'includes/config.php';
-require_once "includes/functions.php";
-
-$currentPage = "home";
-
+$currentPage = 'home';
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
-<?php include 'includes/head.php'; ?>
+<?php require_once __DIR__ . '/includes/head.php'; ?>
 
 <body>
 
-<?php include 'includes/loader.php'; ?>
+<?php require_once __DIR__ . '/includes/sections/loader.php'; ?>
 
-<?php include 'includes/navbar.php'; ?>
+<?php require_once __DIR__ . '/includes/navbar.php'; ?>
 
 <main>
 
-<?php include 'includes/hero.php'; ?>
+    <?php require_once __DIR__ . '/includes/sections/hero.php'; ?>
 
-<?php include 'includes/featured-bikes.php'; ?>
+    <?php require_once __DIR__ . '/includes/sections/featured-bikes.php'; ?>
 
-<?php include 'includes/why-us.php'; ?>
+    <?php require_once __DIR__ . '/includes/sections/why-us.php'; ?>
 
-<?php include 'includes/technology.php'; ?>
+    <?php require_once __DIR__ . '/includes/sections/technology.php'; ?>
 
-<?php include 'includes/statistics.php'; ?>
+    <?php require_once __DIR__ . '/includes/sections/statistics.php'; ?>
 
-<?php include 'includes/testimonials.php'; ?>
+    <?php require_once __DIR__ . '/includes/sections/testimonials.php'; ?>
 
-<?php include 'includes/gallery.php'; ?>
+    <?php require_once __DIR__ . '/includes/sections/gallery.php'; ?>
 
-<?php include 'includes/faq.php'; ?>
+    <?php require_once __DIR__ . '/includes/sections/faq.php'; ?>
 
-<?php include 'includes/newsletter.php'; ?>
+    <?php require_once __DIR__ . '/includes/sections/newsletter.php'; ?>
 
 </main>
 
-<?php include 'includes/footer.php'; ?>
+<?php require_once __DIR__ . '/includes/footer.php'; ?>
 
-<?php include 'includes/chatbot.php'; ?>
+<?php require_once __DIR__ . '/includes/sections/chatbot.php'; ?>
 
-<?php include 'includes/scripts.php'; ?>
+<?php require_once __DIR__ . '/includes/scripts.php'; ?>
 
 </body>
 </html>
