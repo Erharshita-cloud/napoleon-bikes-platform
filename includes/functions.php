@@ -1,225 +1,351 @@
 <?php
+declare(strict_types=1);
+
+
 /**
  * Napoleon Bikes Platform
  * Common Helper Functions
  */
 
 
-// Prevent direct access
+/*
+|--------------------------------------------------------------------------
+| Prevent Direct Access
+|--------------------------------------------------------------------------
+*/
+
 if (!defined('BASE_URL')) {
-    die("Direct access not allowed");
-}
 
-
-/**
- * Generate Website URL
- *
- * Usage:
- * url('booking.php')
- */
-function url($path = '')
-{
-    return BASE_URL . ltrim($path, '/');
-}
-
-
-/**
- * Generate Asset URL
- *
- * Usage:
- * asset('css/style.css')
- */
-function asset($file = '')
-{
-    return BASE_URL . 'assets/' . ltrim($file, '/');
-}
-
-
-/**
- * Secure Output Escape
- *
- * Prevent XSS attacks
- */
-function e($value)
-{
-    return htmlspecialchars(
-        $value ?? '',
-        ENT_QUOTES,
-        'UTF-8'
+    die(
+        "Direct access not allowed"
     );
+
 }
 
 
-/**
- * Redirect Function
- *
- * Usage:
- * redirect('login.php');
- */
-function redirect($page)
+
+/*
+|--------------------------------------------------------------------------
+| Start Session
+|--------------------------------------------------------------------------
+*/
+
+if(session_status() === PHP_SESSION_NONE){
+
+    session_start();
+
+}
+
+
+
+/*
+|--------------------------------------------------------------------------
+| URL Helper
+|--------------------------------------------------------------------------
+*/
+
+function url(string $path = ''): string
 {
-    header("Location: " . url($page));
+
+    return BASE_URL . ltrim($path,'/');
+
+}
+
+
+
+/*
+|--------------------------------------------------------------------------
+| Asset Helper
+|--------------------------------------------------------------------------
+*/
+
+function asset(string $file = ''): string
+{
+
+    return ASSETS . ltrim($file,'/');
+
+}
+
+
+
+/*
+|--------------------------------------------------------------------------
+| Escape Output
+|--------------------------------------------------------------------------
+*/
+
+function e($value): string
+{
+
+    return htmlspecialchars(
+
+        (string)$value,
+
+        ENT_QUOTES,
+
+        'UTF-8'
+
+    );
+
+}
+
+
+
+/*
+|--------------------------------------------------------------------------
+| Redirect
+|--------------------------------------------------------------------------
+*/
+
+function redirect(string $page): never
+{
+
+    header(
+        "Location: ".url($page)
+    );
+
     exit;
+
 }
 
 
-/**
- * Check Current Page
- *
- * Used for navbar active menu
- */
-function isActive($page)
-{
-    $current = basename($_SERVER['PHP_SELF']);
 
-    return ($current == $page) ? 'active' : '';
+/*
+|--------------------------------------------------------------------------
+| Active Navigation
+|--------------------------------------------------------------------------
+*/
+
+function isActive(string $page): string
+{
+
+    $current = basename(
+        $_SERVER['PHP_SELF']
+    );
+
+
+    return $current === $page
+        ? 'active'
+        : '';
+
 }
 
 
-/**
- * Create Flash Message
- *
- * Usage:
- * flash("Booking successful","success");
- */
-function flash($message, $type = "success")
+
+/*
+|--------------------------------------------------------------------------
+| Flash Messages
+|--------------------------------------------------------------------------
+*/
+
+function flash(
+    string $message,
+    string $type='success'
+): void
 {
-    $_SESSION['flash'] = [
-        "message" => $message,
-        "type" => $type
+
+    $_SESSION['flash']=[
+
+        'message'=>$message,
+
+        'type'=>$type
+
     ];
+
 }
 
 
-/**
- * Display Flash Message
- */
-function showFlash()
-{
-    if(isset($_SESSION['flash'])):
 
-        $flash = $_SESSION['flash'];
+function showFlash(): void
+{
+
+    if(isset($_SESSION['flash'])){
+
+
+        $flash=$_SESSION['flash'];
+
 
         echo '
-        <div class="alert alert-'.$flash['type'].'">
-            '.$flash['message'].'
+
+        <div class="alert alert-'.e($flash['type']).'">
+
+            '.e($flash['message']).'
+
         </div>
+
         ';
+
 
         unset($_SESSION['flash']);
 
-    endif;
-}
-
-
-/**
- * Check Request Method
- *
- * Usage:
- * if(isPost()){}
- */
-function isPost()
-{
-    return $_SERVER['REQUEST_METHOD'] === 'POST';
-}
-
-
-/**
- * Check Empty Input
- */
-function required($fields = [])
-{
-    $errors = [];
-
-    foreach($fields as $field)
-    {
-        if(empty($_POST[$field]))
-        {
-            $errors[] = ucfirst($field)." is required";
-        }
     }
+
+}
+
+
+
+/*
+|--------------------------------------------------------------------------
+| Request Helpers
+|--------------------------------------------------------------------------
+*/
+
+function isPost(): bool
+{
+
+    return $_SERVER['REQUEST_METHOD']==='POST';
+
+}
+
+
+
+/*
+|--------------------------------------------------------------------------
+| Required Fields Validation
+|--------------------------------------------------------------------------
+*/
+
+function required(array $fields=[]): array
+{
+
+    $errors=[];
+
+
+    foreach($fields as $field){
+
+
+        if(empty($_POST[$field])){
+
+
+            $errors[]=ucfirst($field)." is required";
+
+
+        }
+
+    }
+
 
     return $errors;
+
 }
 
 
-/**
- * Sanitize Input
- */
-function clean($data)
+
+/*
+|--------------------------------------------------------------------------
+| Clean Input
+|--------------------------------------------------------------------------
+*/
+
+function clean($data): string
 {
-    return trim(
-        htmlspecialchars(
-            $data,
-            ENT_QUOTES,
-            'UTF-8'
-        )
+
+    return htmlspecialchars(
+
+        trim((string)$data),
+
+        ENT_QUOTES,
+
+        'UTF-8'
+
     );
+
 }
 
 
-/**
- * Generate Random Booking ID
- *
- * Example:
- * NB-582931
- */
-function generateBookingID()
+
+/*
+|--------------------------------------------------------------------------
+| Booking ID Generator
+|--------------------------------------------------------------------------
+*/
+
+function generateBookingID(): string
 {
-    return "NB-" . rand(100000,999999);
+
+    return "NB-".
+        random_int(100000,999999);
+
 }
 
 
-/**
- * Format Price
- */
-function price($amount)
+
+/*
+|--------------------------------------------------------------------------
+| Price Formatter
+|--------------------------------------------------------------------------
+*/
+
+function price($amount): string
 {
-    return "₹" . number_format($amount);
+
+    return "₹".
+        number_format((float)$amount);
+
 }
 
 
-/**
- * Get Current Year
- */
-function year()
+
+/*
+|--------------------------------------------------------------------------
+| Current Year
+|--------------------------------------------------------------------------
+*/
+
+function year(): string
 {
+
     return date("Y");
+
 }
 
 
-/**
- * Check User Login
- */
-function isLoggedIn()
+
+/*
+|--------------------------------------------------------------------------
+| Authentication Helpers
+|--------------------------------------------------------------------------
+*/
+
+function isLoggedIn(): bool
 {
+
     return isset($_SESSION['user']);
+
 }
 
 
-/**
- * Require Login
- */
-function requireLogin()
+
+function requireLogin(): void
 {
-    if(!isLoggedIn())
-    {
+
+    if(!isLoggedIn()){
+
         redirect('login.php');
+
     }
+
 }
 
 
-/**
- * Debug Function
- *
- * Development purpose
- */
-function dd($data)
+
+/*
+|--------------------------------------------------------------------------
+| Debug Helper
+|--------------------------------------------------------------------------
+*/
+
+function dd($data): never
 {
+
     echo "<pre>";
+
     print_r($data);
+
     echo "</pre>";
+
     die();
+
 }
 
 ?>
