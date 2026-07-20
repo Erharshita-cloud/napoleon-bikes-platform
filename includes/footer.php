@@ -1,71 +1,160 @@
-<footer>
+<?php
+declare(strict_types=1);
 
-<div class="container">
+/**
+ * ---------------------------------------------------------
+ * Napoleon Bikes Platform
+ * Footer Component
+ * ---------------------------------------------------------
+ */
+?>
 
-<div class="footer-logo">
+<footer class="site-footer">
 
-<img
+    <div class="container">
 
-src="<?= IMG ?>logo.png"
+        <div class="footer-grid">
 
-alt="<?= SITE_NAME; ?>">
+            <!-- Logo -->
 
-<h2>
+            <div class="footer-logo">
 
-<?= SITE_NAME; ?>
+                <img
+                    src="<?= IMG ?>logo.png"
+                    alt="<?= e(SITE_NAME); ?> Logo"
+                    width="60"
+                    height="60">
 
-</h2>
+                <h2><?= e(SITE_NAME); ?></h2>
 
-<p>
+                <p><?= e(SITE_TAGLINE); ?></p>
 
-<?= SITE_TAGLINE; ?>
+            </div>
 
-</p>
+            <!-- Quick Links -->
 
-</div>
+            <div class="footer-links">
 
-<div class="footer-contact">
+                <h3>Quick Links</h3>
 
-<h3>
+                <ul>
 
-Contact
+                    <?php foreach ($navigation as $name => $item): ?>
 
-</h3>
+                        <li>
 
-<p>
+                            <a href="<?= e($item['url']); ?>">
 
-<?= COMPANY_ADDRESS; ?>
+                                <?= e($name); ?>
 
-</p>
+                            </a>
 
-<p>
+                        </li>
 
-<?= COMPANY_PHONE; ?>
+                    <?php endforeach; ?>
 
-</p>
+                </ul>
 
-<p>
+            </div>
 
-<?= COMPANY_EMAIL; ?>
+            <!-- Contact -->
 
-</p>
+            <div class="footer-contact">
 
-</div>
+                <h3>Contact</h3>
 
-<div class="footer-bottom">
+                <p><?= e(COMPANY_ADDRESS); ?></p>
 
-<p>
+                <p>
 
-© <?= date('Y'); ?>
+                    <a href="tel:<?= e(COMPANY_PHONE); ?>">
 
-<?= SITE_NAME; ?>
+                        <?= e(COMPANY_PHONE); ?>
 
-All Rights Reserved.
+                    </a>
 
-</p>
+                </p>
 
-</div>
+                <p>
 
-</div>
+                    <a href="mailto:<?= e(COMPANY_EMAIL); ?>">
+
+                        <?= e(COMPANY_EMAIL); ?>
+
+                    </a>
+
+                </p>
+
+            </div>
+
+            <!-- Social Links -->
+
+            <div class="footer-social">
+
+                <h3>Follow Us</h3>
+
+                <div class="social-icons">
+
+                    <a
+                        href="<?= e($social['facebook']); ?>"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Facebook">
+
+                        <i class="ri-facebook-fill"></i>
+
+                    </a>
+
+                    <a
+                        href="<?= e($social['instagram']); ?>"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Instagram">
+
+                        <i class="ri-instagram-line"></i>
+
+                    </a>
+
+                    <a
+                        href="<?= e($social['linkedin']); ?>"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="LinkedIn">
+
+                        <i class="ri-linkedin-box-fill"></i>
+
+                    </a>
+
+                    <a
+                        href="<?= e($social['youtube']); ?>"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="YouTube">
+
+                        <i class="ri-youtube-fill"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+
+            <p>
+
+                &copy; <?= year(); ?>
+
+                <?= e(SITE_NAME); ?>.
+
+                All Rights Reserved.
+
+            </p>
+
+        </div>
+
+    </div>
 
 </footer>
