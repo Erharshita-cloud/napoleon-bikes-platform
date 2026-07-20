@@ -1,9 +1,11 @@
 <?php
 declare(strict_types=1);
 
+
 /*
 |--------------------------------------------------------------------------
-| Napoleon Bikes Configuration
+| Napoleon Bikes Platform
+| Configuration File
 |--------------------------------------------------------------------------
 */
 
@@ -14,22 +16,29 @@ declare(strict_types=1);
 |--------------------------------------------------------------------------
 */
 
-define('SITE_NAME', 'Napoleon Bikes');
+define(
+    'SITE_NAME',
+    'Napoleon Bikes'
+);
+
 
 define(
     'SITE_TAGLINE',
     'Ride Beyond Limits'
 );
 
+
 define(
     'SITE_DESCRIPTION',
     'Premium motorcycles engineered for every journey.'
 );
 
+
 define(
     'SITE_KEYWORDS',
     'motorcycles,bikes,sports bike,electric bikes,napoleon bikes'
 );
+
 
 define(
     'SITE_AUTHOR',
@@ -40,9 +49,31 @@ define(
 
 /*
 |--------------------------------------------------------------------------
-| Base URL (Portable)
+| Environment
 |--------------------------------------------------------------------------
 */
+
+define(
+    'ENVIRONMENT',
+    $_SERVER['SERVER_NAME'] === 'localhost'
+        ? 'development'
+        : 'production'
+);
+
+
+
+/*
+|--------------------------------------------------------------------------
+| Base URL
+|--------------------------------------------------------------------------
+| Automatically detects:
+| Localhost
+| AWS EC2
+| Domain
+| Subfolder hosting
+|--------------------------------------------------------------------------
+*/
+
 
 $basePath = str_replace(
     '\\',
@@ -71,6 +102,7 @@ define(
 |--------------------------------------------------------------------------
 */
 
+
 define(
     'ASSETS',
     BASE_URL . 'assets/'
@@ -98,9 +130,50 @@ define(
 
 /*
 |--------------------------------------------------------------------------
+| Database Configuration
+|--------------------------------------------------------------------------
+|
+| Local:
+| localhost / root
+|
+| AWS:
+| Use environment variables
+|
+|--------------------------------------------------------------------------
+*/
+
+
+define(
+    'DB_HOST',
+    getenv('DB_HOST') ?: 'localhost'
+);
+
+
+define(
+    'DB_NAME',
+    getenv('DB_NAME') ?: 'napoleon_bikes'
+);
+
+
+define(
+    'DB_USER',
+    getenv('DB_USER') ?: 'root'
+);
+
+
+define(
+    'DB_PASS',
+    getenv('DB_PASS') ?: ''
+);
+
+
+
+/*
+|--------------------------------------------------------------------------
 | Company Information
 |--------------------------------------------------------------------------
 */
+
 
 define(
     'COMPANY_EMAIL',
@@ -123,9 +196,10 @@ define(
 
 /*
 |--------------------------------------------------------------------------
-| Social Links
+| Social Media Links
 |--------------------------------------------------------------------------
 */
+
 
 $social = [
 
@@ -143,22 +217,95 @@ $social = [
 
 /*
 |--------------------------------------------------------------------------
-| Navigation
+| Navigation Menu
 |--------------------------------------------------------------------------
 */
 
+
 $navigation = [
 
-    'Home' => BASE_URL,
+    'Home' => [
 
-    'Bikes' => BASE_URL . 'bikes/',
+        'url' => BASE_URL,
 
-    'Booking' => BASE_URL . 'booking/',
+        'icon' => 'ri-home-line'
 
-    'Pricing' => BASE_URL . 'pricing/',
+    ],
 
-    'Contact' => BASE_URL . 'contact/'
+
+    'Bikes' => [
+
+        'url' => BASE_URL . 'bikes/',
+
+        'icon' => 'ri-motorbike-line'
+
+    ],
+
+
+    'Booking' => [
+
+        'url' => BASE_URL . 'booking/',
+
+        'icon' => 'ri-calendar-check-line'
+
+    ],
+
+
+    'Pricing' => [
+
+        'url' => BASE_URL . 'pricing/',
+
+        'icon' => 'ri-price-tag-3-line'
+
+    ],
+
+
+    'Contact' => [
+
+        'url' => BASE_URL . 'contact/',
+
+        'icon' => 'ri-phone-line'
+
+    ]
 
 ];
+
+
+
+/*
+|--------------------------------------------------------------------------
+| Security / Debug Settings
+|--------------------------------------------------------------------------
+*/
+
+
+if (ENVIRONMENT === 'development') {
+
+
+    error_reporting(E_ALL);
+
+
+    ini_set(
+        'display_errors',
+        '1'
+    );
+
+
+}
+
+else {
+
+
+    error_reporting(0);
+
+
+    ini_set(
+        'display_errors',
+        '0'
+    );
+
+
+}
+
 
 ?>
