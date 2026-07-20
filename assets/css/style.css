@@ -1357,3 +1357,197 @@ section{
 .bike-card:hover::before{
     left:100%;
 }
+
+/* ==========================================================================
+   Why Choose Us
+========================================================================== */
+.why-us{
+    background:var(--color-bg);
+    position:relative;
+    overflow:hidden;
+}
+
+.why-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:2rem;
+}
+
+.why-card{
+    position:relative;
+    padding:2.5rem 2rem;
+    background:var(--color-card);
+    border-radius:var(--radius-xl);
+    box-shadow:var(--shadow-md);
+    text-align:center;
+    transition:var(--transition);
+    overflow:hidden;
+}
+
+.why-card:hover{
+    transform:translateY(-12px);
+    box-shadow:var(--shadow-lg);
+}
+
+.why-card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:5px;
+    background:var(--color-primary);
+    transform:scaleX(0);
+    transform-origin:left;
+    transition:var(--transition);
+}
+
+.why-card:hover::before{
+    transform:scaleX(1);
+}
+
+.why-icon{
+    width:90px;
+    height:90px;
+    margin:0 auto 1.75rem;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:50%;
+    background:rgba(255,107,0,.12);
+    color:var(--color-primary);
+    font-size:2.2rem;
+    transition:var(--transition);
+}
+
+.why-card:hover .why-icon{
+    background:var(--color-primary);
+    color:var(--color-white);
+    transform:rotateY(180deg);
+}
+
+.why-card h3{
+    margin-bottom:1rem;
+    color:var(--color-secondary);
+    font-size:1.45rem;
+}
+
+.why-card p{
+    margin:0;
+    line-height:1.8;
+}
+
+/* ==========================================================================
+   Why Choose Us Decorative Elements
+========================================================================== */
+.why-us::before{
+    content:"";
+    position:absolute;
+    top:-180px;
+    right:-180px;
+    width:420px;
+    height:420px;
+    border-radius:50%;
+    background:rgba(255,107,0,.05);
+    z-index:0;
+}
+
+.why-us::after{
+    content:"";
+    position:absolute;
+    bottom:-140px;
+    left:-140px;
+    width:320px;
+    height:320px;
+    border-radius:50%;
+    background:rgba(37,99,235,.05);
+    z-index:0;
+}
+
+.why-us .container{
+    position:relative;
+    z-index:2;
+}
+
+/* ==========================================================================
+   Card Hover Effects
+========================================================================== */
+.why-card:hover h3{
+    color:var(--color-primary);
+}
+
+.why-card:hover p{
+    color:var(--color-text);
+}
+
+.why-card:hover{
+    border-color:transparent;
+}
+
+/* ==========================================================================
+   Floating Animation
+========================================================================== */
+.why-card:nth-child(1){
+    animation:floatWhy 6s ease-in-out infinite;
+}
+
+.why-card:nth-child(2){
+    animation:floatWhy 6.5s ease-in-out infinite;
+}
+
+.why-card:nth-child(3){
+    animation:floatWhy 7s ease-in-out infinite;
+}
+
+.why-card:nth-child(4){
+    animation:floatWhy 7.5s ease-in-out infinite;
+}
+
+.why-card:nth-child(5){
+    animation:floatWhy 8s ease-in-out infinite;
+}
+
+.why-card:nth-child(6){
+    animation:floatWhy 8.5s ease-in-out infinite;
+}
+
+@keyframes floatWhy{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-10px);
+    }
+
+}
+
+/* ==========================================================================
+   Responsive
+========================================================================== */
+@media (max-width:992px){
+
+    .why-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media (max-width:768px){
+
+    .why-grid{
+        grid-template-columns:1fr;
+    }
+
+    .why-card{
+        padding:2rem 1.5rem;
+    }
+
+    .why-icon{
+        width:80px;
+        height:80px;
+        font-size:2rem;
+    }
+
+}
