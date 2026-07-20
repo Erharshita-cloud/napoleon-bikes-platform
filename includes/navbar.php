@@ -1,441 +1,640 @@
 <?php
 /**
  * ---------------------------------------------------------
- * Napoleon Bikes V2
+ * Napoleon Bikes Platform
  * Navbar Component
  * ---------------------------------------------------------
  */
 
+
 if (!isset($currentPage)) {
+
     $currentPage = 'home';
+
 }
+
 ?>
+
 
 <header id="siteHeader" class="site-header">
 
-    <div class="container">
+<div class="container">
 
-        <nav class="navbar" aria-label="Primary Navigation">
 
-            <!-- ========================================= -->
-            <!-- Logo -->
-            <!-- ========================================= -->
+<nav class="navbar" aria-label="Primary Navigation">
 
-            <a href="<?= BASE_URL; ?>" class="logo" aria-label="<?= SITE_NAME; ?> Home">
 
-                <img
-                    src="<?= IMG; ?>logo.png"
-                    alt="<?= SITE_NAME; ?> Logo"
-                    width="52"
-                    height="52">
+<!-- ================================================= -->
+<!-- Logo -->
+<!-- ================================================= -->
 
-                <div class="logo-text">
 
-                    <h2><?= SITE_NAME; ?></h2>
+<a 
+href="<?= url(''); ?>" 
+class="logo"
+aria-label="<?= e(SITE_NAME); ?> Home">
 
-                    <span><?= SITE_TAGLINE; ?></span>
 
-                </div>
+<img
 
-            </a>
+src="<?= IMG ?>logo.png"
 
-            <!-- ========================================= -->
-            <!-- Desktop Navigation -->
-            <!-- ========================================= -->
+alt="<?= e(SITE_NAME); ?> Logo"
 
-            <ul class="nav-menu">
+width="52"
 
-                <li>
+height="52"
 
-                    <a
-                        href="<?= BASE_URL; ?>"
-                        class="<?= ($currentPage == 'home') ? 'active' : ''; ?>">
+>
 
-                        Home
 
-                    </a>
+<div class="logo-text">
 
-                </li>
 
-                <li>
+<h2>
 
-                    <a
-                        href="<?= BASE_URL; ?>bikes/"
-                        class="<?= ($currentPage == 'bikes') ? 'active' : ''; ?>">
+<?= e(SITE_NAME); ?>
 
-                        Bikes
+</h2>
 
-                    </a>
 
-                </li>
+<span>
 
-                <li>
+<?= e(SITE_TAGLINE); ?>
 
-                    <a
-                        href="<?= BASE_URL; ?>booking/"
-                        class="<?= ($currentPage == 'booking') ? 'active' : ''; ?>">
+</span>
 
-                        Book Ride
 
-                    </a>
+</div>
 
-                </li>
 
-                <li>
+</a>
 
-                    <a
-                        href="<?= BASE_URL; ?>pricing/"
-                        class="<?= ($currentPage == 'pricing') ? 'active' : ''; ?>">
 
-                        Pricing
+<!-- ================================================= -->
+<!-- Desktop Navigation -->
+<!-- ================================================= -->
 
-                    </a>
 
-                </li>
+<ul class="nav-menu">
 
-                <li>
 
-                    <a
-                        href="<?= BASE_URL; ?>contact/"
-                        class="<?= ($currentPage == 'contact') ? 'active' : ''; ?>">
+<?php foreach($navigation as $name=>$item): ?>
 
-                        Contact
 
-                    </a>
+<li>
 
-                </li>
 
-            </ul>
+<a
 
-            <!-- ========================================= -->
-            <!-- Right Actions -->
-            <!-- ========================================= -->
+href="<?= e($item['url']); ?>"
 
-            <div class="nav-actions">
+class="<?= strtolower($name)==$currentPage ? 'active':''; ?>"
 
-                <!-- Search -->
+>
 
-                <button
-                    class="icon-btn"
-                    id="searchBtn"
-                    aria-label="Search">
 
-                    <i class="ri-search-line"></i>
+<?= e($name); ?>
 
-                </button>
 
-                <!-- Theme Toggle -->
+</a>
 
-                <button
-                    class="icon-btn"
-                    id="themeToggle"
-                    aria-label="Toggle Theme">
 
-                    <i class="ri-moon-line"></i>
+</li>
 
-                </button>
 
-                <!-- Future Login -->
+<?php endforeach; ?>
 
-                <a
-                    href="#"
-                    class="login-btn">
 
-                    <i class="ri-user-3-line"></i>
+</ul>
 
-                    <span>
 
-                        Login
+<!-- ================================================= -->
+<!-- Right Actions -->
+<!-- ================================================= -->
 
-                    </span>
 
-                </a>
+<div class="nav-actions">
 
-                <!-- CTA -->
 
-                <a
-                    href="<?= BASE_URL; ?>booking/"
-                    class="btn btn-primary">
 
-                    Book Test Ride
+<button
 
-                </a>
+class="icon-btn"
 
-                <!-- Mobile Menu Button -->
+id="searchBtn"
 
-                <button
-                    id="mobileMenuBtn"
-                    class="mobile-menu-btn"
-                    aria-label="Open Menu">
+aria-label="Search"
 
-                    <i class="ri-menu-3-line"></i>
+>
 
-                </button>
+<i class="ri-search-line"></i>
 
-            </div>
+</button>
 
-        </nav>
 
-    </div>
+
+
+<button
+
+class="icon-btn"
+
+id="themeToggle"
+
+aria-label="Toggle Theme"
+
+>
+
+<i class="ri-moon-line"></i>
+
+</button>
+
+
+
+
+<a
+
+href="#"
+
+class="login-btn"
+
+>
+
+<i class="ri-user-3-line"></i>
+
+
+<span>
+
+Login
+
+</span>
+
+
+</a>
+
+
+
+
+
+<a
+
+href="<?= url('booking/'); ?>"
+
+class="btn btn-primary"
+
+>
+
+Book Test Ride
+
+</a>
+
+
+
+
+
+<button
+
+id="mobileMenuBtn"
+
+class="mobile-menu-btn"
+
+aria-label="Open Menu"
+
+>
+
+<i class="ri-menu-3-line"></i>
+
+
+</button>
+
+
+
+</div>
+
+
+</nav>
+
+
+</div>
+
 
 </header>
 
-<!-- ========================================= -->
+
+<!-- ================================================= -->
 <!-- Search Overlay -->
-<!-- ========================================= -->
+<!-- ================================================= -->
+
 
 <div id="searchOverlay" class="search-overlay">
 
-    <div class="search-box">
 
-        <button
-            id="closeSearch"
-            class="close-search"
-            aria-label="Close Search">
+<div class="search-box">
 
-            <i class="ri-close-line"></i>
 
-        </button>
+<button
 
-        <form>
+id="closeSearch"
 
-            <input
-                type="search"
-                placeholder="Search motorcycles..."
-                aria-label="Search">
+class="close-search"
 
-            <button type="submit">
+aria-label="Close Search"
 
-                <i class="ri-search-line"></i>
+>
 
-            </button>
+<i class="ri-close-line"></i>
 
-        </form>
 
-    </div>
+</button>
+
+
+
+
+<form>
+
+
+<input
+
+type="search"
+
+placeholder="Search motorcycles..."
+
+aria-label="Search"
+
+>
+
+
+<button type="submit">
+
+
+<i class="ri-search-line"></i>
+
+
+</button>
+
+
+</form>
+
+
 
 </div>
 
-<!-- ===================================================== -->
+
+</div>
+
+
+<!-- ================================================= -->
 <!-- Mobile Navigation -->
-<!-- ===================================================== -->
+<!-- ================================================= -->
+
 
 <div id="mobileMenu" class="mobile-menu">
 
-    <div class="mobile-menu-overlay"></div>
 
-    <aside class="mobile-menu-content">
+<div class="mobile-menu-overlay"></div>
 
-        <div class="mobile-menu-header">
 
-            <a href="<?= BASE_URL; ?>" class="mobile-logo">
 
-                <img
-                    src="<?= IMG; ?>logo.png"
-                    alt="<?= SITE_NAME; ?>"
-                    width="45"
-                    height="45">
+<aside class="mobile-menu-content">
 
-                <div>
 
-                    <h3><?= SITE_NAME; ?></h3>
 
-                    <span><?= SITE_TAGLINE; ?></span>
+<div class="mobile-menu-header">
 
-                </div>
 
-            </a>
 
-            <button
-                id="closeMobileMenu"
-                class="icon-btn"
-                aria-label="Close Menu">
+<a
 
-                <i class="ri-close-large-line"></i>
+href="<?= url(''); ?>"
 
-            </button>
+class="mobile-logo"
 
-        </div>
+>
 
-        <!-- Navigation -->
 
-        <nav class="mobile-navigation">
 
-            <a
-                href="<?= BASE_URL; ?>"
-                class="<?= ($currentPage == 'home') ? 'active' : ''; ?>">
+<img
 
-                <i class="ri-home-5-line"></i>
+src="<?= IMG ?>logo.png"
 
-                <span>Home</span>
+alt="<?= e(SITE_NAME); ?>"
 
-            </a>
+width="45"
 
-            <a
-                href="<?= BASE_URL; ?>bikes/"
-                class="<?= ($currentPage == 'bikes') ? 'active' : ''; ?>">
+height="45"
 
-                <i class="ri-motorbike-line"></i>
+>
 
-                <span>Bikes</span>
 
-            </a>
 
-            <a
-                href="<?= BASE_URL; ?>booking/"
-                class="<?= ($currentPage == 'booking') ? 'active' : ''; ?>">
+<div>
 
-                <i class="ri-calendar-check-line"></i>
 
-                <span>Book Test Ride</span>
+<h3>
 
-            </a>
+<?= e(SITE_NAME); ?>
 
-            <a
-                href="<?= BASE_URL; ?>pricing/"
-                class="<?= ($currentPage == 'pricing') ? 'active' : ''; ?>">
+</h3>
 
-                <i class="ri-price-tag-3-line"></i>
 
-                <span>Pricing</span>
+<span>
 
-            </a>
+<?= e(SITE_TAGLINE); ?>
 
-            <a
-                href="<?= BASE_URL; ?>contact/"
-                class="<?= ($currentPage == 'contact') ? 'active' : ''; ?>">
+</span>
 
-                <i class="ri-customer-service-2-line"></i>
-
-                <span>Contact</span>
-
-            </a>
-
-        </nav>
-
-        <!-- Quick Actions -->
-
-        <div class="mobile-actions">
-
-            <a
-                href="<?= BASE_URL; ?>booking/"
-                class="btn btn-primary btn-full">
-
-                Book Test Ride
-
-            </a>
-
-            <a
-                href="tel:<?= COMPANY_PHONE; ?>"
-                class="btn btn-outline btn-full">
-
-                <i class="ri-phone-line"></i>
-
-                Call Us
-
-            </a>
-
-            <a
-                href="mailto:<?= COMPANY_EMAIL; ?>"
-                class="btn btn-outline btn-full">
-
-                <i class="ri-mail-line"></i>
-
-                Email Us
-
-            </a>
-
-        </div>
-
-        <!-- Contact Information -->
-
-        <div class="mobile-contact">
-
-            <h4>Visit Us</h4>
-
-            <p><?= COMPANY_ADDRESS; ?></p>
-
-            <p><?= COMPANY_PHONE; ?></p>
-
-            <p><?= COMPANY_EMAIL; ?></p>
-
-        </div>
-
-        <!-- Social Links -->
-
-        <div class="mobile-social">
-
-            <a
-                href="<?= $social['facebook']; ?>"
-                target="_blank"
-                aria-label="Facebook">
-
-                <i class="ri-facebook-fill"></i>
-
-            </a>
-
-            <a
-                href="<?= $social['instagram']; ?>"
-                target="_blank"
-                aria-label="Instagram">
-
-                <i class="ri-instagram-line"></i>
-
-            </a>
-
-            <a
-                href="<?= $social['linkedin']; ?>"
-                target="_blank"
-                aria-label="LinkedIn">
-
-                <i class="ri-linkedin-box-fill"></i>
-
-            </a>
-
-            <a
-                href="<?= $social['youtube']; ?>"
-                target="_blank"
-                aria-label="YouTube">
-
-                <i class="ri-youtube-fill"></i>
-
-            </a>
-
-        </div>
-
-        <!-- Footer -->
-
-        <div class="mobile-footer">
-
-            <p>
-
-                © <?= date('Y'); ?>
-
-                <?= SITE_NAME; ?>
-
-            </p>
-
-            <small>
-
-                <?= SITE_TAGLINE; ?>
-
-            </small>
-
-        </div>
-
-    </aside>
 
 </div>
 
-<!-- ===================================== -->
-<!-- Scroll To Top -->
-<!-- ===================================== -->
+
+</a>
+
+
+
+
 
 <button
-    id="scrollTop"
-    class="scroll-top"
-    aria-label="Scroll To Top">
 
-    <i class="ri-arrow-up-line"></i>
+id="closeMobileMenu"
+
+class="icon-btn"
+
+aria-label="Close Menu"
+
+>
+
+
+<i class="ri-close-large-line"></i>
+
+
+</button>
+
+
+
+</div>
+
+
+<!-- Mobile Navigation -->
+
+
+<nav class="mobile-navigation">
+
+
+
+<?php foreach($navigation as $name=>$item): ?>
+
+
+<a
+
+href="<?= e($item['url']); ?>"
+
+class="<?= strtolower($name)==$currentPage ? 'active':''; ?>"
+
+>
+
+
+<i class="<?= e($item['icon']); ?>"></i>
+
+
+
+<span>
+
+<?= e($name); ?>
+
+</span>
+
+
+</a>
+
+
+
+<?php endforeach; ?>
+
+
+</nav>
+
+
+<!-- Quick Actions -->
+
+
+<div class="mobile-actions">
+
+
+<a
+
+href="<?= url('booking/'); ?>"
+
+class="btn btn-primary btn-full"
+
+>
+
+Book Test Ride
+
+</a>
+
+
+
+<a
+
+href="tel:<?= e(COMPANY_PHONE); ?>"
+
+class="btn btn-outline btn-full"
+
+>
+
+
+<i class="ri-phone-line"></i>
+
+Call Us
+
+
+</a>
+
+
+
+
+<a
+
+href="mailto:<?= e(COMPANY_EMAIL); ?>"
+
+class="btn btn-outline btn-full"
+
+>
+
+
+<i class="ri-mail-line"></i>
+
+Email Us
+
+
+</a>
+
+
+</div>
+
+
+<!-- Contact Information -->
+
+
+<div class="mobile-contact">
+
+
+<h4>
+
+Visit Us
+
+</h4>
+
+
+<p>
+
+<?= e(COMPANY_ADDRESS); ?>
+
+</p>
+
+
+<p>
+
+<?= e(COMPANY_PHONE); ?>
+
+</p>
+
+
+<p>
+
+<?= e(COMPANY_EMAIL); ?>
+
+</p>
+
+
+</div>
+
+
+
+<!-- Social Links -->
+
+
+<div class="mobile-social">
+
+
+<a
+
+href="<?= e($social['facebook']); ?>"
+
+target="_blank"
+
+aria-label="Facebook"
+
+>
+
+<i class="ri-facebook-fill"></i>
+
+</a>
+
+
+
+<a
+
+href="<?= e($social['instagram']); ?>"
+
+target="_blank"
+
+aria-label="Instagram"
+
+>
+
+<i class="ri-instagram-line"></i>
+
+</a>
+
+
+
+
+<a
+
+href="<?= e($social['linkedin']); ?>"
+
+target="_blank"
+
+aria-label="LinkedIn"
+
+>
+
+<i class="ri-linkedin-box-fill"></i>
+
+</a>
+
+
+
+
+<a
+
+href="<?= e($social['youtube']); ?>"
+
+target="_blank"
+
+aria-label="YouTube"
+
+>
+
+<i class="ri-youtube-fill"></i>
+
+</a>
+
+
+
+</div>
+
+
+
+<!-- Mobile Footer -->
+
+
+<div class="mobile-footer">
+
+
+<p>
+
+© <?= year(); ?>
+
+<?= e(SITE_NAME); ?>
+
+</p>
+
+
+<small>
+
+<?= e(SITE_TAGLINE); ?>
+
+</small>
+
+
+</div>
+
+
+
+</aside>
+
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- Scroll To Top -->
+<!-- ================================================= -->
+
+
+<button
+
+id="scrollTop"
+
+class="scroll-top"
+
+aria-label="Scroll To Top"
+
+>
+
+<i class="ri-arrow-up-line"></i>
+
 
 </button>
