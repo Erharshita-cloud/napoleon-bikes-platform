@@ -33,6 +33,8 @@ $currentPage = 'home';
 
     <?php require_once __DIR__ . '/includes/sections/testimonials.php'; ?>
 
+    <?php require_once __DIR__ . '/includes/sections/dealers.php'; ?>
+
     <?php require_once __DIR__ . '/includes/sections/gallery.php'; ?>
 
     <?php require_once __DIR__ . '/includes/sections/faq.php'; ?>
