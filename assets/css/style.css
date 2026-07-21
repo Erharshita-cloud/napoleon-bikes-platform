@@ -1740,3 +1740,174 @@ section{
     }
 
 }
+
+/* ==========================================================================
+   Testimonials
+========================================================================== */
+
+.testimonials{
+    padding:6rem 0;
+    background:var(--color-bg);
+    overflow:hidden;
+}
+
+.testimonial-grid{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:2rem;
+}
+
+.testimonial-card{
+    display:flex;
+    flex-direction:column;
+    padding:2rem;
+    background:var(--color-card);
+    border-radius:var(--radius-lg);
+    box-shadow:var(--shadow-md);
+    transition:var(--transition);
+    opacity:0;
+    animation:testimonialFade .8s ease forwards;
+    overflow:hidden;
+}
+
+.testimonial-card:hover{
+    transform:translateY(-8px);
+    box-shadow:var(--shadow-lg);
+}
+
+/* ==========================================================================
+   Header
+========================================================================== */
+
+.testimonial-header{
+    display:flex;
+    align-items:center;
+    gap:1rem;
+    margin-bottom:1.5rem;
+}
+
+.testimonial-header img{
+    width:72px;
+    height:72px;
+    border-radius:50%;
+    object-fit:cover;
+    border:3px solid var(--color-primary);
+    flex-shrink:0;
+}
+
+.testimonial-header h3{
+    margin:0 0 .25rem;
+    font-size:1.1rem;
+    line-height:1.3;
+    color:var(--color-secondary);
+    word-break:break-word;
+}
+
+.testimonial-header span{
+    display:block;
+    font-size:.9rem;
+    color:var(--color-text-light);
+    overflow-wrap:anywhere;
+}
+
+/* ==========================================================================
+   Rating
+========================================================================== */
+
+.testimonial-rating{
+    display:flex;
+    gap:.25rem;
+    margin-bottom:1rem;
+    color:#fbbf24;
+}
+
+.testimonial-rating i{
+    font-size:1rem;
+}
+
+/* ==========================================================================
+   Content
+========================================================================== */
+
+.testimonial-card p{
+    margin:0;
+    color:var(--color-text-light);
+    line-height:1.8;
+    flex:1;
+}
+
+/* ==========================================================================
+   Animation
+========================================================================== */
+
+.testimonial-card:nth-child(1){
+    animation-delay:.1s;
+}
+
+.testimonial-card:nth-child(2){
+    animation-delay:.25s;
+}
+
+.testimonial-card:nth-child(3){
+    animation-delay:.4s;
+}
+
+@keyframes testimonialFade{
+
+    from{
+        opacity:0;
+        transform:translateY(35px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* ==========================================================================
+   Responsive
+========================================================================== */
+
+@media (max-width:992px){
+
+    .testimonial-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+
+}
+
+@media (max-width:768px){
+
+    .testimonials{
+        padding:5rem 0;
+    }
+
+    .testimonial-grid{
+        grid-template-columns:1fr;
+        gap:1.5rem;
+    }
+
+    .testimonial-card{
+        padding:1.75rem;
+    }
+
+}
+
+@media (max-width:480px){
+
+    .testimonial-header{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .testimonial-rating{
+        justify-content:center;
+    }
+
+    .testimonial-card p{
+        text-align:center;
+    }
+
+}
