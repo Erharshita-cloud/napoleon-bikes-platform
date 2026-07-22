@@ -80,3 +80,55 @@ function initFAQ() {
     });
 
 }
+
+/*=========================================
+  Statistics Counter
+=========================================*/
+
+const counters = document.querySelectorAll('.counter');
+
+const counterObserver = new IntersectionObserver((entries) => {
+
+    entries.forEach(entry => {
+
+        if (!entry.isIntersecting) return;
+
+        const counter = entry.target;
+
+        const target = +counter.dataset.target;
+
+        let count = 0;
+
+        const speed = target / 120;
+
+        const updateCounter = () => {
+
+            count += speed;
+
+            if (count < target) {
+
+                counter.innerText = Math.floor(count).toLocaleString();
+
+                requestAnimationFrame(updateCounter);
+
+            } else {
+
+                counter.innerText = target.toLocaleString() + '+';
+
+            }
+
+        };
+
+        updateCounter();
+
+        counterObserver.unobserve(counter);
+
+    });
+
+}, {
+
+    threshold:0.5
+
+});
+
+counters.forEach(counter=>counterObserver.observe(counter));
