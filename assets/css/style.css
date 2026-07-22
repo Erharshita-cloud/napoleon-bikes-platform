@@ -2212,3 +2212,235 @@ section{
     }
 
 }
+
+/* ==========================================================================
+   Newsletter
+========================================================================== */
+
+.newsletter{
+    position:relative;
+    padding:6rem 0;
+    overflow:hidden;
+    background:linear-gradient(135deg,#111827 0%,#1f2937 50%,#111827 100%);
+}
+
+/* Animated Background Glow */
+
+.newsletter::before{
+    content:"";
+    position:absolute;
+    width:450px;
+    height:450px;
+    top:-150px;
+    left:-120px;
+    border-radius:50%;
+    background:rgba(255,122,0,.15);
+    filter:blur(90px);
+    animation:newsletterGlow 8s ease-in-out infinite;
+}
+
+.newsletter::after{
+    content:"";
+    position:absolute;
+    width:400px;
+    height:400px;
+    right:-120px;
+    bottom:-150px;
+    border-radius:50%;
+    background:rgba(255,255,255,.05);
+    filter:blur(100px);
+    animation:newsletterGlowReverse 10s ease-in-out infinite;
+}
+
+.newsletter .container{
+    position:relative;
+    z-index:2;
+}
+
+.newsletter-wrapper{
+    display:grid;
+    grid-template-columns:1fr auto;
+    align-items:center;
+    gap:3rem;
+    padding:3rem;
+    border-radius:var(--radius-lg);
+    background:rgba(255,255,255,.05);
+    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);
+    border:1px solid rgba(255,255,255,.08);
+    box-shadow:0 20px 60px rgba(0,0,0,.25);
+
+    opacity:0;
+    transform:translateY(40px);
+    animation:newsletterFade .9s ease forwards;
+}
+
+.newsletter-content span{
+    display:inline-block;
+    margin-bottom:.75rem;
+    color:var(--color-primary);
+    font-weight:600;
+    letter-spacing:1px;
+    text-transform:uppercase;
+}
+
+.newsletter-content h2{
+    color:#ffffff;
+    margin-bottom:1rem;
+}
+
+.newsletter-content p{
+    color:rgba(255,255,255,.75);
+    line-height:1.8;
+    max-width:600px;
+}
+
+/* ==========================================================================
+   Form
+========================================================================== */
+
+.newsletter-form{
+    display:flex;
+    align-items:center;
+    gap:1rem;
+    flex-wrap:wrap;
+}
+
+.newsletter-form input{
+    width:340px;
+    max-width:100%;
+    padding:1rem 1.4rem;
+    border:none;
+    outline:none;
+    border-radius:var(--radius-md);
+    background:#ffffff;
+    font-size:1rem;
+    transition:var(--transition);
+}
+
+.newsletter-form input:focus{
+    box-shadow:0 0 0 4px rgba(255,122,0,.25);
+    transform:translateY(-2px);
+}
+
+.newsletter-form .btn{
+    white-space:nowrap;
+    transition:var(--transition);
+}
+
+.newsletter-form .btn:hover{
+    transform:translateY(-3px) scale(1.03);
+}
+
+/* ==========================================================================
+   Animations
+========================================================================== */
+
+@keyframes newsletterFade{
+
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+@keyframes newsletterGlow{
+
+    0%{
+        transform:translate(0,0) scale(1);
+    }
+
+    50%{
+        transform:translate(40px,30px) scale(1.15);
+    }
+
+    100%{
+        transform:translate(0,0) scale(1);
+    }
+
+}
+
+@keyframes newsletterGlowReverse{
+
+    0%{
+        transform:translate(0,0) scale(1);
+    }
+
+    50%{
+        transform:translate(-35px,-25px) scale(1.1);
+    }
+
+    100%{
+        transform:translate(0,0) scale(1);
+    }
+
+}
+
+/* ==========================================================================
+   Responsive
+========================================================================== */
+
+@media (max-width:992px){
+
+    .newsletter-wrapper{
+        grid-template-columns:1fr;
+        text-align:center;
+        gap:2.5rem;
+    }
+
+    .newsletter-content p{
+        margin-inline:auto;
+    }
+
+    .newsletter-form{
+        justify-content:center;
+    }
+
+}
+
+@media (max-width:768px){
+
+    .newsletter{
+        padding:5rem 0;
+    }
+
+    .newsletter-wrapper{
+        padding:2rem;
+    }
+
+    .newsletter-form{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .newsletter-form input{
+        width:100%;
+    }
+
+    .newsletter-form .btn{
+        width:100%;
+    }
+
+}
+
+@media (max-width:480px){
+
+    .newsletter{
+        padding:4rem 0;
+    }
+
+    .newsletter-wrapper{
+        padding:1.5rem;
+    }
+
+    .newsletter-content h2{
+        font-size:1.8rem;
+    }
+
+}
