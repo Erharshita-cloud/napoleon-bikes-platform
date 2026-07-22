@@ -6,225 +6,120 @@
  * ---------------------------------------------------------
  */
 
-
 if (!isset($currentPage)) {
 
     $currentPage = 'home';
-
 }
-
 ?>
 
-
 <header id="siteHeader" class="site-header">
-
+    
 <div class="container">
 
-
 <nav class="navbar" aria-label="Primary Navigation">
-
 
 <!-- ================================================= -->
 <!-- Logo -->
 <!-- ================================================= -->
-
-
 <a 
 href="<?= url(''); ?>" 
 class="logo"
 aria-label="<?= e(SITE_NAME); ?> Home">
 
-
 <img
 
-src="<?= IMG ?>logo.png"
-
+src="<?= IMG ?>branding/logo.png"
 alt="<?= e(SITE_NAME); ?> Logo"
-
 width="52"
-
 height="52"
-
 >
-
 
 <div class="logo-text">
 
-
 <h2>
-
 <?= e(SITE_NAME); ?>
-
 </h2>
 
-
 <span>
-
 <?= e(SITE_TAGLINE); ?>
-
 </span>
 
-
 </div>
-
-
 </a>
 
 
 <!-- ================================================= -->
 <!-- Desktop Navigation -->
 <!-- ================================================= -->
-
-
 <ul class="nav-menu">
-
-
 <?php foreach($navigation as $name=>$item): ?>
-
-
 <li>
-
-
 <a
-
 href="<?= e($item['url']); ?>"
-
 class="<?= strtolower($name)==$currentPage ? 'active':''; ?>"
-
 >
-
-
 <?= e($name); ?>
-
-
 </a>
-
-
 </li>
-
-
 <?php endforeach; ?>
-
-
 </ul>
-
-
 <!-- ================================================= -->
 <!-- Right Actions -->
 <!-- ================================================= -->
-
-
 <div class="nav-actions">
-
-
-
+    
 <button
-
 class="icon-btn"
-
 id="searchBtn"
-
 aria-label="Search"
-
 >
-
 <i class="ri-search-line"></i>
-
 </button>
 
-
-
-
 <button
-
 class="icon-btn"
-
 id="themeToggle"
-
 aria-label="Toggle Theme"
-
 >
-
 <i class="ri-moon-line"></i>
-
 </button>
 
-
-
-
 <a
-
 href="#"
-
 class="login-btn"
-
 >
-
 <i class="ri-user-3-line"></i>
-
-
 <span>
-
 Login
-
 </span>
-
-
 </a>
-
-
-
-
 
 <a
-
 href="<?= url('booking/'); ?>"
-
 class="btn btn-primary"
-
 >
-
 Book Test Ride
-
 </a>
-
-
-
-
 
 <button
-
 id="mobileMenuBtn"
-
 class="mobile-menu-btn"
-
 aria-label="Open Menu"
-
 >
-
 <i class="ri-menu-3-line"></i>
-
-
 </button>
-
-
 
 </div>
-
 
 </nav>
 
-
 </div>
 
-
 </header>
-
 
 <!-- ================================================= -->
 <!-- Search Overlay -->
 <!-- ================================================= -->
-
 
 <div id="searchOverlay" class="search-overlay">
 
@@ -315,7 +210,7 @@ class="mobile-logo"
 
 <img
 
-src="<?= IMG ?>logo.png"
+src="<?= IMG ?>branding/logo.png"
 
 alt="<?= e(SITE_NAME); ?>"
 
