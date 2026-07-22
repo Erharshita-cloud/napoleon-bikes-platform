@@ -2165,7 +2165,7 @@ section{
 ========================================================================== */
 
 .faq-item.active .faq-answer{
-    max-height:300px;
+    max-height:none;
 }
 
 .faq-item.active .faq-question i{
