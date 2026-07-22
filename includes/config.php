@@ -1,14 +1,12 @@
 <?php
 declare(strict_types=1);
 
-
 /*
 |--------------------------------------------------------------------------
 | Napoleon Bikes Platform
 | Configuration File
 |--------------------------------------------------------------------------
 */
-
 
 /*
 |--------------------------------------------------------------------------
@@ -21,30 +19,25 @@ define(
     'Napoleon Bikes'
 );
 
-
 define(
     'SITE_TAGLINE',
     'Ride Beyond Limits'
 );
-
 
 define(
     'SITE_DESCRIPTION',
     'Premium motorcycles engineered for every journey.'
 );
 
-
 define(
     'SITE_KEYWORDS',
     'motorcycles,bikes,sports bike,electric bikes,napoleon bikes'
 );
 
-
 define(
     'SITE_AUTHOR',
     'Napoleon Bikes'
 );
-
 
 
 /*
@@ -61,7 +54,6 @@ define(
 );
 
 
-
 /*
 |--------------------------------------------------------------------------
 | Base URL
@@ -74,13 +66,11 @@ define(
 |--------------------------------------------------------------------------
 */
 
-
 $basePath = str_replace(
     '\\',
     '/',
     dirname($_SERVER['SCRIPT_NAME'])
 );
-
 
 if ($basePath === '/' || $basePath === '\\') {
 
@@ -88,13 +78,10 @@ if ($basePath === '/' || $basePath === '\\') {
 
 }
 
-
 define(
     'BASE_URL',
     $basePath . '/'
 );
-
-
 
 /*
 |--------------------------------------------------------------------------
@@ -102,31 +89,36 @@ define(
 |--------------------------------------------------------------------------
 */
 
-
 define(
     'ASSETS',
     BASE_URL . 'assets/'
 );
-
 
 define(
     'CSS',
     ASSETS . 'css/'
 );
 
-
 define(
     'JS',
     ASSETS . 'js/'
 );
-
 
 define(
     'IMG',
     ASSETS . 'images/'
 );
 
+/*
+|--------------------------------------------------------------------------
+| Common URLs
+|--------------------------------------------------------------------------
+*/
 
+define(
+    'BOOK_TEST_RIDE_URL',
+    BASE_URL . 'book-test-ride.php'
+);
 
 /*
 |--------------------------------------------------------------------------
@@ -142,31 +134,25 @@ define(
 |--------------------------------------------------------------------------
 */
 
-
 define(
     'DB_HOST',
     getenv('DB_HOST') ?: 'localhost'
 );
-
 
 define(
     'DB_NAME',
     getenv('DB_NAME') ?: 'napoleon_bikes'
 );
 
-
 define(
     'DB_USER',
     getenv('DB_USER') ?: 'root'
 );
 
-
 define(
     'DB_PASS',
     getenv('DB_PASS') ?: ''
 );
-
-
 
 /*
 |--------------------------------------------------------------------------
@@ -174,32 +160,26 @@ define(
 |--------------------------------------------------------------------------
 */
 
-
 define(
     'COMPANY_EMAIL',
     'info@napoleonbikes.com'
 );
-
 
 define(
     'COMPANY_PHONE',
     '+91-9876543210'
 );
 
-
 define(
     'COMPANY_ADDRESS',
     'Meerut, Uttar Pradesh, India'
 );
-
-
 
 /*
 |--------------------------------------------------------------------------
 | Social Media Links
 |--------------------------------------------------------------------------
 */
-
 
 $social = [
 
@@ -213,56 +193,49 @@ $social = [
 
 ];
 
-
-
 /*
 |--------------------------------------------------------------------------
 | Navigation Menu
 |--------------------------------------------------------------------------
 */
 
-
 $navigation = [
 
     'Home' => [
 
-        'url' => BASE_URL,
+        'url' => BASE_URL . 'index.php',
 
         'icon' => 'ri-home-line'
 
     ],
 
+    'About' => [
+
+        'url' => BASE_URL . 'about.php',
+
+        'icon' => 'ri-information-line'
+
+    ],
 
     'Bikes' => [
 
-        'url' => BASE_URL . 'bikes/',
+        'url' => BASE_URL . 'bikes.php',
 
         'icon' => 'ri-motorbike-line'
 
     ],
 
+    'Book Test Ride' => [
 
-    'Booking' => [
-
-        'url' => BASE_URL . 'booking/',
+        'url' => BASE_URL . 'book-test-ride.php',
 
         'icon' => 'ri-calendar-check-line'
 
     ],
 
-
-    'Pricing' => [
-
-        'url' => BASE_URL . 'pricing/',
-
-        'icon' => 'ri-price-tag-3-line'
-
-    ],
-
-
     'Contact' => [
 
-        'url' => BASE_URL . 'contact/',
+        'url' => BASE_URL . 'contact.php',
 
         'icon' => 'ri-phone-line'
 
@@ -270,14 +243,11 @@ $navigation = [
 
 ];
 
-
-
 /*
 |--------------------------------------------------------------------------
 | Security / Debug Settings
 |--------------------------------------------------------------------------
 */
-
 
 if (ENVIRONMENT === 'development') {
 
