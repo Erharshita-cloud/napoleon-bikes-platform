@@ -7,135 +7,128 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta
-name="viewport"
-content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-<meta
-http-equiv="X-UA-Compatible"
-content="IE=edge">
+    <meta
+        http-equiv="X-UA-Compatible"
+        content="IE=edge">
 
-<title>
-<?= e(SITE_NAME); ?>
-</title>
+    <title><?= e(SITE_NAME); ?></title>
 
-<meta
-name="description"
-content="<?= e(SITE_DESCRIPTION); ?>">
+    <meta
+        name="description"
+        content="<?= e(SITE_DESCRIPTION); ?>">
 
-<meta
-name="keywords"
-content="<?= e(SITE_KEYWORDS); ?>">
+    <meta
+        name="keywords"
+        content="<?= e(SITE_KEYWORDS); ?>">
 
-<meta
-name="author"
-content="<?= e(SITE_AUTHOR); ?>">
+    <meta
+        name="author"
+        content="<?= e(SITE_AUTHOR); ?>">
 
-<meta
-name="robots"
-content="index,follow">
+    <meta
+        name="robots"
+        content="index,follow">
 
-<link
-rel="canonical"
-href="<?= BASE_URL ?>">
+    <link
+        rel="canonical"
+        href="<?= BASE_URL ?>">
 
-<meta
-name="theme-color"
-content="#dc2626">
+    <meta
+        name="theme-color"
+        content="#dc2626">
 
-<!-- Open Graph -->
-<meta
-property="og:title"
-content="<?= e(SITE_NAME); ?>">
-  
-<meta
-property="og:description"
-content="<?= e(SITE_DESCRIPTION); ?>">
+    <!-- Open Graph -->
 
-<meta
-property="og:type"
-content="website">
+    <meta
+        property="og:title"
+        content="<?= e(SITE_NAME); ?>">
 
-<meta
-property="og:image"
-content="<?= IMG ?>branding/logo.png">
+    <meta
+        property="og:description"
+        content="<?= e(SITE_DESCRIPTION); ?>">
 
-<meta
-property="og:url"
-content="<?= BASE_URL ?>">
+    <meta
+        property="og:type"
+        content="website">
 
-<meta
-property="og:site_name"
-content="<?= e(SITE_NAME); ?>">
+    <meta
+        property="og:image"
+        content="<?= IMG ?>branding/logo.png">
 
-<!-- Twitter Cards -->
+    <meta
+        property="og:url"
+        content="<?= BASE_URL ?>">
 
-<meta
-name="twitter:card"
-content="summary_large_image">
+    <meta
+        property="og:site_name"
+        content="<?= e(SITE_NAME); ?>">
 
-<meta
-name="twitter:title"
-content="<?= e(SITE_NAME); ?>">
+    <!-- Twitter Cards -->
 
-<meta
-name="twitter:description"
-content="<?= e(SITE_DESCRIPTION); ?>">
+    <meta
+        name="twitter:card"
+        content="summary_large_image">
 
-<meta
-name="twitter:image"
-content="<?= IMG ?>branding/logo.png">
+    <meta
+        name="twitter:title"
+        content="<?= e(SITE_NAME); ?>">
 
-<!-- Favicons -->
+    <meta
+        name="twitter:description"
+        content="<?= e(SITE_DESCRIPTION); ?>">
 
-<link
-rel="icon"
-type="image/png"
-href="<?= IMG ?>branding/favicon.png">
+    <meta
+        name="twitter:image"
+        content="<?= IMG ?>branding/logo.png">
 
-<link
-rel="apple-touch-icon"
-href="<?= IMG ?>branding/logo-icon.png">
+    <!-- Favicons -->
 
-<!-- Google Fonts -->
-<link
-rel="preconnect"
-href="https://fonts.googleapis.com">
+    <link
+        rel="icon"
+        type="image/png"
+        href="<?= IMG ?>branding/favicon.png">
 
-<link
-rel="preconnect"
-href="https://fonts.gstatic.com"
-crossorigin>
+    <link
+        rel="apple-touch-icon"
+        href="<?= IMG ?>branding/logo-icon.png">
 
-<link
-href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
-rel="stylesheet">
+    <!-- Google Fonts -->
 
-<!-- Font Awesome -->
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com">
 
-<link
-rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
 
-<!-- Remix Icons -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
 
-<link
-href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
-rel="stylesheet">
+    <!-- Font Awesome -->
 
-<!-- CSS Files -->
-<link
-rel="stylesheet"
-href="<?= CSS ?>style.css">
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-<link
-rel="stylesheet"
-href="<?= CSS ?>animations.css">
+    <!-- Remix Icons -->
 
-<link
-rel="stylesheet"
-href="<?= CSS ?>responsive.css">
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css">
+
+    <!-- Main Stylesheet -->
+
+    <link
+        rel="stylesheet"
+        href="<?= CSS ?>style.css">
 
 </head>
