@@ -1911,3 +1911,167 @@ section{
     }
 
 }
+
+/* ==========================================================================
+   Dealer Network
+========================================================================== */
+
+.dealers{
+    padding:6rem 0;
+    background:var(--color-white);
+    overflow:hidden;
+}
+
+.dealers-wrapper{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    align-items:center;
+    gap:clamp(2rem,4vw,4rem);
+}
+
+/* ==========================================================================
+   Left Content
+========================================================================== */
+
+.dealers-content h2{
+    margin:1rem 0 1.5rem;
+}
+
+.dealers-content p{
+    margin-bottom:2rem;
+    color:var(--color-text-light);
+    line-height:1.8;
+    max-width:650px;
+}
+
+/* ==========================================================================
+   Statistics
+========================================================================== */
+
+.dealer-stats{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:1.25rem;
+    margin-bottom:2.5rem;
+}
+
+.dealer-stat{
+    padding:1.5rem;
+    background:var(--color-card);
+    border-radius:var(--radius-lg);
+    box-shadow:var(--shadow-md);
+    text-align:center;
+    overflow:hidden;
+    transition:var(--transition);
+}
+
+.dealer-stat:hover{
+    transform:translateY(-8px);
+    box-shadow:var(--shadow-lg);
+}
+
+.dealer-stat h3{
+    margin:0 0 .5rem;
+    font-size:2rem;
+    color:var(--color-primary);
+    line-height:1.2;
+}
+
+.dealer-stat span{
+    display:block;
+    color:var(--color-text-light);
+    font-size:.95rem;
+    line-height:1.5;
+    overflow-wrap:anywhere;
+}
+
+/* ==========================================================================
+   Dealer Image
+========================================================================== */
+
+.dealers-image{
+    position:relative;
+    overflow:hidden;
+    border-radius:var(--radius-lg);
+}
+
+.dealers-image img{
+    display:block;
+    width:100%;
+    height:auto;
+    border-radius:inherit;
+    box-shadow:var(--shadow-lg);
+    transition:transform .5s ease, box-shadow .35s ease;
+}
+
+.dealers-image:hover img{
+    transform:scale(1.03);
+    box-shadow:0 20px 45px rgba(0,0,0,.18);
+}
+
+/* ==========================================================================
+   Responsive
+========================================================================== */
+
+@media (max-width:992px){
+
+    .dealers{
+        padding:5rem 0;
+    }
+
+    .dealers-wrapper{
+        grid-template-columns:1fr;
+        gap:3rem;
+    }
+
+    .dealers-content{
+        text-align:center;
+    }
+
+    .dealers-content p{
+        max-width:100%;
+        margin-inline:auto;
+    }
+
+    .dealers-content .btn{
+        margin-inline:auto;
+    }
+
+    .dealer-stats{
+        grid-template-columns:repeat(3,minmax(0,1fr));
+    }
+
+}
+
+@media (max-width:768px){
+
+    .dealers{
+        padding:4.5rem 0;
+    }
+
+    .dealer-stats{
+        grid-template-columns:1fr;
+        gap:1rem;
+    }
+
+    .dealer-stat{
+        padding:1.25rem;
+    }
+
+}
+
+@media (max-width:480px){
+
+    .dealers{
+        padding:4rem 0;
+    }
+
+    .dealer-stat h3{
+        font-size:1.75rem;
+    }
+
+    .dealer-stat span{
+        font-size:.9rem;
+    }
+
+}
