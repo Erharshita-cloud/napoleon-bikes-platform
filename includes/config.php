@@ -117,7 +117,7 @@ define(
 
 define(
     'BOOK_TEST_RIDE_URL',
-    BASE_URL . 'book-test-ride.php'
+    BASE_URL . 'book-test-ride/'
 );
 
 /*
@@ -183,13 +183,13 @@ define(
 
 $social = [
 
-    'facebook' => '#',
+    'facebook' => '',
 
-    'instagram' => '#',
+    'instagram' => '',
 
-    'linkedin' => '#',
+    'linkedin' => '',
 
-    'youtube' => '#'
+    'youtube' => ''
 
 ];
 
@@ -202,43 +202,28 @@ $social = [
 $navigation = [
 
     'Home' => [
-
-        'url' => BASE_URL . 'index.php',
-
-        'icon' => 'ri-home-line'
-
+         'url' => BASE_URL,
+         'icon' => 'ri-home-line'
     ],
 
     'About' => [
-
-        'url' => BASE_URL . 'about.php',
-
+        'url' => BASE_URL . 'about/',
         'icon' => 'ri-information-line'
-
     ],
 
     'Bikes' => [
-
-        'url' => BASE_URL . 'bikes.php',
-
+        'url' => BASE_URL . 'bikes/',
         'icon' => 'ri-motorbike-line'
-
     ],
 
-    'Book Test Ride' => [
-
-        'url' => BASE_URL . 'book-test-ride.php',
-
-        'icon' => 'ri-calendar-check-line'
-
+     'Pricing' => [
+        'url' => BASE_URL . 'pricing/',
+        'icon' => 'ri-price-tag-3-line'
     ],
 
     'Contact' => [
-
-        'url' => BASE_URL . 'contact.php',
-
+        'url' => BASE_URL . 'contact/',
         'icon' => 'ri-phone-line'
-
     ]
 
 ];
