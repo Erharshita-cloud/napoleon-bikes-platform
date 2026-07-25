@@ -1,0 +1,814 @@
+/* ==========================================================
+   Napoleon Bikes
+   Pricing Page Styles - Part 1
+========================================================== */
+
+/* ------------------------------
+   Hero Section
+------------------------------ */
+
+.pricing-hero{
+    position:relative;
+    overflow:hidden;
+    padding:140px 0 90px;
+    background:
+        radial-gradient(circle at top right,#dc262630,transparent 40%),
+        radial-gradient(circle at bottom left,#991b1b40,transparent 45%),
+        linear-gradient(135deg,#090909,#121212,#090909);
+}
+
+.pricing-hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+        linear-gradient(
+            rgba(255,255,255,.02),
+            transparent
+        );
+    pointer-events:none;
+}
+
+.pricing-hero .hero-content{
+    max-width:760px;
+    margin:auto;
+    text-align:center;
+    position:relative;
+    z-index:2;
+}
+
+.pricing-hero h1{
+    margin:25px 0;
+    font-size:clamp(2.7rem,6vw,5rem);
+    line-height:1.1;
+    font-weight:800;
+}
+
+.pricing-hero h1 span{
+    color:#dc2626;
+}
+
+.pricing-hero p{
+    max-width:650px;
+    margin:auto;
+    color:#bdbdbd;
+    font-size:1.08rem;
+    line-height:1.8;
+}
+
+.pricing-hero .btn{
+    margin-top:35px;
+}
+
+.section-tag{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:10px 18px;
+    border-radius:50px;
+    border:1px solid rgba(255,255,255,.08);
+    background:rgba(255,255,255,.05);
+    backdrop-filter:blur(16px);
+    color:#dc2626;
+    font-weight:600;
+    letter-spacing:.5px;
+}
+
+/* ------------------------------
+   Pricing Section
+------------------------------ */
+
+.pricing-section{
+    padding:110px 0;
+    background:#0b0b0b;
+}
+
+.section-header{
+    text-align:center;
+    margin-bottom:70px;
+}
+
+.section-header h2{
+    font-size:clamp(2rem,4vw,3rem);
+    margin-bottom:18px;
+    font-weight:800;
+}
+
+.section-header p{
+    max-width:700px;
+    margin:auto;
+    color:#9f9f9f;
+    line-height:1.8;
+}
+
+.pricing-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:35px;
+}
+
+/* ------------------------------
+   Pricing Card
+------------------------------ */
+
+.pricing-card{
+    position:relative;
+    overflow:hidden;
+    border-radius:28px;
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.08);
+    backdrop-filter:blur(18px);
+    transition:.4s ease;
+}
+
+.pricing-card:hover{
+    transform:translateY(-12px);
+    border-color:#dc2626;
+    box-shadow:
+        0 20px 45px rgba(220,38,38,.20);
+}
+
+.pricing-card.featured{
+    border:2px solid #dc2626;
+    transform:scale(1.03);
+}
+
+.pricing-card.featured:hover{
+    transform:scale(1.03) translateY(-12px);
+}
+
+.badge{
+    position:absolute;
+    top:22px;
+    right:22px;
+    background:#dc2626;
+    color:#fff;
+    padding:8px 16px;
+    border-radius:50px;
+    font-size:.8rem;
+    font-weight:700;
+    z-index:20;
+}
+
+.bike-image{
+    overflow:hidden;
+}
+
+.bike-image img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    transition:.5s;
+}
+
+.pricing-card:hover .bike-image img{
+    transform:scale(1.08);
+}
+
+.bike-content{
+    padding:30px;
+}
+
+.bike-content h3{
+    margin-bottom:12px;
+    font-size:1.7rem;
+}
+
+.bike-content p{
+    color:#b0b0b0;
+    line-height:1.7;
+}
+
+.bike-price{
+    margin:28px 0;
+    font-size:2.3rem;
+    font-weight:800;
+    color:#dc2626;
+}
+
+.bike-content ul{
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+
+.bike-content ul li{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:14px;
+    color:#d5d5d5;
+}
+
+.bike-content ul li i{
+    color:#22c55e;
+    font-size:1.1rem;
+}
+
+.bike-content .btn{
+    width:100%;
+    margin-top:28px;
+}
+
+/* ------------------------------
+   Finance Section
+------------------------------ */
+
+.finance-section{
+    padding:110px 0;
+    background:#111;
+}
+
+.finance-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
+}
+
+.finance-card{
+    padding:40px 35px;
+    text-align:center;
+    border-radius:24px;
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.07);
+    backdrop-filter:blur(16px);
+    transition:.35s;
+}
+
+.finance-card:hover{
+    transform:translateY(-10px);
+    border-color:#dc2626;
+    box-shadow:
+        0 15px 35px rgba(220,38,38,.15);
+}
+
+.finance-card i{
+    font-size:3rem;
+    color:#dc2626;
+    margin-bottom:18px;
+}
+
+.finance-card h3{
+    margin-bottom:12px;
+    font-size:1.25rem;
+}
+
+.finance-card h2{
+    margin-bottom:15px;
+    font-size:2rem;
+    color:#ffffff;
+    font-weight:800;
+}
+
+.finance-card p{
+    color:#b7b7b7;
+    line-height:1.8;
+}
+
+/* ==========================================================
+   Pricing Page Styles - Part 2
+   Comparison Table + Booking Modal
+========================================================== */
+
+/* ------------------------------
+   Comparison Section
+------------------------------ */
+
+.comparison-section{
+    padding:110px 0;
+    background:#0d0d0d;
+}
+
+.comparison-table{
+    overflow-x:auto;
+    border-radius:24px;
+    border:1px solid rgba(255,255,255,.08);
+    background:rgba(255,255,255,.03);
+    backdrop-filter:blur(18px);
+}
+
+.comparison-table table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:850px;
+}
+
+.comparison-table thead{
+    background:linear-gradient(90deg,#991b1b,#dc2626);
+}
+
+.comparison-table thead th{
+    padding:22px;
+    color:#fff;
+    font-size:1rem;
+    text-align:center;
+    font-weight:700;
+}
+
+.comparison-table tbody td{
+    padding:20px;
+    text-align:center;
+    border-top:1px solid rgba(255,255,255,.05);
+    color:#d7d7d7;
+}
+
+.comparison-table tbody tr{
+    transition:.3s;
+}
+
+.comparison-table tbody tr:hover{
+    background:rgba(220,38,38,.08);
+}
+
+.comparison-table tbody td:first-child{
+    text-align:left;
+    font-weight:700;
+    color:#ffffff;
+}
+
+/* ------------------------------
+   Booking Modal
+------------------------------ */
+
+.booking-modal{
+    position:fixed;
+    inset:0;
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+    padding:25px;
+}
+
+.booking-modal.active{
+    display:flex;
+}
+
+.booking-modal-overlay{
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.75);
+    backdrop-filter:blur(8px);
+}
+
+.booking-modal-content{
+    position:relative;
+    z-index:10;
+    width:100%;
+    max-width:520px;
+    padding:45px;
+    border-radius:28px;
+    background:#141414;
+    border:1px solid rgba(255,255,255,.08);
+    box-shadow:0 25px 80px rgba(0,0,0,.65);
+    animation:modalPop .35s ease;
+}
+
+.booking-modal-content h2{
+    margin-bottom:12px;
+    font-size:2rem;
+}
+
+.booking-modal-content p{
+    margin-bottom:35px;
+    color:#a8a8a8;
+    line-height:1.8;
+}
+
+/* ------------------------------
+   Close Button
+------------------------------ */
+
+.close-modal{
+    position:absolute;
+    top:20px;
+    right:20px;
+    width:42px;
+    height:42px;
+    border:none;
+    border-radius:50%;
+    background:rgba(255,255,255,.08);
+    color:#fff;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.close-modal:hover{
+    background:#dc2626;
+    transform:rotate(90deg);
+}
+
+/* ------------------------------
+   Form
+------------------------------ */
+
+.form-group{
+    margin-bottom:22px;
+}
+
+.form-group input,
+.form-group select{
+    width:100%;
+    padding:16px 18px;
+    border:none;
+    outline:none;
+    border-radius:14px;
+    background:#1d1d1d;
+    color:#fff;
+    font-size:.96rem;
+    transition:.3s;
+}
+
+.form-group input::placeholder{
+    color:#8b8b8b;
+}
+
+.form-group input:focus,
+.form-group select:focus{
+    border:1px solid #dc2626;
+    box-shadow:0 0 0 4px rgba(220,38,38,.15);
+}
+
+.form-group select{
+    appearance:none;
+    cursor:pointer;
+}
+
+/* ------------------------------
+   Buttons
+------------------------------ */
+
+.btn-full{
+    width:100%;
+}
+
+.booking-modal .btn-primary{
+    margin-top:12px;
+}
+
+/* ------------------------------
+   Modal Animation
+------------------------------ */
+
+@keyframes modalPop{
+
+    from{
+
+        transform:translateY(35px) scale(.92);
+        opacity:0;
+
+    }
+
+    to{
+
+        transform:translateY(0) scale(1);
+        opacity:1;
+
+    }
+
+}
+
+/* ------------------------------
+   Scrollbar
+------------------------------ */
+
+.comparison-table::-webkit-scrollbar{
+    height:8px;
+}
+
+.comparison-table::-webkit-scrollbar-thumb{
+    background:#dc2626;
+    border-radius:20px;
+}
+
+.comparison-table::-webkit-scrollbar-track{
+    background:#1a1a1a;
+}
+
+/* ==========================================================
+   Pricing Page Styles - Part 3
+   CTA • Responsive • Animations • Utilities
+========================================================== */
+
+/* ------------------------------
+   CTA Section
+------------------------------ */
+
+.pricing-cta{
+    padding:120px 0;
+    background:
+        radial-gradient(circle at top right,#dc262620,transparent 40%),
+        linear-gradient(135deg,#0b0b0b,#121212,#0b0b0b);
+}
+
+.cta-box{
+    max-width:950px;
+    margin:auto;
+    padding:70px 50px;
+    text-align:center;
+    border-radius:30px;
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.08);
+    backdrop-filter:blur(20px);
+    box-shadow:0 25px 60px rgba(0,0,0,.35);
+}
+
+.cta-box h2{
+    font-size:clamp(2rem,4vw,3.2rem);
+    margin-bottom:20px;
+    font-weight:800;
+}
+
+.cta-box p{
+    max-width:650px;
+    margin:0 auto 35px;
+    color:#b8b8b8;
+    line-height:1.8;
+    font-size:1.05rem;
+}
+
+.cta-box .btn{
+    padding:16px 40px;
+    font-size:1rem;
+}
+
+/* ------------------------------
+   Hover Effects
+------------------------------ */
+
+.pricing-card,
+.finance-card,
+.cta-box,
+.booking-modal-content{
+    transition:all .35s ease;
+}
+
+.pricing-card:hover,
+.finance-card:hover{
+    will-change:transform;
+}
+
+.btn{
+    transition:all .3s ease;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+}
+
+.btn:active{
+    transform:translateY(0);
+}
+
+/* ------------------------------
+   Fade Animation
+------------------------------ */
+
+.pricing-card,
+.finance-card,
+.cta-box{
+    animation:fadeUp .8s ease both;
+}
+
+.pricing-card:nth-child(2){
+    animation-delay:.15s;
+}
+
+.pricing-card:nth-child(3){
+    animation-delay:.3s;
+}
+
+.finance-card:nth-child(2){
+    animation-delay:.15s;
+}
+
+.finance-card:nth-child(3){
+    animation-delay:.3s;
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+        transform:translateY(35px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ------------------------------
+   Responsive
+------------------------------ */
+
+@media (max-width:1200px){
+
+    .pricing-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+@media (max-width:992px){
+
+    .pricing-hero{
+
+        padding:120px 0 70px;
+
+    }
+
+    .pricing-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .finance-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .cta-box{
+
+        padding:55px 35px;
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    .pricing-section,
+    .finance-section,
+    .comparison-section,
+    .pricing-cta{
+
+        padding:80px 0;
+
+    }
+
+    .pricing-hero h1{
+
+        font-size:2.7rem;
+
+    }
+
+    .pricing-hero p{
+
+        font-size:.98rem;
+
+    }
+
+    .bike-image img{
+
+        height:220px;
+
+    }
+
+    .bike-content{
+
+        padding:25px;
+
+    }
+
+    .bike-price{
+
+        font-size:2rem;
+
+    }
+
+    .booking-modal-content{
+
+        padding:35px 25px;
+
+    }
+
+    .comparison-table table{
+
+        min-width:700px;
+
+    }
+
+}
+
+@media (max-width:576px){
+
+    .pricing-hero{
+
+        padding:100px 0 60px;
+
+    }
+
+    .section-header{
+
+        margin-bottom:50px;
+
+    }
+
+    .section-header h2{
+
+        font-size:2rem;
+
+    }
+
+    .cta-box{
+
+        padding:40px 22px;
+
+        border-radius:22px;
+
+    }
+
+    .bike-content h3{
+
+        font-size:1.4rem;
+
+    }
+
+    .bike-price{
+
+        font-size:1.8rem;
+
+    }
+
+    .booking-modal-content{
+
+        padding:30px 20px;
+
+    }
+
+}
+
+/* ------------------------------
+   Utilities
+------------------------------ */
+
+.text-center{
+
+    text-align:center;
+
+}
+
+.mt-1{
+
+    margin-top:10px;
+
+}
+
+.mt-2{
+
+    margin-top:20px;
+
+}
+
+.mt-3{
+
+    margin-top:30px;
+
+}
+
+.mb-1{
+
+    margin-bottom:10px;
+
+}
+
+.mb-2{
+
+    margin-bottom:20px;
+
+}
+
+.mb-3{
+
+    margin-bottom:30px;
+
+}
+
+/* ------------------------------
+   Selection
+------------------------------ */
+
+::selection{
+
+    background:#dc2626;
+    color:#fff;
+
+}
+
+::-moz-selection{
+
+    background:#dc2626;
+    color:#fff;
+
+}
