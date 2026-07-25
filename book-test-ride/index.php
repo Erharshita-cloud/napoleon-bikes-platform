@@ -192,15 +192,13 @@ Book Your Ride
 
 <div class="form-group">
 
-<label>
-
+<label for="name">
 Full Name
-
 </label>
 
 <input
 type="text"
-name="name"
+autocomplete="name"
 maxlength="60"
 required>
 
@@ -208,30 +206,26 @@ required>
 
 <div class="form-group">
 
-<label>
-
+<label for="name">
 Email Address
-
 </label>
 
 <input
 type="email"
-name="email"
+autocomplete="email"
 required>
 
 </div>
 
 <div class="form-group">
 
-<label>
-
+<label for="name">
 Phone Number
-
 </label>
 
 <input
 type="tel"
-name="phone"
+autocomplete="phone"
 pattern="[0-9]{10}"
 maxlength="10"
 required>
@@ -256,29 +250,15 @@ Select Bike
 
 </option>
 
-<option>
-
-Napoleon Classic 350
-
-</option>
-
-<option>
-
-Napoleon Street 500
-
-</option>
-
-<option>
-
-Napoleon Adventure X
-
-</option>
-
-<option>
-
-Napoleon Sport R
-
-</option>
+<option>Napoleon Classic 350</option>
+<option>Napoleon Classic 500</option>
+<option>Napoleon Classic 900</option>
+<option>Napoleon Street 500</option>
+<option>Napoleon Street</option>
+<option>Napoleon Sport</option>
+<option>Napoleon Sport X</option>
+<option>Napoleon Sports Edition</option>
+<option>Napoleon Phantom 900</option>
 
 </select>
 
@@ -404,7 +384,7 @@ Additional Message
 name="message"
 rows="5"
 maxlength="500"
-placeholder="Anything you'd like us to know?"></textarea>
+placeholder="Tell us your preferred dealership, riding experience, or any special request..."></textarea>
 
 </div>
 
