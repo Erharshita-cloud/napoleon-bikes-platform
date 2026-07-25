@@ -56,7 +56,8 @@ height="52"
 <li>
 <a
 href="<?= e($item['url']); ?>"
-class="<?= strtolower($name)==$currentPage ? 'active':''; ?>"
+class="<?= strtolower($name)==$currentPage ? 'active' : ''; ?>"
+<?= strtolower($name)==$currentPage ? 'aria-current="page"' : ''; ?>
 >
 <?= e($name); ?>
 </a>
@@ -143,10 +144,7 @@ aria-label="Close Search"
 </button>
 
 
-
-
 <form>
-
 
 <input
 
@@ -158,25 +156,18 @@ aria-label="Search"
 
 >
 
-
 <button type="submit">
 
-
 <i class="ri-search-line"></i>
-
 
 </button>
 
 
 </form>
 
-
-
 </div>
 
-
 </div>
-
 
 <!-- ================================================= -->
 <!-- Mobile Navigation -->
@@ -188,15 +179,9 @@ aria-label="Search"
 
 <div class="mobile-menu-overlay"></div>
 
-
-
 <aside class="mobile-menu-content">
 
-
-
 <div class="mobile-menu-header">
-
-
 
 <a
 
@@ -205,8 +190,6 @@ href="<?= url(''); ?>"
 class="mobile-logo"
 
 >
-
-
 
 <img
 
@@ -219,8 +202,6 @@ width="45"
 height="45"
 
 >
-
-
 
 <div>
 
@@ -243,9 +224,6 @@ height="45"
 
 
 </a>
-
-
-
 
 
 <button
@@ -274,23 +252,18 @@ aria-label="Close Menu"
 
 <nav class="mobile-navigation">
 
-
-
 <?php foreach($navigation as $name=>$item): ?>
-
 
 <a
 
 href="<?= e($item['url']); ?>"
 
-class="<?= strtolower($name)==$currentPage ? 'active':''; ?>"
+class="<?= strtolower($name)==$currentPage ? 'active' : ''; ?>"
+<?= strtolower($name)==$currentPage ? 'aria-current="page"' : ''; ?>
 
 >
 
-
 <i class="<?= e($item['icon']); ?>"></i>
-
-
 
 <span>
 
@@ -298,10 +271,7 @@ class="<?= strtolower($name)==$currentPage ? 'active':''; ?>"
 
 </span>
 
-
 </a>
-
-
 
 <?php endforeach; ?>
 
