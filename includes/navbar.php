@@ -90,7 +90,7 @@ aria-label="Toggle Theme"
 
 
 <a
-href="<?= url('booking/'); ?>"
+href="<?= BASE_URL ?>book-test-ride/"
 class="btn btn-primary"
 >
 Book Test Ride
@@ -268,17 +268,12 @@ class="<?= strtolower($name)==$currentPage ? 'active' : ''; ?>"
 
 
 <a
-
-href="<?= url('booking/'); ?>"
-
+    
+href="<?= BASE_URL ?>book-test-ride/"
 class="btn btn-primary btn-full"
-
 >
-
 Book Test Ride
-
 </a>
-
 
 <a
 
