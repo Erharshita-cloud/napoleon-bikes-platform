@@ -62,6 +62,7 @@ class="<?= strtolower($name)==$currentPage ? 'active' : ''; ?>"
 <?= e($name); ?>
 </a>
 </li>
+    
 <?php endforeach; ?>
 </ul>
 <!-- ================================================= -->
@@ -87,15 +88,6 @@ aria-label="Toggle Theme"
 <i class="ri-moon-line"></i>
 </button>
 
-<a
-href="#"
-class="login-btn"
->
-<i class="ri-user-3-line"></i>
-<span>
-Login
-</span>
-</a>
 
 <a
 href="<?= url('booking/'); ?>"
