@@ -175,6 +175,13 @@ action="<?= BASE_URL ?>api/booking.php"
 method="POST"
 id="bookingForm">
 
+<input
+type="hidden"
+name="source"
+value="Website">
+
+<div id="bookingMessage"></div>
+
 <h2>
 
 Book Your Ride
@@ -194,6 +201,7 @@ Full Name
 <input
 type="text"
 name="name"
+maxlength="60"
 required>
 
 </div>
@@ -224,6 +232,8 @@ Phone Number
 <input
 type="tel"
 name="phone"
+pattern="[0-9]{10}"
+maxlength="10"
 required>
 
 </div>
@@ -285,6 +295,7 @@ Preferred Date
 <input
 type="date"
 name="preferred_date"
+min="<?= date('Y-m-d'); ?>"
 required>
 
 </div>
@@ -341,6 +352,46 @@ Choose Time
 
 </div>
 
+<div class="form-group">
+
+<label>
+
+Preferred Dealer
+
+</label>
+
+<select
+name="dealer"
+required>
+
+<option value="">
+
+Select Dealer
+
+</option>
+
+<option>
+
+Meerut Experience Center
+
+</option>
+
+<option>
+
+Delhi Flagship Store
+
+</option>
+
+<option>
+
+Noida Experience Center
+
+</option>
+
+</select>
+
+</div>
+
 <div class="form-group full-width">
 
 <label>
@@ -352,6 +403,7 @@ Additional Message
 <textarea
 name="message"
 rows="5"
+maxlength="500"
 placeholder="Anything you'd like us to know?"></textarea>
 
 </div>
