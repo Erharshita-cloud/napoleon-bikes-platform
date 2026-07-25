@@ -52,7 +52,7 @@ height="52"
 <!-- Desktop Navigation -->
 <!-- ================================================= -->
 <ul class="nav-menu">
-<?php foreach($navigation as $name=>$item): ?>
+<?php foreach ($navigation as $name => $item): ?>
 <li>
 <a
 href="<?= e($item['url']); ?>"
@@ -70,6 +70,7 @@ class="<?= strtolower($name)==$currentPage ? 'active' : ''; ?>"
 <div class="nav-actions">
     
 <button
+type="button"
 class="icon-btn"
 id="searchBtn"
 aria-label="Search"
@@ -78,6 +79,7 @@ aria-label="Search"
 </button>
 
 <button
+type="button"
 class="icon-btn"
 id="themeToggle"
 aria-label="Toggle Theme"
@@ -103,6 +105,7 @@ Book Test Ride
 </a>
 
 <button
+type="button"
 id="mobileMenuBtn"
 class="mobile-menu-btn"
 aria-label="Open Menu"
@@ -122,46 +125,36 @@ aria-label="Open Menu"
 <!-- Search Overlay -->
 <!-- ================================================= -->
 
-<div id="searchOverlay" class="search-overlay">
-
+<div
+id="searchOverlay"
+class="search-overlay"
+aria-hidden="true">
 
 <div class="search-box">
 
-
 <button
-
+type="button"
 id="closeSearch"
-
 class="close-search"
-
 aria-label="Close Search"
-
 >
-
 <i class="ri-close-line"></i>
-
-
 </button>
 
-
-<form>
+<form action="<?= BASE_URL ?>search.php" method="GET">
 
 <input
-
 type="search"
-
+name="q"
 placeholder="Search motorcycles..."
-
-aria-label="Search"
-
->
+autocomplete="off"
+aria-label="Search">
 
 <button type="submit">
 
 <i class="ri-search-line"></i>
 
 </button>
-
 
 </form>
 
@@ -173,11 +166,15 @@ aria-label="Search"
 <!-- Mobile Navigation -->
 <!-- ================================================= -->
 
+<div
+id="mobileMenu"
+class="mobile-menu"
+aria-hidden="true">
 
-<div id="mobileMenu" class="mobile-menu">
-
-
-<div class="mobile-menu-overlay"></div>
+<div
+id="mobileOverlay"
+class="mobile-menu-overlay">
+</div>
 
 <aside class="mobile-menu-content">
 
@@ -227,19 +224,12 @@ height="45"
 
 
 <button
-
+type="button"
 id="closeMobileMenu"
-
 class="icon-btn"
-
 aria-label="Close Menu"
-
 >
-
-
 <i class="ri-close-large-line"></i>
-
-
 </button>
 
 
@@ -298,7 +288,6 @@ Book Test Ride
 </a>
 
 
-
 <a
 
 href="tel:<?= e(COMPANY_PHONE); ?>"
@@ -312,11 +301,7 @@ class="btn btn-outline btn-full"
 
 Call Us
 
-
 </a>
-
-
-
 
 <a
 
@@ -331,18 +316,13 @@ class="btn btn-outline btn-full"
 
 Email Us
 
-
 </a>
-
 
 </div>
 
-
 <!-- Contact Information -->
 
-
 <div class="mobile-contact">
-
 
 <h4>
 
@@ -387,6 +367,7 @@ Visit Us
 href="<?= e($social['facebook']); ?>"
 
 target="_blank"
+rel="noopener noreferrer"
 
 aria-label="Facebook"
 
@@ -396,13 +377,12 @@ aria-label="Facebook"
 
 </a>
 
-
-
 <a
 
 href="<?= e($social['instagram']); ?>"
 
 target="_blank"
+rel="noopener noreferrer"
 
 aria-label="Instagram"
 
@@ -412,14 +392,12 @@ aria-label="Instagram"
 
 </a>
 
-
-
-
 <a
 
 href="<?= e($social['linkedin']); ?>"
 
 target="_blank"
+rel="noopener noreferrer"
 
 aria-label="LinkedIn"
 
@@ -429,14 +407,12 @@ aria-label="LinkedIn"
 
 </a>
 
-
-
-
 <a
 
 href="<?= e($social['youtube']); ?>"
 
 target="_blank"
+rel="noopener noreferrer"
 
 aria-label="YouTube"
 
@@ -446,10 +422,7 @@ aria-label="YouTube"
 
 </a>
 
-
-
 </div>
-
 
 
 <!-- Mobile Footer -->
@@ -457,15 +430,9 @@ aria-label="YouTube"
 
 <div class="mobile-footer">
 
-
 <p>
-
-© <?= year(); ?>
-
-<?= e(SITE_NAME); ?>
-
+© <?= e(SITE_NAME); ?>
 </p>
-
 
 <small>
 
@@ -473,13 +440,9 @@ aria-label="YouTube"
 
 </small>
 
-
 </div>
 
-
-
 </aside>
-
 
 </div>
 
@@ -488,18 +451,12 @@ aria-label="YouTube"
 <!-- Scroll To Top -->
 <!-- ================================================= -->
 
-
 <button
-
+type="button"
 id="scrollTop"
-
 class="scroll-top"
-
+title="Back to Top"
 aria-label="Scroll To Top"
-
 >
-
 <i class="ri-arrow-up-line"></i>
-
-
 </button>
