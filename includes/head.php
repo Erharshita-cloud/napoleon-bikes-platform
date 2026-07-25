@@ -127,8 +127,18 @@
 
     <!-- Main Stylesheet -->
 
+    <!-- Main Stylesheet -->
+
     <link
         rel="stylesheet"
         href="<?= CSS ?>style.css">
+
+<?php if (isset($pageCSS)): ?>
+
+<link
+    rel="stylesheet"
+    href="<?= CSS . $pageCSS; ?>">
+
+<?php endif; ?>
 
 </head>
