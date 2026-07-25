@@ -6,6 +6,7 @@ require_once '../includes/config.php';
 require_once '../includes/functions.php';
 
 $currentPage = 'book test ride';
+$pageCSS = 'book-test-ride.css';
 ?>
 
 <!DOCTYPE html>
