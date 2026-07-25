@@ -1,87 +1,129 @@
 <?php
+declare(strict_types=1);
 
-require_once "db.php";
+require_once 'db.php';
 
-file_put_contents(
-    "/tmp/booking.log",
-    date("Y-m-d H:i:s") . " Booking.php executed\n",
-    FILE_APPEND
-);
-
-// Only allow POST requests
-if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
-    exit("Method Not Allowed");
+    exit('Method Not Allowed');
 }
 
-// Collect form data
-$customer_name = trim($_POST['customer_name'] ?? '');
-$email         = trim($_POST['email'] ?? '');
-$phone         = trim($_POST['phone'] ?? '');
-$bike_name     = trim($_POST['bike_name'] ?? '');
-$city          = trim($_POST['city'] ?? '');
-$booking_date  = trim($_POST['booking_date'] ?? '');
+/*
+|--------------------------------------------------------------------------
+| Collect Form Data
+|--------------------------------------------------------------------------
+*/
 
-// Validation
-if (
-    empty($customer_name) ||
-    empty($email) ||
-    empty($phone) ||
-    empty($bike_name) ||
-    empty($city) ||
-    empty($booking_date)
-) {
-    exit("Error: All fields are required.");
+$name = trim($_POST['name'] ?? '');
+$email = trim($_POST['email'] ?? '');
+$phone = trim($_POST['phone'] ?? '');
+$bike = trim($_POST['bike'] ?? '');
+$preferred_date = trim($_POST['preferred_date'] ?? '');
+$preferred_time = trim($_POST['preferred_time'] ?? '');
+$dealer = trim($_POST['dealer'] ?? '');
+$message = trim($_POST['message'] ?? '');
+$source = trim($_POST['source'] ?? 'Website');
+
+/*
+|--------------------------------------------------------------------------
+| Validation
+|--------------------------------------------------------------------------
+*/
+
+$errors = [];
+
+if ($name === '') {
+    $errors[] = 'Name is required.';
 }
 
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    exit("Error: Invalid email address.");
+    $errors[] = 'Valid email is required.';
 }
 
-// Check database connection
+if (!preg_match('/^[0-9]{10}$/', $phone)) {
+    $errors[] = 'Phone number must contain exactly 10 digits.';
+}
+
+if ($bike === '') {
+    $errors[] = 'Please select a motorcycle.';
+}
+
+if ($preferred_date === '') {
+    $errors[] = 'Preferred date is required.';
+}
+
+if ($preferred_time === '') {
+    $errors[] = 'Preferred time is required.';
+}
+
+if ($dealer === '') {
+    $errors[] = 'Please select a dealer.';
+}
+
+if (!empty($errors)) {
+    http_response_code(400);
+    echo implode('<br>', $errors);
+    exit;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Database
+|--------------------------------------------------------------------------
+*/
+
 if ($conn->connect_errno) {
-    exit("Database Connection Failed: " . $conn->connect_error);
+    exit('Database connection failed.');
 }
 
-// Prepare statement
 $sql = "INSERT INTO bookings
 (
-    customer_name,
+    name,
     email,
     phone,
-    bike_name,
-    city,
-    booking_date
+    bike,
+    preferred_date,
+    preferred_time,
+    dealer,
+    message,
+    source
 )
-VALUES (?, ?, ?, ?, ?, ?)";
+VALUES
+(
+    ?, ?, ?, ?, ?, ?, ?, ?, ?
+)";
 
 $stmt = $conn->prepare($sql);
 
 if (!$stmt) {
-    exit("Prepare Failed: " . $conn->error);
+    exit('Database prepare failed.');
 }
 
-// Bind parameters
 $stmt->bind_param(
-    "ssssss",
-    $customer_name,
+    "sssssssss",
+    $name,
     $email,
     $phone,
-    $bike_name,
-    $city,
-    $booking_date
+    $bike,
+    $preferred_date,
+    $preferred_time,
+    $dealer,
+    $message,
+    $source
 );
 
-// Execute
 if (!$stmt->execute()) {
-    exit("Execute Failed: " . $stmt->error);
+    exit('Unable to save booking.');
 }
 
-// Success
 $stmt->close();
 $conn->close();
 
-header("Location: ../thank-you/index.html");
-exit();
+/*
+|--------------------------------------------------------------------------
+| Redirect
+|--------------------------------------------------------------------------
+*/
 
-?>
+header('Location: ' . BASE_URL . 'thank-you/');
+exit;
