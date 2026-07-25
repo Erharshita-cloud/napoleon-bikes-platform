@@ -51,14 +51,17 @@ height="52"
 <!-- ================================================= -->
 <!-- Desktop Navigation -->
 <!-- ================================================= -->
+    
 <ul class="nav-menu">
 <?php foreach ($navigation as $name => $item): ?>
+    
 <li>
 <a
 href="<?= e($item['url']); ?>"
 class="<?= strtolower($name)==$currentPage ? 'active' : ''; ?>"
 <?= strtolower($name)==$currentPage ? 'aria-current="page"' : ''; ?>
 >
+    
 <?= e($name); ?>
 </a>
 </li>
@@ -341,79 +344,54 @@ Visit Us
 
 </div>
 
-
-
 <!-- Social Links -->
-
 
 <div class="mobile-social">
 
-
+<?php if (!empty($social['facebook'])): ?>
 <a
-
 href="<?= e($social['facebook']); ?>"
-
 target="_blank"
 rel="noopener noreferrer"
-
-aria-label="Facebook"
-
->
-
+aria-label="Facebook">
 <i class="ri-facebook-fill"></i>
-
 </a>
+<?php endif; ?>
 
+<?php if (!empty($social['instagram'])): ?>
 <a
-
 href="<?= e($social['instagram']); ?>"
-
 target="_blank"
 rel="noopener noreferrer"
-
-aria-label="Instagram"
-
->
-
+aria-label="Instagram">
 <i class="ri-instagram-line"></i>
-
 </a>
+<?php endif; ?>
 
+<?php if (!empty($social['linkedin'])): ?>
 <a
-
 href="<?= e($social['linkedin']); ?>"
-
 target="_blank"
 rel="noopener noreferrer"
-
-aria-label="LinkedIn"
-
->
-
+aria-label="LinkedIn">
 <i class="ri-linkedin-box-fill"></i>
-
 </a>
+<?php endif; ?>
 
+<?php if (!empty($social['youtube'])): ?>
 <a
-
 href="<?= e($social['youtube']); ?>"
-
 target="_blank"
 rel="noopener noreferrer"
-
-aria-label="YouTube"
-
->
-
+aria-label="YouTube">
 <i class="ri-youtube-fill"></i>
-
 </a>
+<?php endif; ?>
 
-</div>
+</div>  
 
-
+    
 <!-- Mobile Footer -->
-
 
 <div class="mobile-footer">
 
