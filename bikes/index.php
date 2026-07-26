@@ -5,6 +5,7 @@ require_once '../includes/config.php';
 require_once '../includes/functions.php';
 
 $currentPage = 'bikes';
+$pageCSS = 'bikes.css';
 ?>
 
 <!DOCTYPE html>
@@ -12,154 +13,62 @@ $currentPage = 'bikes';
 
 <?php include '../includes/head.php'; ?>
 
-<link rel="stylesheet" href="<?= CSS ?>bikes.css">
-
 <body>
 
 <?php include '../includes/navbar.php'; ?>
 
-<!-- ========================================= -->
-<!-- Hero -->
-<!-- ========================================= -->
+
+<!-- ================================================= -->
+<!-- PREMIUM HERO -->
+<!-- ================================================= -->
 
 <section class="bikes-hero">
 
-<div class="container">
+    <div class="hero-overlay"></div>
 
-<div class="hero-content text-center">
+    <div class="container">
 
-<span class="section-tag">
+        <div class="hero-content">
 
-Napoleon Collection
+            <span class="section-tag">
 
-</span>
+                Napoleon Collection
 
-<h1>
+            </span>
 
-Engineered For Every
-<span>Journey</span>
+            <h1>
 
-</h1>
+                Find The Motorcycle
+                <span>Built For You</span>
 
-<p>
-
-Explore our complete lineup of premium motorcycles—from timeless classics to powerful adventure machines.
-
-</p>
-
-<div class="hero-buttons">
-
-    <a
-    href="<?= BOOK_TEST_RIDE_URL ?>"
-    class="btn btn-primary">
-
-        Book Test Ride
-
-    </a>
-
-    <a
-    href="#bikeGrid"
-    class="btn btn-outline">
-
-        Explore Bikes
-
-    </a>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ========================================= -->
-<!-- Premium Bike Finder -->
-<!-- ========================================= -->
-
-<section class="bike-finder">
-
-    <div class="finder-wrapper">
-
-        <div class="finder-header">
-
-            <h2>Find Your Perfect Ride</h2>
+            </h1>
 
             <p>
-                Explore Napoleon motorcycles by category, engine size and price.
+
+                Discover premium motorcycles engineered for performance,
+                comfort and unforgettable adventures.
+
             </p>
 
-        </div>
+            <div class="hero-buttons">
 
-        <div class="finder-card">
+                <a
+                    href="<?= BOOK_TEST_RIDE_URL ?>"
+                    class="btn btn-primary">
 
-            <!-- Categories -->
+                    <i class="ri-motorbike-line"></i>
 
-            <div class="finder-tabs">
+                    Book Test Ride
 
-                <button class="active">All Bikes</button>
+                </a>
 
-                <button>Classic</button>
+                <a
+                    href="#bikeGrid"
+                    class="btn btn-outline">
 
-                <button>Street</button>
+                    Explore Collection
 
-                <button>Sport</button>
-
-                <button>Adventure</button>
-
-            </div>
-
-            <!-- Search -->
-
-            <div class="finder-search">
-
-                <div class="finder-field">
-
-                    <label>Motorcycle</label>
-
-                    <input
-                        type="text"
-                        id="bikeSearch"
-                        placeholder="Search Napoleon motorcycle">
-
-                </div>
-
-                <div class="finder-field">
-
-                    <label>Engine</label>
-
-                    <select>
-
-                        <option>Any</option>
-                        <option>350 cc</option>
-                        <option>500 cc</option>
-                        <option>650 cc</option>
-                        <option>900 cc</option>
-
-                    </select>
-
-                </div>
-
-                <div class="finder-field">
-
-                    <label>Price</label>
-
-                    <select>
-
-                        <option>Any</option>
-                        <option>Below ₹3 Lakh</option>
-                        <option>₹3–5 Lakh</option>
-                        <option>Above ₹5 Lakh</option>
-
-                    </select>
-
-                </div>
-
-                <button class="finder-btn">
-
-                    <i class="ri-search-line"></i>
-
-                </button>
+                </a>
 
             </div>
 
@@ -169,227 +78,182 @@ Explore our complete lineup of premium motorcycles—from timeless classics to p
 
 </section>
 
-<!-- ========================================= -->
-<!-- Bike Grid -->
-<!-- ========================================= -->
 
-<section class="bike-showcase" id="bikeGrid">
+<!-- ================================================= -->
+<!-- PREMIUM BIKE FINDER -->
+<!-- ================================================= -->
+
+<section class="bike-finder">
 
 <div class="container">
 
-<div class="bike-grid">
+<div class="finder-card">
 
-<!-- Bike Card 1 -->
+<!-- ============================== -->
+<!-- TOP TABS -->
+<!-- ============================== -->
 
-<div class="bike-card">
+<div class="finder-tabs">
 
-<div class="bike-image">
+<button
+class="tab-btn active"
+data-category="all">
 
-<img
-src="<?= IMG ?>bikes/classic350.webp"
-alt="Napoleon Classic 350">
+All Bikes
 
-</div>
+</button>
 
-<div class="bike-info">
+<button
+class="tab-btn"
+data-category="classic">
 
-<h3>
+Classic
 
-Napoleon Classic 350
+</button>
 
-</h3>
+<button
+class="tab-btn"
+data-category="street">
 
-<p>
+Street
 
-A timeless cruiser built for effortless touring and everyday rides.
+</button>
 
-</p>
+<button
+class="tab-btn"
+data-category="sport">
 
-<div class="bike-specs">
+Sport
 
-<span>
+</button>
 
-<i class="ri-speed-up-line"></i>
+<button
+class="tab-btn"
+data-category="adventure">
 
-349cc
+Adventure
 
-</span>
-
-<span>
-
-<i class="ri-flashlight-line"></i>
-
-20 HP
-
-</span>
-
-<span>
-
-<i class="ri-road-map-line"></i>
-
-35 km/l
-
-</span>
+</button>
 
 </div>
 
-<div class="bike-footer">
 
-<h4>
+<!-- ============================== -->
+<!-- SEARCH -->
+<!-- ============================== -->
 
-₹1,89,999
+<div class="finder-search">
 
-</h4>
+<div class="finder-field search-field">
 
-<a
-href="<?= BOOK_TEST_RIDE_URL ?>"
-class="btn btn-outline">
+<label>
 
-Book Ride
+Search Motorcycle
 
-</a>
+</label>
 
-</div>
+<input
 
-</div>
+type="text"
 
-</div>
+id="bikeSearch"
 
-<!-- Bike Card 2 -->
-
-<div class="bike-card">
-
-<div class="bike-image">
-
-<img
-src="<?= IMG ?>bikes/street500.webp"
-alt="Napoleon Street 500">
+placeholder="Search Napoleon motorcycle...">
 
 </div>
 
-<div class="bike-info">
 
-<h3>
+<div class="finder-field">
 
-Napoleon Street 500
+<label>
 
-</h3>
+Engine
 
-<p>
+</label>
 
-Designed for riders who love aggressive styling and urban performance.
+<select id="engineFilter">
 
-</p>
+<option value="all">
 
-<div class="bike-specs">
+All Engines
 
-<span>
+</option>
 
-500cc
+<option value="350">
 
-</span>
+350 cc
 
-<span>
+</option>
 
-45 HP
+<option value="500">
 
-</span>
+500 cc
 
-<span>
+</option>
 
-28 km/l
+<option value="650">
 
-</span>
+650 cc
 
-</div>
+</option>
 
-<div class="bike-footer">
+<option value="900">
 
-<h4>
+900 cc
 
-₹2,49,999
+</option>
 
-</h4>
-
-<a
-href="<?= BOOK_TEST_RIDE_URL ?>"
-class="btn btn-outline">
-
-Book Ride
-
-</a>
+</select>
 
 </div>
 
-</div>
+
+<div class="finder-field">
+
+<label>
+
+Price
+
+</label>
+
+<select id="priceFilter">
+
+<option value="all">
+
+All Prices
+
+</option>
+
+<option value="under3">
+
+Below ₹3 Lakh
+
+</option>
+
+<option value="3to5">
+
+₹3–5 Lakh
+
+</option>
+
+<option value="above5">
+
+Above ₹5 Lakh
+
+</option>
+
+</select>
 
 </div>
 
-<!-- Bike Card 3 -->
 
-<div class="bike-card">
+<div class="finder-button">
 
-<div class="bike-image">
+<button id="searchBike">
 
-<img
-src="<?= IMG ?>bikes/adventurex.webp"
-alt="Napoleon Adventure X">
+<i class="ri-search-line"></i>
 
-</div>
-
-<div class="bike-info">
-
-<h3>
-
-Napoleon Adventure X
-
-</h3>
-
-<p>
-
-Long-distance touring motorcycle built to conquer every road.
-
-</p>
-
-<div class="bike-specs">
-
-<span>
-
-650cc
-
-</span>
-
-<span>
-
-65 HP
-
-</span>
-
-<span>
-
-24 km/l
-
-</span>
-
-</div>
-
-<div class="bike-footer">
-
-<h4>
-
-₹3,19,999
-
-</h4>
-
-<a
-href="<?= BOOK_TEST_RIDE_URL ?>"
-class="btn btn-outline">
-
-Book Ride
-
-</a>
-
-</div>
+</button>
 
 </div>
 
@@ -400,3 +264,55 @@ Book Ride
 </div>
 
 </section>
+
+
+
+<!-- ================================================= -->
+<!-- COLLECTION TITLE -->
+<!-- ================================================= -->
+
+<section class="collection-heading">
+
+<div class="container">
+
+<div class="section-header">
+
+<span class="section-tag">
+
+Premium Collection
+
+</span>
+
+<h2>
+
+Explore Every Napoleon Motorcycle
+
+</h2>
+
+<p>
+
+Choose from timeless classics, powerful street machines,
+adventure motorcycles and high-performance sports bikes.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ================================================= -->
+<!-- BIKE GRID STARTS HERE -->
+<!-- ================================================= -->
+
+<section
+class="bike-showcase"
+id="bikeGrid">
+
+<div class="container">
+
+<div class="bike-grid">
+
