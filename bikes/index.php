@@ -26,7 +26,7 @@ $currentPage = 'bikes';
 
 <div class="container">
 
-<div class="hero-content">
+<div class="hero-content text-center">
 
 <span class="section-tag">
 
@@ -47,13 +47,25 @@ Explore our complete lineup of premium motorcycles—from timeless classics to p
 
 </p>
 
-<a
-href="<?= BOOK_TEST_RIDE_URL ?>"
-class="btn btn-primary">
+<div class="hero-buttons">
 
-Book Test Ride
+    <a
+    href="<?= BOOK_TEST_RIDE_URL ?>"
+    class="btn btn-primary">
 
-</a>
+        Book Test Ride
+
+    </a>
+
+    <a
+    href="#bikeGrid"
+    class="btn btn-outline">
+
+        Explore Bikes
+
+    </a>
+
+</div>
 
 </div>
 
@@ -62,64 +74,98 @@ Book Test Ride
 </section>
 
 <!-- ========================================= -->
-<!-- Bike Categories -->
+<!-- Premium Bike Finder -->
 <!-- ========================================= -->
 
-<section class="bike-categories">
+<section class="bike-finder">
 
-<div class="container">
+    <div class="finder-wrapper">
 
-<div class="section-header">
+        <div class="finder-header">
 
-<h2>
+            <h2>Find Your Perfect Ride</h2>
 
-Explore Categories
+            <p>
+                Explore Napoleon motorcycles by category, engine size and price.
+            </p>
 
-</h2>
+        </div>
 
-<p>
+        <div class="finder-card">
 
-Choose the motorcycle that perfectly matches your riding style.
+            <!-- Categories -->
 
-</p>
+            <div class="finder-tabs">
 
-</div>
+                <button class="active">All Bikes</button>
 
-<div class="category-tabs">
+                <button>Classic</button>
 
-<button class="tab-btn active">
+                <button>Street</button>
 
-All Bikes
+                <button>Sport</button>
 
-</button>
+                <button>Adventure</button>
 
-<button class="tab-btn">
+            </div>
 
-Classic
+            <!-- Search -->
 
-</button>
+            <div class="finder-search">
 
-<button class="tab-btn">
+                <div class="finder-field">
 
-Street
+                    <label>Motorcycle</label>
 
-</button>
+                    <input
+                        type="text"
+                        id="bikeSearch"
+                        placeholder="Search Napoleon motorcycle">
 
-<button class="tab-btn">
+                </div>
 
-Adventure
+                <div class="finder-field">
 
-</button>
+                    <label>Engine</label>
 
-<button class="tab-btn">
+                    <select>
 
-Sport
+                        <option>Any</option>
+                        <option>350 cc</option>
+                        <option>500 cc</option>
+                        <option>650 cc</option>
+                        <option>900 cc</option>
 
-</button>
+                    </select>
 
-</div>
+                </div>
 
-</div>
+                <div class="finder-field">
+
+                    <label>Price</label>
+
+                    <select>
+
+                        <option>Any</option>
+                        <option>Below ₹3 Lakh</option>
+                        <option>₹3–5 Lakh</option>
+                        <option>Above ₹5 Lakh</option>
+
+                    </select>
+
+                </div>
+
+                <button class="finder-btn">
+
+                    <i class="ri-search-line"></i>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
 
@@ -127,7 +173,7 @@ Sport
 <!-- Bike Grid -->
 <!-- ========================================= -->
 
-<section class="bike-showcase">
+<section class="bike-showcase" id="bikeGrid">
 
 <div class="container">
 
