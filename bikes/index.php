@@ -1052,3 +1052,119 @@ id="bikeGrid">
     </div>
 
 </section>
+
+<!-- ================================================= -->
+<!-- MOTORCYCLE GALLERY -->
+<!-- ================================================= -->
+
+<section class="bike-gallery">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <span class="section-tag">
+
+                Napoleon Gallery
+
+            </span>
+
+            <h2>
+
+                Ride Beyond Limits
+
+            </h2>
+
+            <p>
+
+                Every motorcycle tells a story. Explore the spirit,
+                craftsmanship and performance of Napoleon Bikes.
+
+            </p>
+
+        </div>
+
+
+        <div class="gallery-grid">
+
+            <!-- Hero -->
+
+            <div class="gallery-item gallery-large">
+
+                <img
+                    src="<?= IMG ?>gallery/gallery-hero.jpg"
+                    alt="Napoleon Hero Bike">
+
+            </div>
+
+
+            <!-- Adventure -->
+
+            <div class="gallery-item">
+
+                <img
+                    src="<?= IMG ?>gallery/gallery-adventure.jpg"
+                    alt="Napoleon Adventure">
+
+            </div>
+
+
+            <!-- Performance -->
+
+            <div class="gallery-item">
+
+                <img
+                    src="<?= IMG ?>gallery/gallery-performance.jpg"
+                    alt="Napoleon Performance">
+
+            </div>
+
+
+            <!-- Blue Edition -->
+
+            <div class="gallery-item">
+
+                <img
+                    src="<?= IMG ?>gallery/gallery-blue.jpg"
+                    alt="Napoleon Blue Edition">
+
+            </div>
+
+
+            <!-- Sport -->
+
+            <div class="gallery-item">
+
+                <img
+                    src="<?= IMG ?>gallery/gallery-sport.jpg"
+                    alt="Napoleon Sport">
+
+            </div>
+
+
+            <!-- Racing -->
+
+            <div class="gallery-item">
+
+                <img
+                    src="<?= IMG ?>gallery/gallery-racing.jpg"
+                    alt="Napoleon Racing">
+
+            </div>
+
+
+            <!-- Lineup -->
+
+            <div class="gallery-item gallery-wide">
+
+                <img
+                    src="<?= IMG ?>gallery/gallery-lineup.jpg"
+                    alt="Napoleon Collection">
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
