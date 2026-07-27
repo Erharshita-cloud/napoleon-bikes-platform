@@ -1139,7 +1139,317 @@ outline:none;
 
 }
 
-
 /*=====================================================
-END
+RESPONSIVE DESIGN
 =====================================================*/
+
+/* ===============================
+Laptop
+================================*/
+
+@media (max-width:1400px){
+
+.hero-content h1{
+
+font-size:60px;
+
+}
+
+.cta-content h2{
+
+font-size:48px;
+
+}
+
+}
+
+
+/* ===============================
+Tablet
+================================*/
+
+@media (max-width:1024px){
+
+.hero-content h1{
+
+font-size:52px;
+
+}
+
+.hero-content p{
+
+font-size:17px;
+
+}
+
+.finder-search{
+
+grid-template-columns:1fr 1fr;
+
+}
+
+.finder-button{
+
+grid-column:span 2;
+
+}
+
+.finder-button button{
+
+width:100%;
+
+}
+
+.bike-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+.gallery-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+.cta-wrapper{
+
+flex-direction:column;
+
+text-align:center;
+
+}
+
+.cta-buttons{
+
+justify-content:center;
+
+}
+
+}
+
+
+/* ===============================
+Mobile
+================================*/
+
+@media (max-width:768px){
+
+.bikes-hero{
+
+height:90vh;
+
+padding:80px 20px;
+
+}
+
+.hero-content h1{
+
+font-size:42px;
+
+}
+
+.hero-content p{
+
+font-size:16px;
+
+}
+
+.hero-buttons{
+
+flex-direction:column;
+
+}
+
+.hero-buttons .btn{
+
+width:100%;
+
+}
+
+.finder-card{
+
+padding:25px;
+
+}
+
+.finder-tabs{
+
+justify-content:flex-start;
+
+overflow-x:auto;
+
+padding-bottom:10px;
+
+}
+
+.finder-search{
+
+grid-template-columns:1fr;
+
+}
+
+.finder-button{
+
+grid-column:auto;
+
+}
+
+.finder-button button{
+
+width:100%;
+
+}
+
+.collection-heading{
+
+padding:80px 0 40px;
+
+}
+
+.collection-heading h2{
+
+font-size:34px;
+
+}
+
+.bike-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.bike-image{
+
+height:240px;
+
+}
+
+.gallery-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.gallery-item img{
+
+height:260px;
+
+}
+
+.testimonial-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.cta-wrapper{
+
+padding:40px 25px;
+
+}
+
+.cta-content h2{
+
+font-size:34px;
+
+}
+
+.cta-buttons{
+
+flex-direction:column;
+
+}
+
+.cta-buttons .btn{
+
+width:100%;
+
+}
+
+.section-header h2{
+
+font-size:34px;
+
+}
+
+}
+
+
+/* ===============================
+Small Mobile
+================================*/
+
+@media (max-width:480px){
+
+.hero-content h1{
+
+font-size:34px;
+
+}
+
+.hero-content p{
+
+font-size:15px;
+
+}
+
+.section-header h2{
+
+font-size:30px;
+
+}
+
+.bike-info{
+
+padding:22px;
+
+}
+
+.bike-info h3{
+
+font-size:24px;
+
+}
+
+.bike-footer{
+
+flex-direction:column;
+
+gap:18px;
+
+align-items:flex-start;
+
+}
+
+.bike-footer .btn{
+
+width:100%;
+
+text-align:center;
+
+justify-content:center;
+
+}
+
+.testimonial-card{
+
+padding:28px;
+
+}
+
+.testimonial-image{
+
+width:90px;
+
+height:90px;
+
+}
+
+.cta-content h2{
+
+font-size:30px;
+
+}
+
+}
