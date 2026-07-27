@@ -952,3 +952,103 @@ id="bikeGrid">
     </div>
 
 </section>
+
+<!-- ================================================= -->
+<!-- PERFORMANCE BANNER -->
+<!-- ================================================= -->
+
+<section class="performance-banner">
+
+    <!-- Background Video -->
+
+    <video
+        class="performance-video"
+        autoplay
+        muted
+        loop
+        playsinline>
+
+        <source
+            src="<?= ASSETS ?>videos/performance.mp4"
+            type="video/mp4">
+
+    </video>
+
+    <!-- Dark Overlay -->
+
+    <div class="performance-overlay"></div>
+
+    <div class="container">
+
+        <div class="performance-content">
+
+            <span class="section-tag">
+
+                Performance Redefined
+
+            </span>
+
+            <h2>
+
+                Born To Ride.
+                <br>
+                Built To Dominate.
+
+            </h2>
+
+            <p>
+
+                Every Napoleon motorcycle is engineered for precision,
+                confidence and unforgettable journeys.
+
+            </p>
+
+            <div class="performance-stats">
+
+                <div>
+
+                    <h3>900cc</h3>
+
+                    <span>Engine</span>
+
+                </div>
+
+                <div>
+
+                    <h3>120 HP</h3>
+
+                    <span>Performance</span>
+
+                </div>
+
+                <div>
+
+                    <h3>ABS</h3>
+
+                    <span>Safety</span>
+
+                </div>
+
+                <div>
+
+                    <h3>6 Speed</h3>
+
+                    <span>Gearbox</span>
+
+                </div>
+
+            </div>
+
+            <a
+                href="<?= BOOK_TEST_RIDE_URL ?>"
+                class="btn btn-primary">
+
+                Book Test Ride
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
