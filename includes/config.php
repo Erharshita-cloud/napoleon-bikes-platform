@@ -141,7 +141,7 @@ define(
 
 define(
     'DB_NAME',
-    getenv('DB_NAME') ?: 'napoleon_bikes'
+    getenv('DB_NAME') ?: 'bikesdb'
 );
 
 define(
