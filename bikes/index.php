@@ -1287,3 +1287,89 @@ id="bikeGrid">
     </div>
 
 </div>
+
+<!-- ================================================= -->
+<!-- PREMIUM CALL TO ACTION -->
+<!-- ================================================= -->
+
+<section class="bike-cta">
+
+    <div class="container">
+
+        <div class="cta-wrapper">
+
+            <div class="cta-content">
+
+                <span class="section-tag">
+
+                    Ready To Ride?
+
+                </span>
+
+                <h2>
+
+                    Experience The
+                    <span>Napoleon Difference</span>
+
+                </h2>
+
+                <p>
+
+                    Whether you're looking for a timeless classic, a thrilling
+                    sports motorcycle or your next adventure companion,
+                    there's a Napoleon built just for you.
+
+                </p>
+
+            </div>
+
+
+            <div class="cta-buttons">
+
+                <a
+                    href="<?= BOOK_TEST_RIDE_URL ?>"
+                    class="btn btn-primary">
+
+                    <i class="ri-motorbike-line"></i>
+
+                    Book Test Ride
+
+                </a>
+
+
+                <a
+                    href="<?= BASE_URL ?>dealers/"
+                    class="btn btn-outline">
+
+                    <i class="ri-map-pin-line"></i>
+
+                    Find A Dealer
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================================================= -->
+<!-- FAQ -->
+<!-- ================================================= -->
+
+<?php include '../includes/sections/faq.php'; ?>
+
+<!-- ================================================= -->
+<!-- FOOTER -->
+<!-- ================================================= -->
+
+<?php include '../includes/footer.php'; ?>
+
+<?php include '../includes/scripts.php'; ?>
+
+<script src="<?= JS ?>bikes.js"></script>
+
+</body>
+</html>
