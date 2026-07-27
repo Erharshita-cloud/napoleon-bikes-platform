@@ -1168,3 +1168,122 @@ id="bikeGrid">
     </div>
 
 </section>
+
+<div class="testimonial-grid">
+
+    <!-- Card 1 -->
+
+    <div class="testimonial-card">
+
+        <div class="testimonial-image">
+
+            <img
+                src="<?= IMG ?>testimonials/user-1.jpg"
+                alt="Rahul Sharma">
+
+        </div>
+
+        <div class="stars">
+            ★★★★★
+        </div>
+
+        <p>
+
+            "The Napoleon Classic 350 exceeded every expectation.
+            Smooth performance, excellent comfort and incredible road presence."
+
+        </p>
+
+        <h4>
+
+            Rahul Sharma
+
+        </h4>
+
+        <span>
+
+            Delhi
+
+        </span>
+
+    </div>
+
+
+
+    <!-- Card 2 -->
+
+    <div class="testimonial-card">
+
+        <div class="testimonial-image">
+
+            <img
+                src="<?= IMG ?>testimonials/user-2.jpg"
+                alt="Aman Patel">
+
+        </div>
+
+        <div class="stars">
+            ★★★★★
+        </div>
+
+        <p>
+
+            "The Phantom 900 delivers incredible acceleration,
+            premium styling and confidence on every ride."
+
+        </p>
+
+        <h4>
+
+            Aman Patel
+
+        </h4>
+
+        <span>
+
+            Mumbai
+
+        </span>
+
+    </div>
+
+
+
+    <!-- Card 3 -->
+
+    <div class="testimonial-card">
+
+        <div class="testimonial-image">
+
+            <img
+                src="<?= IMG ?>testimonials/user-3.jpg"
+                alt="Karan Singh">
+
+        </div>
+
+        <div class="stars">
+            ★★★★★
+        </div>
+
+        <p>
+
+            "Adventure rides have become effortless.
+            The handling and reliability are simply outstanding."
+
+        </p>
+
+        <h4>
+
+            Karan Singh
+
+        </h4>
+
+        <span>
+
+            Bengaluru
+
+        </span>
+
+    </div>
+
+</div>
