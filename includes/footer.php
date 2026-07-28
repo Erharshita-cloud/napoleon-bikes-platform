@@ -20,7 +20,7 @@ declare(strict_types=1);
             <div class="footer-logo">
 
                 <img
-                    src="<?= IMG ?>logo.png"
+                    src="<?= IMG ?>branding/logo.png"
                     alt="<?= e(SITE_NAME); ?> Logo"
                     width="60"
                     height="60">
