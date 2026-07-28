@@ -27,35 +27,35 @@
         <div class="gallery-grid">
 
             <div class="gallery-item">
-                <img src="assets/images/gallery-premium.jpg" alt="Napoleon Premium Bike">
+                <img src="assets/images/bikes/gallery-premium.jpg" alt="Napoleon Premium Bike">
             </div>
 
             <div class="gallery-item">
-                <img src="assets/images/gallery-adventure.webp" alt="Napoleon Adventure Bike">
+                <img src="assets/images/bikes/gallery-adventure.webp" alt="Napoleon Adventure Bike">
             </div>
 
             <div class="gallery-item">
-                <img src="assets/images/gallery-classic.jpg" alt="Napoleon Classic Bike">
+                <img src="assets/images/bikes/gallery-classic.jpg" alt="Napoleon Classic Bike">
             </div>
 
             <div class="gallery-item">
-                <img src="assets/images/gallery-urban.jpg" alt="Napoleon Urban Bike">
+                <img src="assets/images/bikes/gallery-urban.jpg" alt="Napoleon Urban Bike">
             </div>
 
             <div class="gallery-item">
-                <img src="assets/images/gallery-night-sport.jpg" alt="Napoleon Sport Bike">
+                <img src="assets/images/bikes/gallery-night-sport.jpg" alt="Napoleon Sport Bike">
             </div>
 
             <div class="gallery-item">
-                <img src="assets/images/gallery-city.jpg" alt="Napoleon City Bike">
+                <img src="assets/images/bikes/gallery-city.jpg" alt="Napoleon City Bike">
             </div>
 
             <div class="gallery-item">
-                <img src="assets/images/gallery-forest.webp" alt="Napoleon Forest Ride">
+                <img src="assets/images/bikes/gallery-forest.webp" alt="Napoleon Forest Ride">
             </div>
 
             <div class="gallery-item">
-                <img src="assets/images/gallery-showroom.jpg" alt="Napoleon Showroom">
+                <img src="assets/images/bikes/gallery-showroom.jpg" alt="Napoleon Showroom">
             </div>
 
             <div class="gallery-item">
@@ -63,15 +63,15 @@
             </div>
 
             <div class="gallery-item">
-                <img src="assets/images/gallery-lifestyle.jpg" alt="Napoleon Lifestyle">
+                <img src="assets/images/bikes/gallery-lifestyle.jpg" alt="Napoleon Lifestyle">
             </div>
 
             <div class="gallery-item">
-                <img src="assets/images/gallery-city-rider.jpg" alt="Napoleon City Rider">
+                <img src="assets/images/bikes/gallery-city-rider.jpg" alt="Napoleon City Rider">
             </div>
 
             <div class="gallery-item">
-                <img src="assets/images/gallery-heritage.jpg" alt="Napoleon Heritage">
+                <img src="assets/images/bikes/gallery-heritage.jpg" alt="Napoleon Heritage">
             </div>
 
         </div>
