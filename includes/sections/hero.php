@@ -1,32 +1,25 @@
 <?php
+declare(strict_types=1);
 
 /**
  * ---------------------------------------------------------
  * Napoleon Bikes Platform
- * Dynamic Premium Hero Section
+ * Horizontal Hero Slider
  * ---------------------------------------------------------
  */
-
-
-/*
-|--------------------------------------------------------------------------
-| Hero Background Slides
-|--------------------------------------------------------------------------
-*/
 
 $heroSlides = [
 
     [
         'image' => IMG . 'bikes/adventurepro.jpg',
 
-        'eyebrow' =>
-            'NEXT GENERATION MOTORCYCLES',
+        'name' => 'Napoleon Adventure Pro',
 
-        'title' =>
-            'Ride Beyond',
+        'category' => 'Adventure Series',
 
-        'highlight' =>
-            'Limits',
+        'title' => 'Ride Beyond',
+
+        'highlight' => 'Limits',
 
         'description' =>
             'Discover premium motorcycles engineered with advanced technology, powerful performance, and unmatched comfort for every journey.'
@@ -35,30 +28,28 @@ $heroSlides = [
     [
         'image' => IMG . 'bikes/gallery-night-lifestyle.jpg',
 
-        'eyebrow' =>
-            'BUILT FOR PURE PERFORMANCE',
+        'name' => 'Napoleon Night GT',
 
-        'title' =>
-            'Own Every',
+        'category' => 'Performance Series',
 
-        'highlight' =>
-            'Curve',
+        'title' => 'Own Every',
+
+        'highlight' => 'Curve',
 
         'description' =>
-            'Experience track-inspired performance, responsive handling, and thrilling power designed for riders who demand more.'
+            'Experience responsive handling, powerful acceleration, and track-inspired performance designed for riders who demand more.'
     ],
 
     [
-        'image' => IMG . 'bikes/Cobalt GT.jpg',
+        'image' => IMG . 'bikes/cobalt-gt.jpg',
 
-        'eyebrow' =>
-            'ENGINEERED FOR THE OPEN ROAD',
+        'name' => 'Napoleon Cobalt GT',
 
-        'title' =>
-            'Chase New',
+        'category' => 'Grand Touring Series',
 
-        'highlight' =>
-            'Horizons',
+        'title' => 'Chase New',
+
+        'highlight' => 'Horizons',
 
         'description' =>
             'Go beyond the city with adventure-ready capability, long-distance comfort, and confidence on every road.'
@@ -68,521 +59,289 @@ $heroSlides = [
 
 ?>
 
-
 <section
-    class="hero"
+    class="hero hero-horizontal"
     id="home"
 >
 
-
-    <!-- =================================================
-         DYNAMIC BACKGROUND SLIDESHOW
-    ================================================== -->
-
-    <div
-        class="hero-background-slideshow"
-        aria-hidden="true"
-    >
-
-
-        <?php foreach (
-            $heroSlides as $index => $slide
-        ): ?>
-
-
-            <div
-                class="hero-background-slide<?=
-                    $index === 0
-                        ? ' is-active'
-                        : '';
-                ?>"
-                data-hero-slide="<?= $index; ?>"
-            >
-
-
-                <img
-                    src="<?= e(
-                        $slide['image']
-                    ); ?>"
-                    alt=""
-                    <?= $index === 0
-                        ? 'fetchpriority="high"'
-                        : 'loading="lazy"';
-                    ?>
-                >
-
-
-            </div>
-
-
-        <?php endforeach; ?>
-
-
-        <!-- Dark Cinematic Overlay -->
-
-        <div
-            class="hero-dark-overlay"
-        ></div>
-
-
-        <!-- Left Text Gradient -->
-
-        <div
-            class="hero-content-overlay"
-        ></div>
-
-
-    </div>
-
-
-    <!-- =================================================
-         HERO CONTENT
-    ================================================== -->
+    <div class="hero-background-glow"></div>
 
     <div class="container">
 
-
-        <div class="hero-wrapper">
-
-
-            <!-- =========================================
-                 HERO TEXT
-            ========================================== -->
-
-            <div class="hero-content">
-
-
-                <span
-                    class="hero-badge"
-                    id="hero-eyebrow"
-                >
-
-                    <i
-                        class="ri-flashlight-fill"
-                    ></i>
-
-                    <?= e(
-                        $heroSlides[0]['eyebrow']
-                    ); ?>
-
-                </span>
-
-
-                <h1
-                    id="hero-title"
-                >
-
-                    <span
-                        class="hero-title-main"
-                    >
-
-                        <?= e(
-                            $heroSlides[0]['title']
-                        ); ?>
-
-                    </span>
-
-
-                    <span
-                        class="hero-title-highlight"
-                    >
-
-                        <?= e(
-                            $heroSlides[0]['highlight']
-                        ); ?>
-
-                    </span>
-
-                </h1>
-
-
-                <p
-                    class="hero-description"
-                    id="hero-description"
-                >
-
-                    <?= e(
-                        $heroSlides[0]['description']
-                    ); ?>
-
-                </p>
-
-
-                <!-- Hero Buttons -->
-
-                <div class="hero-buttons">
-
-
-                    <a
-                        href="<?= url('bikes/'); ?>"
-                        class="btn btn-primary"
-                    >
-
-                        <i
-                            class="ri-motorbike-fill"
-                        ></i>
-
-                        Explore Bikes
-
-                    </a>
-
-
-                    <a
-                        href="<?= url(
-                            'book-test-ride/'
-                        ); ?>"
-                        class="btn btn-outline"
-                    >
-
-                        <i
-                            class="ri-calendar-check-line"
-                        ></i>
-
-                        Book Test Ride
-
-                    </a>
-
-
-                </div>
-
-
-                <!-- Hero Features -->
-
-                <div class="hero-features">
-
-
-                    <div class="feature-item">
-
-                        <i
-                            class="ri-shield-check-fill"
-                        ></i>
-
-                        <span>
-                            5 Years Warranty
-                        </span>
-
-                    </div>
-
-
-                    <div class="feature-item">
-
-                        <i
-                            class="ri-tools-fill"
-                        ></i>
-
-                        <span>
-                            Free Service Support
-                        </span>
-
-                    </div>
-
-
-                    <div class="feature-item">
-
-                        <i
-                            class="ri-map-pin-2-fill"
-                        ></i>
-
-                        <span>
-                            Nationwide Dealers
-                        </span>
-
-                    </div>
-
-
-                </div>
-
-
-                <!-- Hero Statistics -->
-
-                <div class="hero-stats">
-
-
-                    <div class="stat-card">
-
-                        <h3>15K+</h3>
-
-                        <p>
-                            Happy Riders
-                        </p>
-
-                    </div>
-
-
-                    <div class="stat-card">
-
-                        <h3>120+</h3>
-
-                        <p>
-                            Dealerships
-                        </p>
-
-                    </div>
-
-
-                    <div class="stat-card">
-
-                        <h3>25+</h3>
-
-                        <p>
-                            Bike Models
-                        </p>
-
-                    </div>
-
-
-                </div>
-
-
-                <!-- Customer Rating -->
-
-                <div class="hero-rating">
-
-
-                    <div class="rating-stars">
-
-                        <i class="ri-star-fill"></i>
-                        <i class="ri-star-fill"></i>
-                        <i class="ri-star-fill"></i>
-                        <i class="ri-star-fill"></i>
-                        <i class="ri-star-fill"></i>
-
-                    </div>
-
-
-                    <div class="rating-content">
-
-                        <strong>
-                            4.9 / 5 Customer Rating
-                        </strong>
-
-                        <p>
-                            Trusted by thousands of riders.
-                        </p>
-
-                    </div>
-
-
-                </div>
-
-
-            </div>
-
-
-            <!-- =========================================
-                 FEATURED BIKE
-            ========================================== -->
-
-            <div class="hero-image">
-
-
-                <div class="hero-image-wrapper">
-
-
-                    <img
-                        src="<?= IMG ?>hero-bike.png"
-                        alt="<?= e(
-                            SITE_NAME
-                        ); ?> Motorcycle"
-                        class="hero-bike"
-                    >
-
-
-                    <div
-                        class="hero-circle hero-circle-1"
-                    ></div>
-
-
-                    <div
-                        class="hero-circle hero-circle-2"
-                    ></div>
-
-
-                    <!-- Price -->
-
-                    <div
-                        class="floating-card floating-price"
-                    >
-
-                        <div class="floating-icon">
-
-                            <i
-                                class="ri-price-tag-3-fill"
-                            ></i>
-
-                        </div>
-
-                        <div class="floating-content">
-
-                            <span>
-                                Starting From
-                            </span>
-
-                            <h4>
-                                ₹1.89 Lakh
-                            </h4>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- Engine -->
-
-                    <div
-                        class="floating-card floating-engine"
-                    >
-
-                        <div class="floating-icon">
-
-                            <i
-                                class="ri-settings-5-fill"
-                            ></i>
-
-                        </div>
-
-                        <div class="floating-content">
-
-                            <span>
-                                Engine
-                            </span>
-
-                            <h4>
-                                349 CC
-                            </h4>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- Speed -->
-
-                    <div
-                        class="floating-card floating-speed"
-                    >
-
-                        <div class="floating-icon">
-
-                            <i
-                                class="ri-speed-up-fill"
-                            ></i>
-
-                        </div>
-
-                        <div class="floating-content">
-
-                            <span>
-                                Top Speed
-                            </span>
-
-                            <h4>
-                                180 km/h
-                            </h4>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- Mileage -->
-
-                    <div
-                        class="floating-card floating-fuel"
-                    >
-
-                        <div class="floating-icon">
-
-                            <i
-                                class="ri-gas-station-fill"
-                            ></i>
-
-                        </div>
-
-                        <div class="floating-content">
-
-                            <span>
-                                Mileage
-                            </span>
-
-                            <h4>
-                                40 km/l
-                            </h4>
-
-                        </div>
-
-                    </div>
-
-
-                    <div
-                        class="hero-glow hero-glow-1"
-                    ></div>
-
-
-                    <div
-                        class="hero-glow hero-glow-2"
-                    ></div>
-
-
-                    <div
-                        class="hero-dots"
-                    ></div>
-
-
-                </div>
-
-
-            </div>
-
-
-            <!-- =========================================
-                 SLIDE CONTROLS
-            ========================================== -->
-
-            <div
-                class="hero-slider-controls"
+        <!-- =============================================
+             HERO CONTENT
+        ============================================== -->
+
+        <div class="hero-top-content">
+
+            <span
+                class="hero-badge"
+                id="hero-eyebrow"
             >
 
+                <i class="ri-flashlight-fill"></i>
 
-                <button
-                    type="button"
-                    class="hero-slider-button"
-                    id="hero-prev"
-                    aria-label="Previous motorcycle"
+                NEXT GENERATION MOTORCYCLES
+
+            </span>
+
+
+            <h1 class="hero-main-title">
+
+                <span
+                    class="hero-title-main"
+                >
+                    Ride Beyond
+                </span>
+
+                <span
+                    class="hero-title-highlight"
+                >
+                    Limits
+                </span>
+
+            </h1>
+
+
+            <p
+                class="hero-description"
+                id="hero-description"
+            >
+
+                Discover premium motorcycles engineered
+                with advanced technology, powerful performance,
+                and unmatched comfort for every journey.
+
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <a
+                    href="<?= url('bikes/'); ?>"
+                    class="btn btn-primary"
                 >
 
-                    <i
-                        class="ri-arrow-left-line"
-                    ></i>
+                    <i class="ri-motorbike-fill"></i>
 
-                </button>
+                    Explore Bikes
+
+                </a>
 
 
-                <button
-                    type="button"
-                    class="hero-slider-button"
-                    id="hero-next"
-                    aria-label="Next motorcycle"
+                <a
+                    href="<?= url('book-test-ride/'); ?>"
+                    class="btn btn-outline"
                 >
 
-                    <i
-                        class="ri-arrow-right-line"
-                    ></i>
+                    <i class="ri-calendar-check-line"></i>
 
-                </button>
+                    Book Test Ride
+
+                </a>
+
+            </div>
+
+
+            <div class="hero-features">
+
+                <div class="feature-item">
+
+                    <i class="ri-shield-check-fill"></i>
+
+                    <span>
+                        5 Years Warranty
+                    </span>
+
+                </div>
+
+
+                <div class="feature-item">
+
+                    <i class="ri-tools-fill"></i>
+
+                    <span>
+                        Free Service Support
+                    </span>
+
+                </div>
+
+
+                <div class="feature-item">
+
+                    <i class="ri-map-pin-2-fill"></i>
+
+                    <span>
+                        Nationwide Dealers
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =============================================
+             HORIZONTAL BIKE SLIDER
+        ============================================== -->
+
+        <div class="hero-bike-slider">
+
+
+            <!-- Previous Button -->
+
+            <button
+                type="button"
+                class="hero-slider-arrow hero-slider-prev"
+                id="hero-prev"
+                aria-label="Previous motorcycle"
+            >
+
+                <i class="ri-arrow-left-line"></i>
+
+            </button>
+
+
+            <!-- Slider Window -->
+
+            <div class="hero-slider-window">
+
+
+                <div
+                    class="hero-slider-track"
+                    id="hero-slider-track"
+                >
+
+
+                    <?php foreach (
+                        $heroSlides as $index => $slide
+                    ): ?>
+
+
+                        <article
+                            class="hero-bike-slide<?=
+                                $index === 0
+                                    ? ' is-active'
+                                    : '';
+                            ?>"
+                            data-hero-slide="<?= $index; ?>"
+                        >
+
+
+                            <div class="hero-bike-image-box">
+
+
+                                <img
+                                    src="<?= e(
+                                        $slide['image']
+                                    ); ?>"
+                                    alt="<?= e(
+                                        $slide['name']
+                                    ); ?>"
+                                    class="hero-slider-bike-image"
+                                    <?= $index === 0
+                                        ? 'fetchpriority="high"'
+                                        : 'loading="lazy"';
+                                    ?>
+                                >
+
+
+                                <div
+                                    class="hero-bike-image-overlay"
+                                ></div>
+
+
+                                <div
+                                    class="hero-bike-number"
+                                >
+
+                                    0<?= $index + 1; ?>
+
+                                </div>
+
+
+                            </div>
+
+
+                            <div
+                                class="hero-bike-details"
+                            >
+
+                                <span>
+
+                                    <?= e(
+                                        $slide['category']
+                                    ); ?>
+
+                                </span>
+
+
+                                <h3>
+
+                                    <?= e(
+                                        $slide['name']
+                                    ); ?>
+
+                                </h3>
+
+
+                                <a
+                                    href="<?= url(
+                                        'bikes/'
+                                    ); ?>"
+                                >
+
+                                    View Motorcycle
+
+                                    <i
+                                        class="ri-arrow-right-up-line"
+                                    ></i>
+
+                                </a>
+
+                            </div>
+
+
+                        </article>
+
+
+                    <?php endforeach; ?>
+
+
+                </div>
 
 
             </div>
 
 
-            <!-- =========================================
-                 SLIDE INDICATORS
-            ========================================== -->
+            <!-- Next Button -->
+
+            <button
+                type="button"
+                class="hero-slider-arrow hero-slider-next"
+                id="hero-next"
+                aria-label="Next motorcycle"
+            >
+
+                <i class="ri-arrow-right-line"></i>
+
+            </button>
+
+
+        </div>
+
+
+        <!-- =============================================
+             SLIDER INDICATORS
+        ============================================== -->
+
+        <div class="hero-slider-bottom">
+
 
             <div
                 class="hero-slider-indicators"
             >
-
 
                 <?php foreach (
                     $heroSlides as $index => $slide
@@ -596,10 +355,12 @@ $heroSlides = [
                                 ? ' is-active'
                                 : '';
                         ?>"
-                        data-hero-indicator="<?= $index; ?>"
+                        data-hero-indicator="<?=
+                            $index;
+                        ?>"
                         aria-label="<?= e(
-                            'Show slide ' .
-                            ($index + 1)
+                            'Show ' .
+                            $slide['name']
                         ); ?>"
                     >
 
@@ -614,28 +375,19 @@ $heroSlides = [
             </div>
 
 
-            <!-- =========================================
-                 SCROLL INDICATOR
-            ========================================== -->
+            <div class="hero-slider-status">
 
-            <div class="hero-scroll">
-
-
-                <a
-                    href="#featured-bikes"
-                    aria-label="Scroll to featured bikes"
+                <strong
+                    id="hero-current-slide"
                 >
+                    01
+                </strong>
 
-                    <span>
-                        Scroll Down
-                    </span>
+                <span>/</span>
 
-                    <i
-                        class="ri-arrow-down-line"
-                    ></i>
-
-                </a>
-
+                <span>
+                    03
+                </span>
 
             </div>
 
@@ -643,26 +395,75 @@ $heroSlides = [
         </div>
 
 
+        <!-- =============================================
+             HERO STATISTICS
+        ============================================== -->
+
+        <div class="hero-stats">
+
+            <div class="stat-card">
+
+                <h3>15K+</h3>
+
+                <p>
+                    Happy Riders
+                </p>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <h3>120+</h3>
+
+                <p>
+                    Dealerships
+                </p>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <h3>25+</h3>
+
+                <p>
+                    Bike Models
+                </p>
+
+            </div>
+
+
+            <div class="hero-rating">
+
+                <div class="rating-stars">
+
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+                    <i class="ri-star-fill"></i>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        4.9 / 5 Rating
+                    </strong>
+
+                    <p>
+                        Trusted by riders
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
     </div>
-
-
-    <!-- Existing Decorative Shapes -->
-
-    <div
-        class="hero-shape hero-shape-1"
-    ></div>
-
-    <div
-        class="hero-shape hero-shape-2"
-    ></div>
-
-    <div
-        class="hero-shape hero-shape-3"
-    ></div>
-
-    <div
-        class="hero-gradient"
-    ></div>
-
 
 </section>
