@@ -89,9 +89,9 @@ $heroSlides = [
 
                 <i class="ri-flashlight-fill"></i>
 
-               <span id="hero-eyebrow-text">
-                    NEXT GENERATION MOTORCYCLES
-               </span>
+              <span id="hero-eyebrow-text">
+              <?= e($heroSlides[0]['eyebrow']); ?>
+              </span>
 
             </span>
 
