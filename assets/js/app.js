@@ -402,52 +402,55 @@ function setCounterFinalValue(
 
 function initHeroSlider() {
 
-    const hero = document.querySelector(
-        '.hero'
-    );
+    const sliderWindow =
+        document.querySelector(
+            '.hero-slider-window'
+        );
 
+    const sliderTrack =
+        document.getElementById(
+            'hero-slider-track'
+        );
 
     const slides =
         document.querySelectorAll(
-            '.hero-background-slide'
+            '.hero-bike-slide'
         );
-
 
     const indicators =
         document.querySelectorAll(
             '.hero-slider-indicator'
         );
 
-
     const previousButton =
         document.getElementById(
             'hero-prev'
         );
-
 
     const nextButton =
         document.getElementById(
             'hero-next'
         );
 
+    const currentNumber =
+        document.getElementById(
+            'hero-current-slide'
+        );
 
     const eyebrow =
         document.getElementById(
             'hero-eyebrow'
         );
 
-
     const titleMain =
         document.querySelector(
             '.hero-title-main'
         );
 
-
     const titleHighlight =
         document.querySelector(
             '.hero-title-highlight'
         );
-
 
     const description =
         document.getElementById(
@@ -455,6 +458,474 @@ function initHeroSlider() {
         );
 
 
+    if (
+        !sliderWindow ||
+        !sliderTrack ||
+        slides.length === 0
+    ) {
+
+        return;
+
+    }
+
+
+    const heroContent = [
+
+        {
+
+            eyebrow:
+                'NEXT GENERATION MOTORCYCLES',
+
+            title:
+                'Ride Beyond',
+
+            highlight:
+                'Limits',
+
+            description:
+                'Discover premium motorcycles engineered with advanced technology, powerful performance, and unmatched comfort for every journey.'
+
+        },
+
+        {
+
+            eyebrow:
+                'BUILT FOR PURE PERFORMANCE',
+
+            title:
+                'Own Every',
+
+            highlight:
+                'Curve',
+
+            description:
+                'Experience responsive handling, powerful acceleration, and track-inspired performance designed for riders who demand more.'
+
+        },
+
+        {
+
+            eyebrow:
+                'ENGINEERED FOR THE OPEN ROAD',
+
+            title:
+                'Chase New',
+
+            highlight:
+                'Horizons',
+
+            description:
+                'Go beyond the city with adventure-ready capability, long-distance comfort, and confidence on every road.'
+
+        }
+
+    ];
+
+
+    let currentSlide = 0;
+
+    let autoSlide = null;
+
+    const slideDuration = 6000;
+
+
+    function updateText(index) {
+
+        const content =
+            heroContent[index];
+
+        if (!content) {
+            return;
+        }
+
+
+        [
+            eyebrow,
+            titleMain,
+            titleHighlight,
+            description
+
+        ].forEach(
+            (element) => {
+
+                if (element) {
+
+                    element.style.opacity =
+                        '0';
+
+                    element.style.transform =
+                        'translateY(8px)';
+
+                }
+
+            }
+        );
+
+
+        window.setTimeout(
+            () => {
+
+                if (eyebrow) {
+
+                    eyebrow.innerHTML = `
+
+                        <i
+                            class="ri-flashlight-fill"
+                        ></i>
+
+                        ${content.eyebrow}
+
+                    `;
+
+                }
+
+
+                if (titleMain) {
+
+                    titleMain.textContent =
+                        content.title;
+
+                }
+
+
+                if (titleHighlight) {
+
+                    titleHighlight.textContent =
+                        content.highlight;
+
+                }
+
+
+                if (description) {
+
+                    description.textContent =
+                        content.description;
+
+                }
+
+
+                [
+                    eyebrow,
+                    titleMain,
+                    titleHighlight,
+                    description
+
+                ].forEach(
+                    (element) => {
+
+                        if (element) {
+
+                            element.style.opacity =
+                                '1';
+
+                            element.style.transform =
+                                'translateY(0)';
+
+                        }
+
+                    }
+                );
+
+            },
+            220
+        );
+
+    }
+
+
+    function moveSlider() {
+
+        const activeSlide =
+            slides[currentSlide];
+
+
+        const windowCenter =
+
+            sliderWindow.offsetWidth /
+            2;
+
+
+        const slideCenter =
+
+            activeSlide.offsetLeft +
+
+            (
+                activeSlide.offsetWidth /
+                2
+            );
+
+
+        let position =
+
+            windowCenter -
+
+            slideCenter;
+
+
+        const maximumPosition = 0;
+
+
+        const minimumPosition =
+
+            sliderWindow.offsetWidth -
+
+            sliderTrack.scrollWidth;
+
+
+        position = Math.min(
+
+            maximumPosition,
+
+            Math.max(
+
+                minimumPosition,
+
+                position
+
+            )
+
+        );
+
+
+        sliderTrack.style.transform =
+
+            `translateX(${position}px)`;
+
+
+        slides.forEach(
+
+            (
+                slide,
+                index
+            ) => {
+
+                slide.classList.toggle(
+
+                    'is-active',
+
+                    index ===
+                    currentSlide
+
+                );
+
+            }
+
+        );
+
+
+        indicators.forEach(
+
+            (
+                indicator,
+                index
+            ) => {
+
+                indicator.classList.toggle(
+
+                    'is-active',
+
+                    index ===
+                    currentSlide
+
+                );
+
+            }
+
+        );
+
+
+        if (currentNumber) {
+
+            currentNumber.textContent =
+
+                String(
+                    currentSlide + 1
+                ).padStart(
+                    2,
+                    '0'
+                );
+
+        }
+
+
+        updateText(
+            currentSlide
+        );
+
+    }
+
+
+    function showSlide(index) {
+
+        if (
+            index >= slides.length
+        ) {
+
+            currentSlide = 0;
+
+        }
+
+        else if (
+            index < 0
+        ) {
+
+            currentSlide =
+
+                slides.length - 1;
+
+        }
+
+        else {
+
+            currentSlide = index;
+
+        }
+
+
+        moveSlider();
+
+    }
+
+
+    function startAutoSlide() {
+
+        stopAutoSlide();
+
+
+        autoSlide = window.setInterval(
+
+            () => {
+
+                showSlide(
+                    currentSlide + 1
+                );
+
+            },
+
+            slideDuration
+
+        );
+
+    }
+
+
+    function stopAutoSlide() {
+
+        if (autoSlide) {
+
+            window.clearInterval(
+                autoSlide
+            );
+
+            autoSlide = null;
+
+        }
+
+    }
+
+
+    if (nextButton) {
+
+        nextButton.addEventListener(
+
+            'click',
+
+            () => {
+
+                showSlide(
+                    currentSlide + 1
+                );
+
+                startAutoSlide();
+
+            }
+
+        );
+
+    }
+
+
+    if (previousButton) {
+
+        previousButton.addEventListener(
+
+            'click',
+
+            () => {
+
+                showSlide(
+                    currentSlide - 1
+                );
+
+                startAutoSlide();
+
+            }
+
+        );
+
+    }
+
+
+    indicators.forEach(
+
+        (
+            indicator,
+            index
+        ) => {
+
+            indicator.addEventListener(
+
+                'click',
+
+                () => {
+
+                    showSlide(
+                        index
+                    );
+
+                    startAutoSlide();
+
+                }
+
+            );
+
+        }
+
+    );
+
+
+    sliderWindow.addEventListener(
+
+        'mouseenter',
+
+        stopAutoSlide
+
+    );
+
+
+    sliderWindow.addEventListener(
+
+        'mouseleave',
+
+        startAutoSlide
+
+    );
+
+
+    window.addEventListener(
+
+        'resize',
+
+        moveSlider
+
+    );
+
+
+    moveSlider();
+
+    startAutoSlide();
+
+}
     /*
     -----------------------------------------------------
     STOP IF HERO DOES NOT EXIST
