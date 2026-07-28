@@ -17,7 +17,7 @@
 $heroSlides = [
 
     [
-        'image' => IMG . 'hero/hero-classic.jpg',
+        'image' => IMG . 'bikes/adventurepro.jpg',
 
         'eyebrow' =>
             'NEXT GENERATION MOTORCYCLES',
@@ -33,7 +33,7 @@ $heroSlides = [
     ],
 
     [
-        'image' => IMG . 'hero/hero-sport.jpg',
+        'image' => IMG . 'bikes/gallery-night-lifestyle.jpg',
 
         'eyebrow' =>
             'BUILT FOR PURE PERFORMANCE',
@@ -49,7 +49,7 @@ $heroSlides = [
     ],
 
     [
-        'image' => IMG . 'hero/hero-adventure.jpg',
+        'image' => IMG . 'bikes/Cobalt GT.jpg',
 
         'eyebrow' =>
             'ENGINEERED FOR THE OPEN ROAD',
