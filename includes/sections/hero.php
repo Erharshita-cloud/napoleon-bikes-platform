@@ -83,13 +83,9 @@ $heroSlides = [
 
                 <i class="ri-flashlight-fill"></i>
 
-                <span id="hero-eyebrow-text">
-
-                    <?= e(
-                        $heroSlides[0]['eyebrow']
-                    ); ?>
-
-                </span>
+               <span id="hero-eyebrow-text">
+                    NEXT GENERATION MOTORCYCLES
+               </span>
 
             </span>
 
@@ -506,14 +502,3 @@ $heroSlides = [
     </div>
 
 </section>
-
-
-<script>
-
-window.napoleonHeroSlides = <?= json_encode(
-    $heroSlides,
-    JSON_UNESCAPED_SLASHES |
-    JSON_UNESCAPED_UNICODE
-); ?>;
-
-</script>
