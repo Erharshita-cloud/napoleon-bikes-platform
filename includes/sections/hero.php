@@ -17,6 +17,8 @@ $heroSlides = [
 
         'category' => 'Adventure Series',
 
+        'eyebrow' => 'NEXT GENERATION MOTORCYCLES',
+
         'title' => 'Ride Beyond',
 
         'highlight' => 'Limits',
@@ -32,6 +34,8 @@ $heroSlides = [
 
         'category' => 'Performance Series',
 
+        'eyebrow' => 'BUILT FOR PURE PERFORMANCE',
+
         'title' => 'Own Every',
 
         'highlight' => 'Curve',
@@ -41,11 +45,13 @@ $heroSlides = [
     ],
 
     [
-        'image' => IMG . 'bikes/Cobalt GT.jpg
+        'image' => IMG . 'bikes/Cobalt GT.jpg',
 
         'name' => 'Napoleon Cobalt GT',
 
         'category' => 'Grand Touring Series',
+
+        'eyebrow' => 'ENGINEERED FOR THE OPEN ROAD',
 
         'title' => 'Chase New',
 
@@ -81,7 +87,13 @@ $heroSlides = [
 
                 <i class="ri-flashlight-fill"></i>
 
-                NEXT GENERATION MOTORCYCLES
+                <span id="hero-eyebrow-text">
+
+                    <?= e(
+                        $heroSlides[0]['eyebrow']
+                    ); ?>
+
+                </span>
 
             </span>
 
@@ -90,14 +102,24 @@ $heroSlides = [
 
                 <span
                     class="hero-title-main"
+                    id="hero-title-main"
                 >
-                    Ride Beyond
+
+                    <?= e(
+                        $heroSlides[0]['title']
+                    ); ?>
+
                 </span>
 
                 <span
                     class="hero-title-highlight"
+                    id="hero-title-highlight"
                 >
-                    Limits
+
+                    <?= e(
+                        $heroSlides[0]['highlight']
+                    ); ?>
+
                 </span>
 
             </h1>
@@ -108,9 +130,9 @@ $heroSlides = [
                 id="hero-description"
             >
 
-                Discover premium motorcycles engineered
-                with advanced technology, powerful performance,
-                and unmatched comfort for every journey.
+                <?= e(
+                    $heroSlides[0]['description']
+                ); ?>
 
             </p>
 
@@ -130,7 +152,9 @@ $heroSlides = [
 
 
                 <a
-                    href="<?= url('book-test-ride/'); ?>"
+                    href="<?= url(
+                        'book-test-ride/'
+                    ); ?>"
                     class="btn btn-outline"
                 >
 
@@ -221,11 +245,15 @@ $heroSlides = [
 
                         <article
                             class="hero-bike-slide<?=
+
                                 $index === 0
                                     ? ' is-active'
                                     : '';
+
                             ?>"
-                            data-hero-slide="<?= $index; ?>"
+                            data-hero-slide="<?=
+                                $index;
+                            ?>"
                         >
 
 
@@ -240,9 +268,14 @@ $heroSlides = [
                                         $slide['name']
                                     ); ?>"
                                     class="hero-slider-bike-image"
-                                    <?= $index === 0
-                                        ? 'fetchpriority="high"'
-                                        : 'loading="lazy"';
+                                    <?=
+
+                                        $index === 0
+
+                                            ? 'fetchpriority="high"'
+
+                                            : 'loading="lazy"';
+
                                     ?>
                                 >
 
@@ -256,7 +289,9 @@ $heroSlides = [
                                     class="hero-bike-number"
                                 >
 
-                                    0<?= $index + 1; ?>
+                                    0<?=
+                                        $index + 1;
+                                    ?>
 
                                 </div>
 
@@ -351,16 +386,20 @@ $heroSlides = [
                     <button
                         type="button"
                         class="hero-slider-indicator<?=
+
                             $index === 0
                                 ? ' is-active'
                                 : '';
+
                         ?>"
                         data-hero-indicator="<?=
                             $index;
                         ?>"
                         aria-label="<?= e(
+
                             'Show ' .
                             $slide['name']
+
                         ); ?>"
                     >
 
@@ -386,7 +425,11 @@ $heroSlides = [
                 <span>/</span>
 
                 <span>
-                    03
+
+                    0<?=
+                        count($heroSlides);
+                    ?>
+
                 </span>
 
             </div>
@@ -467,3 +510,14 @@ $heroSlides = [
     </div>
 
 </section>
+
+
+<script>
+
+window.napoleonHeroSlides = <?= json_encode(
+    $heroSlides,
+    JSON_UNESCAPED_SLASHES |
+    JSON_UNESCAPED_UNICODE
+); ?>;
+
+</script>
