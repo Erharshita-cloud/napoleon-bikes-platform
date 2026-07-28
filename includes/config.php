@@ -58,30 +58,15 @@ define(
 |--------------------------------------------------------------------------
 | Base URL
 |--------------------------------------------------------------------------
-| Automatically detects:
-| Localhost
-| AWS EC2
-| Domain
-| Subfolder hosting
+| Local XAMPP configuration
 |--------------------------------------------------------------------------
 */
 
-$basePath = str_replace(
-    '\\',
-    '/',
-    dirname($_SERVER['SCRIPT_NAME'])
-);
-
-if ($basePath === '/' || $basePath === '\\') {
-
-    $basePath = '';
-
-}
-
 define(
     'BASE_URL',
-    $basePath . '/'
+    '/napoleon-bikes-platform/'
 );
+
 
 /*
 |--------------------------------------------------------------------------
