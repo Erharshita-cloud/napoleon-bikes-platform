@@ -1,23 +1,23 @@
 <?php
+
 declare(strict_types=1);
 
+
 /**
- * ---------------------------------------------------------
- * Napoleon Bikes Platform
- * Horizontal Hero Slider
- * ---------------------------------------------------------
+ * =========================================================
+ * Napoleon Bikes
+ * Horizontal Hero Slider Data
+ * =========================================================
  */
 
 $heroSlides = [
 
     [
-        'image' => IMG . 'bikes/adventurepro.jpg',
+        'image' => IMG . 'bikes/adventure-pro.jpg',
 
         'name' => 'Napoleon Adventure Pro',
 
         'category' => 'Adventure Series',
-
-        'eyebrow' => 'NEXT GENERATION MOTORCYCLES',
 
         'title' => 'Ride Beyond',
 
@@ -28,13 +28,11 @@ $heroSlides = [
     ],
 
     [
-        'image' => IMG . 'bikes/gallery-night-lifestyle.jpg',
+        'image' => IMG . 'bikes/night-gt.jpg',
 
         'name' => 'Napoleon Night GT',
 
         'category' => 'Performance Series',
-
-        'eyebrow' => 'BUILT FOR PURE PERFORMANCE',
 
         'title' => 'Own Every',
 
@@ -45,13 +43,11 @@ $heroSlides = [
     ],
 
     [
-        'image' => IMG . 'bikes/Cobalt GT.jpg',
+        'image' => IMG . 'bikes/cobalt-gt.jpg',
 
         'name' => 'Napoleon Cobalt GT',
 
         'category' => 'Grand Touring Series',
-
-        'eyebrow' => 'ENGINEERED FOR THE OPEN ROAD',
 
         'title' => 'Chase New',
 
