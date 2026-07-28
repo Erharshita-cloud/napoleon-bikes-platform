@@ -41,7 +41,7 @@ $heroSlides = [
     ],
 
     [
-        'image' => IMG . 'bikes/cobalt-gt.jpg',
+        'image' => IMG . 'bikes/Cobalt GT.jpg
 
         'name' => 'Napoleon Cobalt GT',
 
