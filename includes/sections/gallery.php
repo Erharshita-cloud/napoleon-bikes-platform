@@ -27,51 +27,51 @@
         <div class="gallery-grid">
 
             <div class="gallery-item">
-                <img src="assets/images/gallery/gallery-adventure.jpg" alt="Napoleon Premium Bike">
+                <img src="<?= IMG ?>gallery/gallery-adventure.jpg" alt="Napoleon Premium Bike">
             </div>
 
             <div class="gallery-item">
-                <img src="assets/images/gallery/gallery-blue.jpg" alt="Napoleon Adventure Bike">
+                <img src="<?= IMG ?>gallery/gallery-blue.jpg" alt="Napoleon Adventure Bike">
             </div>
 
             <div class="gallery-item">
-                <img src="assets/images/gallery/gallery-hero.jpg" alt="Napoleon Classic Bike">
+                <img src="<?= IMG ?>gallery/gallery-hero.jpg" alt="Napoleon Classic Bike">
             </div>
 
             <div class="gallery-item">
-                <img src="assets/images/gallery/gallery-lineup.jpg" alt="Napoleon Urban Bike">
+                <img src="<?= IMG ?>gallery/gallery-lineup.jpg" alt="Napoleon Urban Bike">
             </div>
 
             <div class="gallery-item">
-                <img src="assets/images/gallery/gallery-performance.jpg" alt="Napoleon Sport Bike">
+                <img src="<?= IMG ?>gallery/gallery-performance.jpg" alt="Napoleon Sport Bike">
             </div>
 
             <div class="gallery-item">
-                <img src="assets/images/gallery/gallery-racing.jpg" alt="Napoleon City Bike">
+                <img src="<?= IMG ?>gallery/gallery-racing.jpg" alt="Napoleon City Bike">
             </div>
 
             <div class="gallery-item">
-                <img src="assets/images/gallery/gallery-sport.jpg" alt="Napoleon Forest Ride">
+                <img src="<?= IMG ?>gallery/gallery-sport.jpg" alt="Napoleon Forest Ride">
             </div>
 
             <div class="gallery-item">
-                <img src="assets/images/gallery/trailblazer.webp" alt="Napoleon Showroom">
+                <img src="<?= IMG ?>gallery/trailblazer.webp" alt="Napoleon Showroom">
             </div>
 
             <div class="gallery-item">
-                <img src="assets/images/gallery/gallery-urban.jpg" alt="Napoleon Night Ride">
+                <img src="<?= IMG ?>gallery/gallery-urban.jpg" alt="Napoleon Night Ride">
             </div>
 
             <div class="gallery-item">
-                <img src="assets/images/gallery/gallery-classic.jpg" alt="Napoleon Lifestyle">
+                <img src="<?= IMG ?>gallery/gallery-classic.jpg" alt="Napoleon Lifestyle">
             </div>
 
             <div class="gallery-item">
-                <img src="assets/images/gallery/gallery-city-rider.jpg" alt="Napoleon City Rider">
+                <img src="<?= IMG ?>gallery/gallery-city-rider.jpg" alt="Napoleon City Rider">
             </div>
 
             <div class="gallery-item">
-                <img src="assets/images/gallery/gallery-city.jpg" alt="Napoleon Heritage">
+                <img src="<?= IMG ?>gallery/gallery-city.jpg" alt="Napoleon Heritage">
             </div>
 
         </div>
