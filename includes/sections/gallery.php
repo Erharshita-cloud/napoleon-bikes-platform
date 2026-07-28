@@ -59,7 +59,7 @@
             </div>
 
             <div class="gallery-item">
-                <img src="assets/images/gallery-night-lifestyle.jpg" alt="Napoleon Night Ride">
+                <img src="assets/images/bikes/gallery-night-lifestyle.jpg" alt="Napoleon Night Ride">
             </div>
 
             <div class="gallery-item">
