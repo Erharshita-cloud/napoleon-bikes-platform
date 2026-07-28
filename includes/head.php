@@ -127,8 +127,6 @@
 
     <!-- Main Stylesheet -->
 
-    <!-- Main Stylesheet -->
-
     <link
         rel="stylesheet"
         href="<?= CSS ?>style.css">
