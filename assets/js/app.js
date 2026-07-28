@@ -1,18 +1,18 @@
 /**
- * =========================================================
+ * ==========================================================
  * Napoleon Bikes Platform
  * Main JavaScript
- * =========================================================
+ * Version 2.0
+ * ==========================================================
  */
 
-'use strict';
+"use strict";
 
+/* ==========================================================
+   DOM READY
+========================================================== */
 
-/* =========================================================
-   RUN AFTER HTML IS FULLY LOADED
-========================================================= */
-
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
 
     initFAQ();
 
@@ -20,989 +20,555 @@ document.addEventListener('DOMContentLoaded', () => {
 
     initHeroSlider();
 
+    initNavbar();
+
+    initSearchOverlay();
+
+    initThemeToggle();
+
+    initScrollTop();
+
 });
 
 
-/* =========================================================
-   FAQ ACCORDION
-========================================================= */
+/* ==========================================================
+   HELPERS
+========================================================== */
 
-function initFAQ() {
+function $(selector) {
+    return document.querySelector(selector);
+}
 
-    const faqItems = document.querySelectorAll(
-        '.faq-item'
-    );
-
-
-    if (faqItems.length === 0) {
-        return;
-    }
+function $$(selector) {
+    return Array.from(document.querySelectorAll(selector));
+}
 
 
-    faqItems.forEach((item) => {
+/* ==========================================================
+   SMOOTH FADE
+========================================================== */
 
-        const button = item.querySelector(
-            '.faq-question'
-        );
+function fadeOut(elements) {
 
-        const answer = item.querySelector(
-            '.faq-answer'
-        );
+    elements.forEach(el => {
 
+        if (!el) return;
 
-        if (!button || !answer) {
-            return;
-        }
+        el.style.opacity = "0";
 
-
-        /*
-        Set initial state
-        */
-
-        if (
-            item.classList.contains(
-                'active'
-            )
-        ) {
-
-            answer.style.maxHeight =
-                answer.scrollHeight + 'px';
-
-            button.setAttribute(
-                'aria-expanded',
-                'true'
-            );
-
-        } else {
-
-            answer.style.maxHeight =
-                '0px';
-
-            button.setAttribute(
-                'aria-expanded',
-                'false'
-            );
-
-        }
-
-
-        /*
-        FAQ click event
-        */
-
-        button.addEventListener(
-            'click',
-            () => {
-
-                const isActive =
-                    item.classList.contains(
-                        'active'
-                    );
-
-
-                /*
-                Close every FAQ
-                */
-
-                faqItems.forEach((faq) => {
-
-                    faq.classList.remove(
-                        'active'
-                    );
-
-
-                    const faqButton =
-                        faq.querySelector(
-                            '.faq-question'
-                        );
-
-
-                    const faqAnswer =
-                        faq.querySelector(
-                            '.faq-answer'
-                        );
-
-
-                    if (faqButton) {
-
-                        faqButton.setAttribute(
-                            'aria-expanded',
-                            'false'
-                        );
-
-                    }
-
-
-                    if (faqAnswer) {
-
-                        faqAnswer.style.maxHeight =
-                            '0px';
-
-                    }
-
-                });
-
-
-                /*
-                Open selected FAQ
-                */
-
-                if (!isActive) {
-
-                    item.classList.add(
-                        'active'
-                    );
-
-
-                    button.setAttribute(
-                        'aria-expanded',
-                        'true'
-                    );
-
-
-                    answer.style.maxHeight =
-                        answer.scrollHeight +
-                        'px';
-
-                }
-
-            }
-        );
+        el.style.transform = "translateY(10px)";
 
     });
 
 }
 
 
-/* =========================================================
-   STATISTICS COUNTER
-========================================================= */
+function fadeIn(elements) {
 
-function initStatisticsCounter() {
+    elements.forEach(el => {
 
-    const counters = document.querySelectorAll(
-        '.counter'
-    );
+        if (!el) return;
 
+        el.style.opacity = "1";
 
-    if (counters.length === 0) {
-        return;
-    }
+        el.style.transform = "translateY(0px)";
 
-
-    /*
-    Browser fallback
-    */
-
-    if (
-        !(
-            'IntersectionObserver'
-            in window
-        )
-    ) {
-
-        counters.forEach(
-            setCounterFinalValue
-        );
-
-        return;
-
-    }
-
-
-    const counterObserver =
-        new IntersectionObserver(
-
-            (entries) => {
-
-                entries.forEach(
-                    (entry) => {
-
-                        if (
-                            !entry.isIntersecting
-                        ) {
-                            return;
-                        }
-
-
-                        animateCounter(
-                            entry.target
-                        );
-
-
-                        counterObserver.unobserve(
-                            entry.target
-                        );
-
-                    }
-                );
-
-            },
-
-            {
-                threshold: 0.45
-            }
-
-        );
-
-
-    counters.forEach(
-        (counter) => {
-
-            counterObserver.observe(
-                counter
-            );
-
-        }
-    );
+    });
 
 }
 
 
-/* =========================================================
-   ANIMATE COUNTER
-========================================================= */
+/* ==========================================================
+   SAFE TEXT UPDATE
+========================================================== */
+
+function updateText(element, value) {
+
+    if (!element) return;
+
+    element.textContent = value;
+
+}
+
+/* ==========================================================
+   FAQ ACCORDION
+========================================================== */
+
+function initFAQ() {
+
+    const faqItems = $$(".faq-item");
+
+    if (!faqItems.length) return;
+
+    faqItems.forEach(item => {
+
+        const button = item.querySelector(".faq-question");
+        const answer = item.querySelector(".faq-answer");
+
+        if (!button || !answer) return;
+
+        if (item.classList.contains("active")) {
+
+            answer.style.maxHeight = answer.scrollHeight + "px";
+            button.setAttribute("aria-expanded", "true");
+
+        } else {
+
+            answer.style.maxHeight = "0px";
+            button.setAttribute("aria-expanded", "false");
+
+        }
+
+        button.addEventListener("click", () => {
+
+            const isActive = item.classList.contains("active");
+
+            faqItems.forEach(faq => {
+
+                faq.classList.remove("active");
+
+                const b = faq.querySelector(".faq-question");
+                const a = faq.querySelector(".faq-answer");
+
+                if (b) {
+                    b.setAttribute("aria-expanded", "false");
+                }
+
+                if (a) {
+                    a.style.maxHeight = "0px";
+                }
+
+            });
+
+            if (!isActive) {
+
+                item.classList.add("active");
+
+                button.setAttribute("aria-expanded", "true");
+
+                answer.style.maxHeight =
+                    answer.scrollHeight + "px";
+
+            }
+
+        });
+
+    });
+
+}
+
+
+/* ==========================================================
+   STATISTICS COUNTER
+========================================================== */
+
+function initStatisticsCounter() {
+
+    const counters = $$(".counter");
+
+    if (!counters.length) return;
+
+    if (!("IntersectionObserver" in window)) {
+
+        counters.forEach(setCounterFinalValue);
+
+        return;
+
+    }
+
+    const observer = new IntersectionObserver(
+
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (!entry.isIntersecting) return;
+
+                animateCounter(entry.target);
+
+                observer.unobserve(entry.target);
+
+            });
+
+        },
+
+        {
+            threshold: 0.45
+        }
+
+    );
+
+    counters.forEach(counter => {
+
+        observer.observe(counter);
+
+    });
+
+}
+
+
+/* ==========================================================
+   COUNTER ANIMATION
+========================================================== */
 
 function animateCounter(counter) {
 
-    const target = Number(
-        counter.dataset.target
-    );
+    const target = Number(counter.dataset.target);
 
-
-    if (
-        Number.isNaN(target)
-    ) {
-        return;
-    }
-
+    if (Number.isNaN(target)) return;
 
     const duration = 1800;
 
-    const startTime =
-        performance.now();
+    const start = performance.now();
 
+    function frame(time) {
 
-    function updateCounter(
-        currentTime
-    ) {
+        const progress = Math.min(
+            (time - start) / duration,
+            1
+        );
 
-        const elapsed =
-            currentTime -
-            startTime;
+        const eased =
+            1 - Math.pow(1 - progress, 3);
 
-
-        const progress =
-            Math.min(
-                elapsed / duration,
-                1
-            );
-
-
-        const easedProgress =
-
-            1 -
-
-            Math.pow(
-                1 - progress,
-                3
-            );
-
-
-        const currentValue =
-
-            Math.floor(
-                target *
-                easedProgress
-            );
-
+        const value = Math.floor(
+            target * eased
+        );
 
         counter.textContent =
+            value.toLocaleString("en-IN");
 
-            currentValue.toLocaleString(
-                'en-IN'
-            );
+        if (progress < 1) {
 
-
-        if (
-            progress < 1
-        ) {
-
-            requestAnimationFrame(
-                updateCounter
-            );
+            requestAnimationFrame(frame);
 
         } else {
 
             counter.textContent =
-
-                target.toLocaleString(
-                    'en-IN'
-                ) + '+';
+                target.toLocaleString("en-IN") + "+";
 
         }
 
     }
 
-
-    requestAnimationFrame(
-        updateCounter
-    );
+    requestAnimationFrame(frame);
 
 }
 
 
-/* =========================================================
+/* ==========================================================
    COUNTER FALLBACK
-========================================================= */
+========================================================== */
 
-function setCounterFinalValue(
-    counter
-) {
+function setCounterFinalValue(counter) {
 
-    const target = Number(
-        counter.dataset.target
-    );
+    const target = Number(counter.dataset.target);
 
-
-    if (
-        Number.isNaN(target)
-    ) {
-        return;
-    }
-
+    if (Number.isNaN(target)) return;
 
     counter.textContent =
-
-        target.toLocaleString(
-            'en-IN'
-        ) + '+';
+        target.toLocaleString("en-IN") + "+";
 
 }
 
-
-/* =========================================================
-   NAPOLEON HORIZONTAL HERO SLIDER
-========================================================= */
+/* ==========================================================
+   HERO SLIDER
+========================================================== */
 
 function initHeroSlider() {
 
-    const hero = document.querySelector(
-        '.hero-horizontal'
-    );
+    const hero = $(".hero-horizontal");
 
+    if (!hero) return;
 
-    const sliderWindow =
-        document.querySelector(
-            '.hero-slider-window'
-        );
+    const sliderWindow = $(".hero-slider-window");
+    const sliderTrack = $("#hero-slider-track");
 
+    const slides = $$(".hero-bike-slide");
 
-    const sliderTrack =
-        document.getElementById(
-            'hero-slider-track'
-        );
+    const indicators = $$(".hero-slider-indicator");
 
+    const previousButton = $("#hero-prev");
+    const nextButton = $("#hero-next");
 
-    const slides =
-        Array.from(
-            document.querySelectorAll(
-                '.hero-bike-slide'
-            )
-        );
+    const currentNumber = $("#hero-current-slide");
 
-
-    const indicators =
-        Array.from(
-            document.querySelectorAll(
-                '.hero-slider-indicator'
-            )
-        );
-
-
-    const previousButton =
-        document.getElementById(
-            'hero-prev'
-        );
-
-
-    const nextButton =
-        document.getElementById(
-            'hero-next'
-        );
-
-
-    const currentNumber =
-        document.getElementById(
-            'hero-current-slide'
-        );
-
-
-    const eyebrow =
-        document.getElementById(
-            'hero-eyebrow'
-        );
-
-
-    const titleMain =
-        document.querySelector(
-            '.hero-title-main'
-        );
-
-
-    const titleHighlight =
-        document.querySelector(
-            '.hero-title-highlight'
-        );
-
-
-    const description =
-        document.getElementById(
-            'hero-description'
-        );
-
-
-    /*
-    Stop safely if hero is unavailable
-    */
+    const eyebrow = $("#hero-eyebrow-text");
+    const titleMain = $("#hero-title-main");
+    const titleHighlight = $("#hero-title-highlight");
+    const description = $("#hero-description");
 
     if (
-        !hero ||
         !sliderWindow ||
         !sliderTrack ||
         slides.length === 0
     ) {
-
         return;
-
     }
 
-
-    /*
-    Hero content
-    The order matches hero.php
-    */
-
-    const heroContent = [
-
-        {
-
-            eyebrow:
-                'NEXT GENERATION MOTORCYCLES',
-
-            title:
-                'Ride Beyond',
-
-            highlight:
-                'Limits',
-
-            description:
-                'Discover premium motorcycles engineered with advanced technology, powerful performance, and unmatched comfort for every journey.'
-
-        },
-
-        {
-
-            eyebrow:
-                'BUILT FOR PURE PERFORMANCE',
-
-            title:
-                'Own Every',
-
-            highlight:
-                'Curve',
-
-            description:
-                'Experience responsive handling, powerful acceleration, and track-inspired performance designed for riders who demand more.'
-
-        },
-
-        {
-
-            eyebrow:
-                'ENGINEERED FOR THE OPEN ROAD',
-
-            title:
-                'Chase New',
-
-            highlight:
-                'Horizons',
-
-            description:
-                'Go beyond the city with adventure-ready capability, long-distance comfort, and confidence on every road.'
-
-        }
-
-    ];
-
+    const heroData =
+        window.napoleonHeroSlides || [];
 
     let currentSlide = 0;
 
-    let autoSlideTimer = null;
-
-    let textTimer = null;
-
+    let autoSlide = null;
 
     const slideDuration = 6000;
 
-
-    /* =====================================================
+    /* ==========================================
        UPDATE HERO TEXT
-    ===================================================== */
+    ========================================== */
 
-    function updateHeroText(
-        index
-    ) {
+    function updateText(index) {
 
-        const content =
-            heroContent[index];
+        if (!heroData[index]) return;
 
+        const data = heroData[index];
 
-        if (!content) {
-            return;
-        }
-
-
-        const textElements = [
-
+        const elements = [
             eyebrow,
-
             titleMain,
-
             titleHighlight,
-
             description
+        ];
 
-        ].filter(
-            Boolean
-        );
+        elements.forEach(el => {
 
+            if (!el) return;
 
-        textElements.forEach(
-            (element) => {
+            el.style.opacity = "0";
+            el.style.transform = "translateY(8px)";
 
-                element.style.opacity =
-                    '0';
+        });
 
-                element.style.transform =
-                    'translateY(10px)';
+        setTimeout(() => {
 
-            }
-        );
+            if (eyebrow)
+                eyebrow.textContent =
+                    data.category;
 
+            if (titleMain)
+                titleMain.textContent =
+                    data.title;
 
-        if (textTimer) {
+            if (titleHighlight)
+                titleHighlight.textContent =
+                    data.highlight;
 
-            window.clearTimeout(
-                textTimer
-            );
+            if (description)
+                description.textContent =
+                    data.description;
 
-        }
+            elements.forEach(el => {
 
+                if (!el) return;
 
-        textTimer =
-            window.setTimeout(
+                el.style.opacity = "1";
+                el.style.transform =
+                    "translateY(0)";
 
-                () => {
+            });
 
-                    if (eyebrow) {
-
-                        eyebrow.innerHTML =
-
-                            '<i class="ri-flashlight-fill"></i>' +
-
-                            content.eyebrow;
-
-                    }
-
-
-                    if (titleMain) {
-
-                        titleMain.textContent =
-
-                            content.title;
-
-                    }
-
-
-                    if (titleHighlight) {
-
-                        titleHighlight.textContent =
-
-                            content.highlight;
-
-                    }
-
-
-                    if (description) {
-
-                        description.textContent =
-
-                            content.description;
-
-                    }
-
-
-                    textElements.forEach(
-                        (element) => {
-
-                            element.style.opacity =
-                                '1';
-
-                            element.style.transform =
-                                'translateY(0)';
-
-                        }
-                    );
-
-                },
-
-                220
-
-            );
+        }, 180);
 
     }
 
-
-    /* =====================================================
-       MOVE HORIZONTAL SLIDER
-    ===================================================== */
+    /* ==========================================
+       MOVE SLIDER
+    ========================================== */
 
     function moveSlider() {
 
-        const activeSlide =
+        const active =
             slides[currentSlide];
 
+        if (!active) return;
 
-        if (!activeSlide) {
-            return;
-        }
+        const centerWindow =
+            sliderWindow.clientWidth / 2;
 
+        const centerSlide =
+            active.offsetLeft +
+            active.offsetWidth / 2;
 
-        const windowCenter =
+        let translate =
+            centerWindow -
+            centerSlide;
 
-            sliderWindow.clientWidth /
-            2;
-
-
-        const slideCenter =
-
-            activeSlide.offsetLeft +
-
-            (
-                activeSlide.offsetWidth /
-                2
-            );
-
-
-        let position =
-
-            windowCenter -
-
-            slideCenter;
-
-
-        const maximumPosition = 0;
-
-
-        const minimumPosition =
-
+        const minTranslate =
             Math.min(
-
                 0,
-
                 sliderWindow.clientWidth -
-
                 sliderTrack.scrollWidth
-
             );
 
-
-        position =
-
-            Math.min(
-
-                maximumPosition,
-
-                Math.max(
-
-                    minimumPosition,
-
-                    position
-
-                )
-
-            );
-
+        translate = Math.max(
+            minTranslate,
+            Math.min(0, translate)
+        );
 
         sliderTrack.style.transform =
+            `translate3d(${translate}px,0,0)`;
+               slides.forEach((slide, index) => {
 
-            `translate3d(${position}px, 0, 0)`;
+            slide.classList.toggle(
+                "is-active",
+                index === currentSlide
+            );
 
+        });
 
-        /*
-        Update active motorcycle
-        */
+        indicators.forEach((indicator, index) => {
 
-        slides.forEach(
-            (
-                slide,
-                index
-            ) => {
+            indicator.classList.toggle(
+                "is-active",
+                index === currentSlide
+            );
 
-                slide.classList.toggle(
-
-                    'is-active',
-
-                    index ===
-                    currentSlide
-
-                );
-
-            }
-        );
-
-
-        /*
-        Update indicators
-        */
-
-        indicators.forEach(
-            (
-                indicator,
-                index
-            ) => {
-
-                indicator.classList.toggle(
-
-                    'is-active',
-
-                    index ===
-                    currentSlide
-
-                );
-
-            }
-        );
-
-
-        /*
-        Update current number
-        */
+        });
 
         if (currentNumber) {
 
             currentNumber.textContent =
-
-                String(
-                    currentSlide + 1
-                ).padStart(
-                    2,
-                    '0'
-                );
+                String(currentSlide + 1)
+                .padStart(2, "0");
 
         }
 
-
-        updateHeroText(
-            currentSlide
-        );
+        updateText(currentSlide);
 
     }
 
 
-    /* =====================================================
+    /* ==========================================
        SHOW SLIDE
-    ===================================================== */
+    ========================================== */
 
-    function showSlide(
-        index
-    ) {
+    function showSlide(index) {
 
-        currentSlide =
+        if (index >= slides.length) {
 
-            (
-                index +
-                slides.length
-            ) %
+            currentSlide = 0;
 
-            slides.length;
+        }
 
+        else if (index < 0) {
+
+            currentSlide =
+                slides.length - 1;
+
+        }
+
+        else {
+
+            currentSlide = index;
+
+        }
 
         moveSlider();
 
     }
 
 
-    /* =====================================================
-       AUTO SLIDESHOW
-    ===================================================== */
+    /* ==========================================
+       AUTO PLAY
+    ========================================== */
 
     function stopAutoSlide() {
 
-        if (
-            autoSlideTimer !== null
-        ) {
+        if (autoSlide) {
 
-            window.clearInterval(
-                autoSlideTimer
-            );
+            clearInterval(autoSlide);
 
-
-            autoSlideTimer = null;
+            autoSlide = null;
 
         }
 
     }
-
 
     function startAutoSlide() {
 
         stopAutoSlide();
 
+        autoSlide = setInterval(() => {
 
-        if (
-            slides.length <= 1
-        ) {
-            return;
-        }
+            showSlide(currentSlide + 1);
 
-
-        autoSlideTimer =
-
-            window.setInterval(
-
-                () => {
-
-                    showSlide(
-                        currentSlide + 1
-                    );
-
-                },
-
-                slideDuration
-
-            );
+        }, slideDuration);
 
     }
 
 
-    /* =====================================================
-       BUTTON CONTROLS
-    ===================================================== */
+    /* ==========================================
+       BUTTONS
+    ========================================== */
 
     if (nextButton) {
 
-        nextButton.addEventListener(
+        nextButton.addEventListener("click", () => {
 
-            'click',
+            showSlide(currentSlide + 1);
 
-            () => {
+            startAutoSlide();
 
-                showSlide(
-                    currentSlide + 1
-                );
-
-
-                startAutoSlide();
-
-            }
-
-        );
+        });
 
     }
-
 
     if (previousButton) {
 
-        previousButton.addEventListener(
+        previousButton.addEventListener("click", () => {
 
-            'click',
+            showSlide(currentSlide - 1);
 
-            () => {
+            startAutoSlide();
 
-                showSlide(
-                    currentSlide - 1
-                );
-
-
-                startAutoSlide();
-
-            }
-
-        );
+        });
 
     }
 
 
-    /* =====================================================
-       INDICATOR CONTROLS
-    ===================================================== */
+    /* ==========================================
+       INDICATORS
+    ========================================== */
 
-    indicators.forEach(
+    indicators.forEach((indicator, index) => {
 
-        (
-            indicator,
-            index
-        ) => {
+        indicator.addEventListener("click", () => {
 
-            indicator.addEventListener(
+            showSlide(index);
 
-                'click',
+            startAutoSlide();
 
-                () => {
+        });
 
-                    showSlide(
-                        index
-                    );
+    });
 
 
-                    startAutoSlide();
-
-                }
-
-            );
-
-        }
-
-    );
-
-
-    /* =====================================================
+    /* ==========================================
        PAUSE ON HOVER
-    ===================================================== */
+    ========================================== */
 
     hero.addEventListener(
-
-        'mouseenter',
-
+        "mouseenter",
         stopAutoSlide
-
     );
-
 
     hero.addEventListener(
-
-        'mouseleave',
-
+        "mouseleave",
         startAutoSlide
-
     );
 
 
-    /* =====================================================
+    /* ==========================================
        PAUSE WHEN TAB IS HIDDEN
-    ===================================================== */
+    ========================================== */
 
     document.addEventListener(
-
-        'visibilitychange',
-
+        "visibilitychange",
         () => {
 
-            if (
-                document.hidden
-            ) {
+            if (document.hidden) {
 
                 stopAutoSlide();
 
@@ -1013,96 +579,788 @@ function initHeroSlider() {
             }
 
         }
-
     );
 
 
-    /* =====================================================
-       KEYBOARD CONTROLS
-    ===================================================== */
-
-    document.addEventListener(
-
-        'keydown',
-
-        (event) => {
-
-            if (
-                event.key ===
-                'ArrowRight'
-            ) {
-
-                showSlide(
-                    currentSlide + 1
-                );
-
-
-                startAutoSlide();
-
-            }
-
-
-            if (
-                event.key ===
-                'ArrowLeft'
-            ) {
-
-                showSlide(
-                    currentSlide - 1
-                );
-
-
-                startAutoSlide();
-
-            }
-
-        }
-
-    );
-
-
-    /* =====================================================
-       RESPONSIVE RECENTER
-    ===================================================== */
-
-    let resizeTimer = null;
-
+    /* ==========================================
+       RESPONSIVE
+    ========================================== */
 
     window.addEventListener(
-
-        'resize',
-
-        () => {
-
-            window.clearTimeout(
-                resizeTimer
-            );
+        "resize",
+        moveSlider
+    );
 
 
-            resizeTimer =
+    /* ==========================================
+       KEYBOARD
+    ========================================== */
 
-                window.setTimeout(
+    document.addEventListener(
+        "keydown",
+        (event) => {
 
-                    moveSlider,
+            if (event.key === "ArrowRight") {
 
-                    150
+                showSlide(currentSlide + 1);
 
-                );
+                startAutoSlide();
+
+            }
+
+            if (event.key === "ArrowLeft") {
+
+                showSlide(currentSlide - 1);
+
+                startAutoSlide();
+
+            }
 
         }
-
     );
 
 
-    /*
-    Start slider
-    */
+    /* ==========================================
+       START
+    ========================================== */
 
-    showSlide(
-        currentSlide
-    );
-
+    moveSlider();
 
     startAutoSlide();
 
 }
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+(function () {
+
+    const mobileMenu =
+        document.getElementById("mobileMenu");
+
+    const menuButton =
+        document.getElementById("mobileMenuBtn");
+
+    const closeButton =
+        document.getElementById("closeMobileMenu");
+
+    const overlay =
+        document.getElementById("mobileOverlay");
+
+    if (
+        !mobileMenu ||
+        !menuButton
+    ) {
+        return;
+    }
+
+    function openMenu() {
+
+        mobileMenu.classList.add("active");
+
+        mobileMenu.setAttribute(
+            "aria-hidden",
+            "false"
+        );
+
+        document.body.style.overflow = "hidden";
+
+    }
+
+    function closeMenu() {
+
+        mobileMenu.classList.remove("active");
+
+        mobileMenu.setAttribute(
+            "aria-hidden",
+            "true"
+        );
+
+        document.body.style.overflow = "";
+
+    }
+
+    menuButton.addEventListener(
+        "click",
+        openMenu
+    );
+
+    if (closeButton) {
+
+        closeButton.addEventListener(
+            "click",
+            closeMenu
+        );
+
+    }
+
+    if (overlay) {
+
+        overlay.addEventListener(
+            "click",
+            closeMenu
+        );
+
+    }
+
+})();
+
+/* =========================================================
+   SEARCH OVERLAY
+========================================================= */
+
+(function () {
+
+    const overlay =
+        document.getElementById("searchOverlay");
+
+    const openButton =
+        document.getElementById("searchBtn");
+
+    const closeButton =
+        document.getElementById("closeSearch");
+
+    if (
+        !overlay ||
+        !openButton
+    ) {
+        return;
+    }
+
+    function openSearch() {
+
+        overlay.classList.add("active");
+
+        overlay.setAttribute(
+            "aria-hidden",
+            "false"
+        );
+
+        document.body.style.overflow = "hidden";
+
+        const input =
+            overlay.querySelector("input");
+
+        if (input) {
+
+            setTimeout(() => {
+
+                input.focus();
+
+            }, 100);
+
+        }
+
+    }
+
+    function closeSearch() {
+
+        overlay.classList.remove("active");
+
+        overlay.setAttribute(
+            "aria-hidden",
+            "true"
+        );
+
+        document.body.style.overflow = "";
+
+    }
+
+    openButton.addEventListener(
+        "click",
+        openSearch
+    );
+
+    if (closeButton) {
+
+        closeButton.addEventListener(
+            "click",
+            closeSearch
+        );
+
+    }
+
+})();
+/* =========================================================
+   THEME TOGGLE
+========================================================= */
+
+(function () {
+
+    const button =
+        document.getElementById("themeToggle");
+
+    if (!button) {
+        return;
+    }
+
+    const savedTheme =
+        localStorage.getItem("theme");
+
+    if (savedTheme === "dark") {
+
+        document.body.classList.add("dark-mode");
+
+        button.innerHTML =
+            '<i class="ri-sun-line"></i>';
+
+    }
+
+    button.addEventListener(
+        "click",
+        () => {
+
+            document.body.classList.toggle(
+                "dark-mode"
+            );
+
+            const dark =
+                document.body.classList.contains(
+                    "dark-mode"
+                );
+
+            localStorage.setItem(
+                "theme",
+                dark ? "dark" : "light"
+            );
+
+            button.innerHTML = dark
+                ? '<i class="ri-sun-line"></i>'
+                : '<i class="ri-moon-line"></i>';
+
+        }
+    );
+
+})();
+
+/* =========================================================
+   SCROLL TO TOP
+========================================================= */
+
+(function () {
+
+    const button =
+        document.getElementById("scrollTop");
+
+    if (!button) {
+        return;
+    }
+
+    window.addEventListener(
+        "scroll",
+        () => {
+
+            if (
+                window.scrollY > 500
+            ) {
+
+                button.classList.add("show");
+
+            }
+
+            else {
+
+                button.classList.remove("show");
+
+            }
+
+        }
+    );
+
+    button.addEventListener(
+        "click",
+        () => {
+
+            window.scrollTo({
+
+                top: 0,
+
+                behavior: "smooth"
+
+            });
+
+        }
+    );
+
+})();
+
+/* =========================================================
+   STICKY HEADER
+========================================================= */
+
+(function () {
+
+    const header =
+        document.getElementById("siteHeader");
+
+    if (!header) {
+        return;
+    }
+
+    function updateHeader() {
+
+        if (window.scrollY > 80) {
+
+            header.classList.add("sticky");
+
+        } else {
+
+            header.classList.remove("sticky");
+
+        }
+
+    }
+
+    updateHeader();
+
+    window.addEventListener(
+        "scroll",
+        updateHeader,
+        { passive: true }
+    );
+
+})();
+
+/* =========================================================
+   SMOOTH SCROLL
+========================================================= */
+
+(function () {
+
+    document
+        .querySelectorAll('a[href^="#"]')
+        .forEach((link) => {
+
+            link.addEventListener(
+                "click",
+                function (e) {
+
+                    const target =
+                        document.querySelector(
+                            this.getAttribute("href")
+                        );
+
+                    if (!target) {
+                        return;
+                    }
+
+                    e.preventDefault();
+
+                    window.scrollTo({
+
+                        top:
+                            target.offsetTop - 80,
+
+                        behavior: "smooth"
+
+                    });
+
+                }
+            );
+
+        });
+
+})();
+
+/* =========================================================
+   ACTIVE NAVIGATION
+========================================================= */
+
+(function () {
+
+    const sections =
+        document.querySelectorAll("section[id]");
+
+    const navLinks =
+        document.querySelectorAll(
+            ".nav-menu a"
+        );
+
+    if (
+        sections.length === 0 ||
+        navLinks.length === 0
+    ) {
+        return;
+    }
+
+    function updateNavigation() {
+
+        let current = "";
+
+        sections.forEach((section) => {
+
+            const top =
+                section.offsetTop - 120;
+
+            const height =
+                section.offsetHeight;
+
+            if (
+                window.scrollY >= top &&
+                window.scrollY <
+                top + height
+            ) {
+
+                current =
+                    section.getAttribute("id");
+
+            }
+
+        });
+
+        navLinks.forEach((link) => {
+
+            link.classList.remove("active");
+
+            const href =
+                link.getAttribute("href");
+
+            if (
+                href &&
+                href.endsWith("#" + current)
+            ) {
+
+                link.classList.add("active");
+
+            }
+
+        });
+
+    }
+
+    window.addEventListener(
+        "scroll",
+        updateNavigation,
+        { passive: true }
+    );
+
+    updateNavigation();
+
+})();
+
+/* =========================================================
+   BUTTON RIPPLE EFFECT
+========================================================= */
+
+(function () {
+
+    document
+        .querySelectorAll(".btn")
+        .forEach((button) => {
+
+            button.addEventListener(
+                "click",
+                function (e) {
+
+                    const ripple =
+                        document.createElement(
+                            "span"
+                        );
+
+                    ripple.className =
+                        "btn-ripple";
+
+                    const rect =
+                        this.getBoundingClientRect();
+
+                    ripple.style.left =
+                        e.clientX -
+                        rect.left +
+                        "px";
+
+                    ripple.style.top =
+                        e.clientY -
+                        rect.top +
+                        "px";
+
+                    this.appendChild(
+                        ripple
+                    );
+
+                    setTimeout(() => {
+
+                        ripple.remove();
+
+                    }, 600);
+
+                }
+            );
+
+        });
+
+})();
+
+/* =========================================================
+   IMAGE FADE-IN
+========================================================= */
+
+(function () {
+
+    const images =
+        document.querySelectorAll("img");
+
+    images.forEach((image) => {
+
+        image.addEventListener(
+            "load",
+            () => {
+
+                image.classList.add(
+                    "loaded"
+                );
+
+            }
+        );
+
+        if (image.complete) {
+
+            image.classList.add(
+                "loaded"
+            );
+
+        }
+
+    });
+
+})();
+
+/* =========================================================
+   REDUCED MOTION SUPPORT
+========================================================= */
+
+(function () {
+
+    const reduceMotion =
+        window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        );
+
+    if (!reduceMotion.matches) {
+        return;
+    }
+
+    document.documentElement.style.scrollBehavior =
+        "auto";
+
+})();
+
+/* =========================================================
+   ESC KEY SUPPORT
+========================================================= */
+
+(function () {
+
+    document.addEventListener(
+        "keydown",
+        (event) => {
+
+            if (event.key !== "Escape") {
+                return;
+            }
+
+            const search =
+                document.getElementById(
+                    "searchOverlay"
+                );
+
+            const mobile =
+                document.getElementById(
+                    "mobileMenu"
+                );
+
+            if (
+                search &&
+                search.classList.contains("active")
+            ) {
+
+                search.classList.remove("active");
+
+                document.body.style.overflow = "";
+
+            }
+
+            if (
+                mobile &&
+                mobile.classList.contains("active")
+            ) {
+
+                mobile.classList.remove("active");
+
+                document.body.style.overflow = "";
+
+            }
+
+        }
+    );
+
+})();
+
+/* =========================================================
+   DEBOUNCE UTILITY
+========================================================= */
+
+function debounce(fn, delay = 200) {
+
+    let timer;
+
+    return function (...args) {
+
+        clearTimeout(timer);
+
+        timer = setTimeout(() => {
+
+            fn.apply(this, args);
+
+        }, delay);
+
+    };
+
+}
+
+/* =========================================================
+   PASSIVE SCROLL OPTIMIZATION
+========================================================= */
+
+(function () {
+
+    let ticking = false;
+
+    window.addEventListener(
+
+        "scroll",
+
+        () => {
+
+            if (ticking) {
+                return;
+            }
+
+            ticking = true;
+
+            requestAnimationFrame(() => {
+
+                ticking = false;
+
+            });
+
+        },
+
+        {
+            passive: true
+        }
+
+    );
+
+})();
+
+/* =========================================================
+   IMAGE LAZY LOADING
+========================================================= */
+
+(function () {
+
+    const images =
+        document.querySelectorAll(
+            "img[loading='lazy']"
+        );
+
+    if (
+        !(
+            "IntersectionObserver"
+            in window
+        )
+    ) {
+
+        images.forEach((img) => {
+
+            img.src = img.dataset.src || img.src;
+
+        });
+
+        return;
+
+    }
+
+    const observer =
+        new IntersectionObserver(
+
+            (entries) => {
+
+                entries.forEach((entry) => {
+
+                    if (
+                        !entry.isIntersecting
+                    ) {
+                        return;
+                    }
+
+                    const img =
+                        entry.target;
+
+                    if (img.dataset.src) {
+
+                        img.src =
+                            img.dataset.src;
+
+                    }
+
+                    observer.unobserve(img);
+
+                });
+
+            },
+
+            {
+                rootMargin: "150px"
+            }
+
+        );
+
+    images.forEach((img) => {
+
+        observer.observe(img);
+
+    });
+
+})();
+
+/* =========================================================
+   GLOBAL ERROR HANDLER
+========================================================= */
+
+window.addEventListener(
+
+    "error",
+
+    function (event) {
+
+        console.error(
+
+            "[Napoleon Bikes]",
+
+            event.message
+
+        );
+
+    }
+
+);
+
+/* =========================================================
+   PAGE READY
+========================================================= */
+
+window.addEventListener(
+
+    "load",
+
+    () => {
+
+        document.body.classList.add(
+            "page-loaded"
+        );
+
+    }
+
+);
