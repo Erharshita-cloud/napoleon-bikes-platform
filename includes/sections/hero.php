@@ -19,6 +19,8 @@ $heroSlides = [
 
         'category' => 'Adventure Series',
 
+        'eyebrow' => 'NEXT GENERATION MOTORCYCLES',
+
         'title' => 'Ride Beyond',
 
         'highlight' => 'Limits',
@@ -34,6 +36,8 @@ $heroSlides = [
 
         'category' => 'Performance Series',
 
+        'eyebrow' => 'BUILT FOR PURE PERFORMANCE',
+
         'title' => 'Own Every',
 
         'highlight' => 'Curve',
@@ -48,6 +52,8 @@ $heroSlides = [
         'name' => 'Napoleon Cobalt GT',
 
         'category' => 'Grand Touring Series',
+
+        'eyebrow' => 'ENGINEERED FOR THE OPEN ROAD',
 
         'title' => 'Chase New',
 
