@@ -43,7 +43,7 @@
                 <div class="testimonial-header">
 
                     <img
-                        src="<?= IMG ?>user-1.jpg"
+                        src="<?= IMG ?>testimonials/rider-1.jpg"
                         alt="Photo of Rahul Sharma"
                         loading="lazy">
 
@@ -92,7 +92,7 @@
                 <div class="testimonial-header">
 
                     <img
-                        src="<?= IMG ?>user-2.jpg"
+                        src="<?= IMG ?>testimonials/rider-2.jpg"
                         alt="Photo of Priya Verma"
                         loading="lazy">
 
@@ -141,7 +141,7 @@
                 <div class="testimonial-header">
 
                     <img
-                        src="<?= IMG ?>user-3.jpg"
+                        src="<?= IMG ?>testimonials/rider-3.jpg"
                         alt="Photo of Arjun Mehta"
                         loading="lazy">
 
