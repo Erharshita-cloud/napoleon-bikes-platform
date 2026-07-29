@@ -9,9 +9,10 @@ $currentPage = 'pricing';
 <!DOCTYPE html>
 <html lang="en">
 
-<?php include '../includes/head.php'; ?>
-
-<link rel="stylesheet" href="<?= CSS ?>pricing.css">
+<?php
+$pageCSS = 'pricing.css';
+include '../includes/head.php';
+?>
 
 <body>
 
@@ -78,7 +79,7 @@ Every Napoleon Bike is crafted with performance, reliability and premium enginee
 <div class="bike-image">
 
 <img
-src="<?= IMG ?>bikes/napoleon-classic-350.webp"
+src="<?= IMG ?>bikes/classic-350.jpg"
 alt="Napoleon Classic 350">
 
 </div>
@@ -134,7 +135,7 @@ Most Popular
 <div class="bike-image">
 
 <img
-src="<?= IMG ?>bikes/napoleon-street-500.webp"
+src="<?= IMG ?>bikes/TrailForge 500.jpg"
 alt="Napoleon Street 500">
 
 </div>
@@ -184,7 +185,7 @@ Book Test Ride
 <div class="bike-image">
 
 <img
-src="<?= IMG ?>bikes/napoleon-adventure-x.webp"
+src="<?= IMG ?>bikes/adventure-pro.jpg"
 alt="Napoleon Adventure X">
 
 </div>
