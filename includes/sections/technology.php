@@ -180,7 +180,7 @@
                 <div class="technology-image-wrapper">
 
                     <img
-                        src="<?= IMG ?>technology-bike.png"
+                        src="<?= IMG ?>bikes/technology-bike.png"
                         alt="<?= SITE_NAME; ?> Technology">
 
                     <div class="tech-card tech-card-1">
