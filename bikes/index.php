@@ -17,7 +17,6 @@ $pageCSS = 'bikes.css';
 
 <?php include '../includes/navbar.php'; ?>
 
-
 <!-- ================================================= -->
 <!-- PREMIUM HERO -->
 <!-- ================================================= -->
@@ -31,23 +30,17 @@ $pageCSS = 'bikes.css';
         <div class="hero-content">
 
             <span class="section-tag">
-
                 Napoleon Collection
-
             </span>
 
             <h1>
-
                 Find The Motorcycle
                 <span>Built For You</span>
-
             </h1>
 
             <p>
-
                 Discover premium motorcycles engineered for performance,
                 comfort and unforgettable adventures.
-
             </p>
 
             <div class="hero-buttons">
@@ -57,7 +50,6 @@ $pageCSS = 'bikes.css';
                     class="btn btn-primary">
 
                     <i class="ri-motorbike-line"></i>
-
                     Book Test Ride
 
                 </a>
@@ -78,193 +70,169 @@ $pageCSS = 'bikes.css';
 
 </section>
 
-
 <!-- ================================================= -->
 <!-- PREMIUM BIKE FINDER -->
 <!-- ================================================= -->
 
 <section class="bike-finder">
 
-<div class="container">
+    <div class="container">
 
-<div class="finder-card">
+        <div class="finder-card">
 
-<!-- ============================== -->
-<!-- TOP TABS -->
-<!-- ============================== -->
+            <!-- ============================== -->
+            <!-- CATEGORY TABS -->
+            <!-- ============================== -->
 
-<div class="finder-tabs">
+            <div class="finder-tabs">
 
-<button
-class="tab-btn active"
-data-category="all">
+                <button
+                    type="button"
+                    class="tab-btn active"
+                    data-category="all">
 
-All Bikes
+                    All Bikes
 
-</button>
+                </button>
 
-<button
-class="tab-btn"
-data-category="classic">
+                <button
+                    type="button"
+                    class="tab-btn"
+                    data-category="classic">
 
-Classic
+                    Classic
 
-</button>
+                </button>
 
-<button
-class="tab-btn"
-data-category="street">
+                <button
+                    type="button"
+                    class="tab-btn"
+                    data-category="street">
 
-Street
+                    Street
 
-</button>
+                </button>
 
-<button
-class="tab-btn"
-data-category="sport">
+                <button
+                    type="button"
+                    class="tab-btn"
+                    data-category="sport">
 
-Sport
+                    Sport
 
-</button>
+                </button>
 
-<button
-class="tab-btn"
-data-category="adventure">
+                <button
+                    type="button"
+                    class="tab-btn"
+                    data-category="adventure">
 
-Adventure
+                    Adventure
 
-</button>
+                </button>
 
-</div>
+            </div>
 
+            <!-- ============================== -->
+            <!-- SEARCH -->
+            <!-- ============================== -->
 
-<!-- ============================== -->
-<!-- SEARCH -->
-<!-- ============================== -->
+            <div class="finder-search">
 
-<div class="finder-search">
+                <div class="finder-field search-field">
 
-<div class="finder-field search-field">
+                    <label for="bikeSearch">
+                        Search Motorcycle
+                    </label>
 
-<label>
+                    <input
+                        type="text"
+                        id="bikeSearch"
+                        placeholder="Search Napoleon motorcycle..."
+                        autocomplete="off">
 
-Search Motorcycle
+                </div>
 
-</label>
+                <div class="finder-field">
 
-<input
+                    <label for="engineFilter">
+                        Engine
+                    </label>
 
-type="text"
+                    <select id="engineFilter">
 
-id="bikeSearch"
+                        <option value="all">
+                            All Engines
+                        </option>
 
-placeholder="Search Napoleon motorcycle...">
+                        <option value="350">
+                            350 cc
+                        </option>
 
-</div>
+                        <option value="500">
+                            500 cc
+                        </option>
 
+                        <option value="650">
+                            650 cc
+                        </option>
 
-<div class="finder-field">
+                        <option value="900">                       
+                            900 cc
+                        </option>
 
-<label>
+                    </select>
 
-Engine
+                </div>
 
-</label>
+                <div class="finder-field">
 
-<select id="engineFilter">
+                    <label for="priceFilter">
+                        Price
+                    </label>
 
-<option value="all">
+                    <select id="priceFilter">
 
-All Engines
+                        <option value="all">
+                            All Prices
+                        </option>
 
-</option>
+                        <option value="under3">
+                            Below ₹3 Lakh
+                        </option>
 
-<option value="350">
+                        <option value="3to5">
+                            ₹3–5 Lakh
+                        </option>
 
-350 cc
+                        <option value="above5">
+                            Above ₹5 Lakh
+                        </option>
 
-</option>
+                    </select>
 
-<option value="500">
+                </div>
 
-500 cc
+                <div class="finder-button">
 
-</option>
+                    <button
+                        type="button"
+                        id="searchBike"
+                        aria-label="Search Bikes">
 
-<option value="650">
+                        <i class="ri-search-line"></i>
 
-650 cc
+                    </button>
 
-</option>
+                </div>
 
-<option value="900">
+            </div>
 
-900 cc
+        </div>
 
-</option>
-
-</select>
-
-</div>
-
-
-<div class="finder-field">
-
-<label>
-
-Price
-
-</label>
-
-<select id="priceFilter">
-
-<option value="all">
-
-All Prices
-
-</option>
-
-<option value="under3">
-
-Below ₹3 Lakh
-
-</option>
-
-<option value="3to5">
-
-₹3–5 Lakh
-
-</option>
-
-<option value="above5">
-
-Above ₹5 Lakh
-
-</option>
-
-</select>
-
-</div>
-
-
-<div class="finder-button">
-
-<button id="searchBike">
-
-<i class="ri-search-line"></i>
-
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
+    </div>
 
 </section>
-
 
 
 <!-- ================================================= -->
@@ -273,192 +241,183 @@ Above ₹5 Lakh
 
 <section class="collection-heading">
 
-<div class="container">
+    <div class="container">
 
-<div class="section-header">
+        <div class="section-header">
 
-<span class="section-tag">
+            <span class="section-tag">
+                Premium Collection
+            </span>
 
-Premium Collection
+            <h2>
+                Explore Every Napoleon Motorcycle
+            </h2>
 
-</span>
+            <p>
+                Choose from timeless classics, powerful street machines,
+                adventure motorcycles and high-performance sports bikes.
+            </p>
 
-<h2>
+        </div>
 
-Explore Every Napoleon Motorcycle
-
-</h2>
-
-<p>
-
-Choose from timeless classics, powerful street machines,
-adventure motorcycles and high-performance sports bikes.
-
-</p>
-
-</div>
-
-</div>
+    </div>
 
 </section>
 
 
-
 <!-- ================================================= -->
-<!-- BIKE GRID STARTS HERE -->
+<!-- BIKE GRID -->
 <!-- ================================================= -->
 
 <section
-class="bike-showcase"
-id="bikeGrid">
+    class="bike-showcase"
+    id="bikeGrid">
 
-<div class="container">
+    <div class="container">
 
-<div class="bike-grid">
+        <div class="bike-grid">
 
-<!-- ================================================= -->
-<!-- CLASSIC 350 -->
-<!-- ================================================= -->
+            <!-- ================================================= -->
+            <!-- CLASSIC 350 -->
+            <!-- ================================================= -->
 
-<div class="bike-card"
-     data-category="classic"
-     data-engine="350">
+            <article
+                class="bike-card"
+                data-category="classic"
+                data-engine="350">
 
-    <div class="bike-image">
+                <div class="bike-image">
 
-        <img
-            src="<?= IMG ?>bikes/classic350.jpg"
-            alt="Napoleon Classic 350">
+                    <img
+                        src="<?= IMG ?>bikes/classic-350.jpg"
+                        alt="Napoleon Classic 350"
+                        loading="lazy">
 
-    </div>
+                </div>
 
-    <div class="bike-content">
+                <div class="bike-content">
 
-        <span class="bike-category">
+                    <span class="bike-category">
+                        Classic
+                    </span>
 
-            Classic
+                    <h3>
+                        Napoleon Classic 350
+                    </h3>
 
-        </span>
+                    <p>
+                        Timeless styling built for everyday comfort and long weekend rides.
+                    </p>
 
-        <h3>
+                    <div class="bike-specs">
 
-            Napoleon Classic 350
+                        <span>
+                            <i class="ri-speed-up-line"></i>
+                            349 cc
+                        </span>
 
-        </h3>
+                        <span>
+                            <i class="ri-flashlight-line"></i>
+                            ABS
+                        </span>
 
-        <p>
+                        <span>
+                            <i class="ri-road-map-line"></i>
+                            BS6
+                        </span>
 
-            Timeless styling built for everyday comfort and long weekend rides.
+                    </div>
 
-        </p>
+                    <div class="bike-footer">
 
-        <div class="bike-specs">
+                        <h4>
+                            Price on Request
+                        </h4>
 
-            <span><i class="ri-speed-up-line"></i>349 cc</span>
+                        <div class="bike-buttons">
 
-            <span><i class="ri-flashlight-line"></i>ABS</span>
+                            <a
+                                href="<?= BASE_URL ?>bikes/classic-350/"
+                                class="btn btn-outline">
 
-            <span><i class="ri-road-map-line"></i>BS6</span>
+                                View Details
 
-        </div>
+                            </a>
 
-        <div class="bike-footer">
+                            <a
+                                href="<?= BOOK_TEST_RIDE_URL ?>"
+                                class="btn btn-primary">
 
-            <h4>
+                                Book Ride
 
-                Price on Request
+                            </a>
 
-            </h4>
+                        </div>
 
-            <div class="bike-buttons">
+                    </div>
 
-                <a href="#" class="btn btn-outline">
+                </div>
 
-                    View Details
-
-                </a>
-
-                <a href="<?= BOOK_TEST_RIDE_URL ?>"
-                   class="btn btn-primary">
-
-                    Book Ride
-
-                </a>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
+            </article>
 
 
+            <!-- ================================================= -->
+            <!-- CLASSIC 500 -->
+            <!-- ================================================= -->
 
-<!-- ================================================= -->
-<!-- CLASSIC 500 -->
-<!-- ================================================= -->
+            <article
+                class="bike-card"
+                data-category="classic"
+                data-engine="500">
 
-<div class="bike-card"
-     data-category="classic"
-     data-engine="500">
+                <div class="bike-image">
 
-    <div class="bike-image">
+                    <img
+                        src="<?= IMG ?>bikes/TrailForge 500.jpg"
+                        alt="Napoleon Classic 500"
+                        loading="lazy">
 
-        <img
-            src="<?= IMG ?>bikes/classic500.jpg"
-            alt="Napoleon Classic 500">
+                </div>
 
-    </div>
+                <div class="bike-content">
 
-    <div class="bike-content">
+                    <span class="bike-category">
+                        Classic
+                    </span>
 
-        <span class="bike-category">
+                    <h3>
+                        Napoleon Classic 500
+                    </h3>
 
-            Classic
-
-        </span>
-
-        <h3>
-
-            Napoleon Classic 500
-
-        </h3>
-
-        <p>
-
+                  <p>
             Powerful cruiser combining heritage design with modern engineering.
-
         </p>
 
         <div class="bike-specs">
 
             <span>500 cc</span>
-
             <span>ABS</span>
-
             <span>BS6</span>
 
         </div>
 
         <div class="bike-footer">
 
-            <h4>
-
-                Price on Request
-
-            </h4>
+            <h4>Price on Request</h4>
 
             <div class="bike-buttons">
 
-                <a href="#" class="btn btn-outline">
+                <a
+                    href="<?= BASE_URL ?>bikes/classic-500/"
+                    class="btn btn-outline">
 
                     View Details
 
                 </a>
 
-                <a href="<?= BOOK_TEST_RIDE_URL ?>"
-                   class="btn btn-primary">
+                <a
+                    href="<?= BOOK_TEST_RIDE_URL ?>"
+                    class="btn btn-primary">
 
                     Book Ride
 
@@ -470,32 +429,47 @@ id="bikeGrid">
 
     </div>
 
-</div>
+</article>
+
 
 <!-- ================================================= -->
 <!-- CLASSIC 900 -->
 <!-- ================================================= -->
 
-<div class="bike-card" data-category="classic" data-engine="900">
+<article
+    class="bike-card"
+    data-category="classic"
+    data-engine="900">
 
     <div class="bike-image">
-        <img src="<?= IMG ?>bikes/classic900.jpg" alt="Napoleon Classic 900">
+
+        <img
+            src="<?= IMG ?>bikes/vanta-900.jpg"
+            alt="Napoleon Classic 900"
+            loading="lazy">
+
     </div>
 
     <div class="bike-content">
 
-        <span class="bike-category">Classic</span>
+        <span class="bike-category">
+            Classic
+        </span>
 
-        <h3>Napoleon Classic 900</h3>
+        <h3>
+            Napoleon Classic 900
+        </h3>
 
         <p>
             Flagship cruiser crafted for premium touring and unmatched road presence.
         </p>
 
         <div class="bike-specs">
+
             <span>900 cc</span>
             <span>ABS</span>
             <span>BS6</span>
+
         </div>
 
         <div class="bike-footer">
@@ -504,12 +478,20 @@ id="bikeGrid">
 
             <div class="bike-buttons">
 
-                <a href="#" class="btn btn-outline">
+                <a
+                    href="<?= BASE_URL ?>bikes/classic-900/"
+                    class="btn btn-outline">
+
                     View Details
+
                 </a>
 
-                <a href="<?= BOOK_TEST_RIDE_URL ?>" class="btn btn-primary">
+                <a
+                    href="<?= BOOK_TEST_RIDE_URL ?>"
+                    class="btn btn-primary">
+
                     Book Ride
+
                 </a>
 
             </div>
@@ -518,34 +500,47 @@ id="bikeGrid">
 
     </div>
 
-</div>
-
+</article>
 
 
 <!-- ================================================= -->
 <!-- STREET -->
 <!-- ================================================= -->
 
-<div class="bike-card" data-category="street" data-engine="500">
+<article
+    class="bike-card"
+    data-category="street"
+    data-engine="500">
 
     <div class="bike-image">
-        <img src="<?= IMG ?>bikes/street.jpg" alt="Napoleon Street">
+
+        <img
+            src="<?= IMG ?>bikes/streetx.jpg"
+            alt="Napoleon Street"
+            loading="lazy">
+
     </div>
 
     <div class="bike-content">
 
-        <span class="bike-category">Street</span>
+        <span class="bike-category">
+            Street
+        </span>
 
-        <h3>Napoleon Street</h3>
+        <h3>
+            Napoleon Street
+        </h3>
 
         <p>
             Built for daily city rides with agile handling and confident performance.
         </p>
 
         <div class="bike-specs">
+
             <span>500 cc</span>
             <span>ABS</span>
             <span>BS6</span>
+
         </div>
 
         <div class="bike-footer">
@@ -554,12 +549,20 @@ id="bikeGrid">
 
             <div class="bike-buttons">
 
-                <a href="#" class="btn btn-outline">
+                <a
+                    href="<?= BASE_URL ?>bikes/street/"
+                    class="btn btn-outline">
+
                     View Details
+
                 </a>
 
-                <a href="<?= BOOK_TEST_RIDE_URL ?>" class="btn btn-primary">
+                <a
+                    href="<?= BOOK_TEST_RIDE_URL ?>"
+                    class="btn btn-primary">
+
                     Book Ride
+
                 </a>
 
             </div>
@@ -568,34 +571,47 @@ id="bikeGrid">
 
     </div>
 
-</div>
-
+</article>
 
 
 <!-- ================================================= -->
 <!-- STREET 500 -->
 <!-- ================================================= -->
 
-<div class="bike-card" data-category="street" data-engine="500">
+<article
+    class="bike-card"
+    data-category="street"
+    data-engine="500">
 
     <div class="bike-image">
-        <img src="<?= IMG ?>bikes/street-500.jpg" alt="Napoleon Street 500">
+
+        <img
+            src="<?= IMG ?>bikes/urbanx-650.jpg"
+            alt="Napoleon Street 500"
+            loading="lazy">
+
     </div>
 
     <div class="bike-content">
 
-        <span class="bike-category">Street</span>
+        <span class="bike-category">
+            Street
+        </span>
 
-        <h3>Napoleon Street 500</h3>
+        <h3>
+            Napoleon Street 500
+        </h3>
 
         <p>
             Dynamic naked motorcycle designed for urban performance and style.
         </p>
 
         <div class="bike-specs">
+
             <span>500 cc</span>
             <span>ABS</span>
             <span>BS6</span>
+
         </div>
 
         <div class="bike-footer">
@@ -604,12 +620,20 @@ id="bikeGrid">
 
             <div class="bike-buttons">
 
-                <a href="#" class="btn btn-outline">
+                <a
+                    href="<?= BASE_URL ?>bikes/street-500/"
+                    class="btn btn-outline">
+
                     View Details
+
                 </a>
 
-                <a href="<?= BOOK_TEST_RIDE_URL ?>" class="btn btn-primary">
+                <a
+                    href="<?= BOOK_TEST_RIDE_URL ?>"
+                    class="btn btn-primary">
+
                     Book Ride
+
                 </a>
 
             </div>
@@ -618,48 +642,68 @@ id="bikeGrid">
 
     </div>
 
-</div>
-
+</article>
 
 
 <!-- ================================================= -->
 <!-- SPORT -->
 <!-- ================================================= -->
 
-<div class="bike-card" data-category="sport" data-engine="900">
+<article
+    class="bike-card"
+    data-category="sport"
+    data-engine="900">
 
     <div class="bike-image">
-        <img src="<?= IMG ?>bikes/sport.jpg" alt="Napoleon Sport">
+
+        <img
+            src="<?= IMG ?>bikes/sport-r.jpg"
+            alt="Napoleon Sport"
+            loading="lazy">
+
     </div>
 
     <div class="bike-content">
 
-        <span class="bike-category">Sport</span>
+        <span class="bike-category">
+            Sport
+        </span>
 
-        <h3>Napoleon Sport</h3>
+        <h3>
+            Napoleon Sport
+        </h3>
 
         <p>
             Precision engineered for speed, stability and thrilling performance.
         </p>
 
         <div class="bike-specs">
+
             <span>900 cc</span>
             <span>ABS</span>
             <span>BS6</span>
-        </div>
 
-        <div class="bike-footer">
+        </div>
+                <div class="bike-footer">
 
             <h4>Price on Request</h4>
 
             <div class="bike-buttons">
 
-                <a href="#" class="btn btn-outline">
+                <a
+                    href="<?= BASE_URL ?>bikes/sport/"
+                    class="btn btn-outline">
+
                     View Details
+
                 </a>
 
-                <a href="<?= BOOK_TEST_RIDE_URL ?>" class="btn btn-primary">
+                <a
+                    href="<?= BOOK_TEST_RIDE_URL ?>"
+                    class="btn btn-primary">
+
                     Book Ride
+
                 </a>
 
             </div>
@@ -668,34 +712,47 @@ id="bikeGrid">
 
     </div>
 
-</div>
-
+</article>
 
 
 <!-- ================================================= -->
 <!-- SPORT R -->
 <!-- ================================================= -->
 
-<div class="bike-card" data-category="sport" data-engine="900">
+<article
+    class="bike-card"
+    data-category="sport"
+    data-engine="900">
 
     <div class="bike-image">
-        <img src="<?= IMG ?>bikes/sport-r.jpg" alt="Napoleon Sport R">
+
+        <img
+            src="<?= IMG ?>bikes/sportr.jpg"
+            alt="Napoleon Sport R"
+            loading="lazy">
+
     </div>
 
     <div class="bike-content">
 
-        <span class="bike-category">Sport</span>
+        <span class="bike-category">
+            Sport
+        </span>
 
-        <h3>Napoleon Sport R</h3>
+        <h3>
+            Napoleon Sport R
+        </h3>
 
         <p>
             Race-inspired superbike delivering aggressive styling and unmatched control.
         </p>
 
         <div class="bike-specs">
+
             <span>900 cc</span>
             <span>ABS</span>
             <span>BS6</span>
+
         </div>
 
         <div class="bike-footer">
@@ -704,12 +761,20 @@ id="bikeGrid">
 
             <div class="bike-buttons">
 
-                <a href="#" class="btn btn-outline">
+                <a
+                    href="<?= BASE_URL ?>bikes/sport-r/"
+                    class="btn btn-outline">
+
                     View Details
+
                 </a>
 
-                <a href="<?= BOOK_TEST_RIDE_URL ?>" class="btn btn-primary">
+                <a
+                    href="<?= BOOK_TEST_RIDE_URL ?>"
+                    class="btn btn-primary">
+
                     Book Ride
+
                 </a>
 
             </div>
@@ -718,34 +783,47 @@ id="bikeGrid">
 
     </div>
 
-</div>
-
+</article>
 
 
 <!-- ================================================= -->
 <!-- PHANTOM 900 -->
 <!-- ================================================= -->
 
-<div class="bike-card" data-category="sport" data-engine="900">
+<article
+    class="bike-card"
+    data-category="sport"
+    data-engine="900">
 
     <div class="bike-image">
-        <img src="<?= IMG ?>bikes/phantom900.jpg" alt="Napoleon Phantom 900">
+
+        <img
+            src="<?= IMG ?>bikes/phantom-900.jpg"
+            alt="Napoleon Phantom 900"
+            loading="lazy">
+
     </div>
 
     <div class="bike-content">
 
-        <span class="bike-category">Premium</span>
+        <span class="bike-category">
+            Premium
+        </span>
 
-        <h3>Napoleon Phantom 900</h3>
+        <h3>
+            Napoleon Phantom 900
+        </h3>
 
         <p>
             Premium flagship motorcycle combining luxury, power and advanced engineering.
         </p>
 
         <div class="bike-specs">
+
             <span>900 cc</span>
             <span>ABS</span>
             <span>BS6</span>
+
         </div>
 
         <div class="bike-footer">
@@ -754,12 +832,20 @@ id="bikeGrid">
 
             <div class="bike-buttons">
 
-                <a href="#" class="btn btn-outline">
+                <a
+                    href="<?= BASE_URL ?>bikes/phantom-900/"
+                    class="btn btn-outline">
+
                     View Details
+
                 </a>
 
-                <a href="<?= BOOK_TEST_RIDE_URL ?>" class="btn btn-primary">
+                <a
+                    href="<?= BOOK_TEST_RIDE_URL ?>"
+                    class="btn btn-primary">
+
                     Book Ride
+
                 </a>
 
             </div>
@@ -768,13 +854,14 @@ id="bikeGrid">
 
     </div>
 
-</div>
+</article>
 
-</div>
+        </div>
 
-</div>
+    </div>
 
 </section>
+
 
 <!-- ================================================= -->
 <!-- FEATURED BIKE -->
@@ -792,7 +879,8 @@ id="bikeGrid">
 
                 <img
                     src="<?= IMG ?>bikes/hero-bike.jpg"
-                    alt="Napoleon Featured Motorcycle">
+                    alt="Napoleon Phantom 900"
+                    loading="lazy">
 
             </div>
 
@@ -801,24 +889,18 @@ id="bikeGrid">
             <div class="featured-content">
 
                 <span class="section-tag">
-
                     Featured Motorcycle
-
                 </span>
 
                 <h2>
-
                     Napoleon Phantom 900
-
                 </h2>
 
                 <p>
-
-                    Built for riders who demand luxury, precision and
-                    extraordinary performance. The Phantom 900 combines
-                    aggressive styling, premium engineering and unmatched
-                    road presence into one exceptional machine.
-
+                    Built for riders who demand luxury, precision and extraordinary
+                    performance. The Phantom 900 combines aggressive styling,
+                    premium engineering and unmatched road presence into one
+                    exceptional machine.
                 </p>
 
                 <!-- FEATURES -->
@@ -852,99 +934,69 @@ id="bikeGrid">
                         </div>
 
                     </div>
+                                   <h2>
 
-                    <div class="feature">
+                    Ride Beyond Limits
 
-                        <i class="ri-dashboard-3-line"></i>
+                </h2>
 
-                        <div>
+                <p>
 
-                            <h4>Digital Console</h4>
+                    Explore our premium collection of motorcycles crafted for performance,
+                    touring, and unforgettable adventures.
 
-                            <p>Advanced riding information system.</p>
+                </p>
 
-                        </div>
+        </div>
 
-                    </div>
+        <div class="gallery-grid">
 
-                    <div class="feature">
+            <div class="gallery-item">
+                <img src="<?= IMG ?>gallery/gallery-adventure.jpg" alt="Napoleon Adventure">
+            </div>
 
-                        <i class="ri-road-map-line"></i>
+            <div class="gallery-item">
+                <img src="<?= IMG ?>gallery/gallery-blue.jpg" alt="Napoleon Blue Edition">
+            </div>
 
-                        <div>
+            <div class="gallery-item">
+                <img src="<?= IMG ?>gallery/gallery-hero.jpg" alt="Napoleon Hero Bike">
+            </div>
 
-                            <h4>Tour Ready</h4>
+            <div class="gallery-item">
+                <img src="<?= IMG ?>gallery/gallery-lineup.jpg" alt="Napoleon Bike Lineup">
+            </div>
 
-                            <p>Designed for highways and adventures.</p>
+            <div class="gallery-item">
+                <img src="<?= IMG ?>gallery/gallery-performance.jpg" alt="Napoleon Performance">
+            </div>
 
-                        </div>
+            <div class="gallery-item">
+                <img src="<?= IMG ?>gallery/gallery-racing.jpg" alt="Napoleon Racing">
+            </div>
 
-                    </div>
+            <div class="gallery-item">
+                <img src="<?= IMG ?>gallery/gallery-sport.jpg" alt="Napoleon Sport">
+            </div>
 
-                </div>
+            <div class="gallery-item">
+                <img src="<?= IMG ?>gallery/trailblazer.webp" alt="Napoleon Trailblazer">
+            </div>
 
-                <!-- QUICK SPECS -->
+            <div class="gallery-item">
+                <img src="<?= IMG ?>gallery/gallery-urban.jpg" alt="Napoleon Urban">
+            </div>
 
-                <div class="featured-specs">
+            <div class="gallery-item">
+                <img src="<?= IMG ?>gallery/gallery-classic.jpg" alt="Napoleon Classic">
+            </div>
 
-                    <div>
+            <div class="gallery-item">
+                <img src="<?= IMG ?>gallery/gallery-city-rider.jpg" alt="Napoleon City Rider">
+            </div>
 
-                        <h3>900 cc</h3>
-
-                        <span>Engine</span>
-
-                    </div>
-
-                    <div>
-
-                        <h3>120 HP</h3>
-
-                        <span>Power</span>
-
-                    </div>
-
-                    <div>
-
-                        <h3>6 Speed</h3>
-
-                        <span>Gearbox</span>
-
-                    </div>
-
-                    <div>
-
-                        <h3>ABS</h3>
-
-                        <span>Safety</span>
-
-                    </div>
-
-                </div>
-
-                <!-- BUTTONS -->
-
-                <div class="featured-buttons">
-
-                    <a
-                        href="<?= BOOK_TEST_RIDE_URL ?>"
-                        class="btn btn-primary">
-
-                        <i class="ri-motorbike-line"></i>
-
-                        Book Test Ride
-
-                    </a>
-
-                    <a
-                        href="#bikeGrid"
-                        class="btn btn-outline">
-
-                        Explore Collection
-
-                    </a>
-
-                </div>
-
+            <div class="gallery-item">
+                <img src="<?= IMG ?>gallery/gallery-city.jpg" alt="Napoleon City">
             </div>
 
         </div>
@@ -953,99 +1005,139 @@ id="bikeGrid">
 
 </section>
 
+
+
 <!-- ================================================= -->
-<!-- PERFORMANCE BANNER -->
+<!-- CALL TO ACTION -->
 <!-- ================================================= -->
 
-<section class="performance-banner">
-
-    <!-- Background Video -->
-
-    <video
-        class="performance-video"
-        autoplay
-        muted
-        loop
-        playsinline>
-
-        <source
-            src="<?= ASSETS ?>videos/performance.mp4"
-            type="video/mp4">
-
-    </video>
-
-    <!-- Dark Overlay -->
-
-    <div class="performance-overlay"></div>
+<section class="bike-cta">
 
     <div class="container">
 
-        <div class="performance-content">
+        <div class="cta-content">
 
             <span class="section-tag">
 
-                Performance Redefined
+                Ready To Ride?
 
             </span>
 
             <h2>
 
-                Born To Ride.
-                <br>
-                Built To Dominate.
+                Book Your Napoleon Test Ride Today
 
             </h2>
 
             <p>
 
-                Every Napoleon motorcycle is engineered for precision,
-                confidence and unforgettable journeys.
+                Experience the engineering, comfort and performance of Napoleon Bikes
+                before making your decision.
 
             </p>
 
-            <div class="performance-stats">
+            <div class="cta-buttons">
 
-                <div>
+                <a
+                    href="<?= BOOK_TEST_RIDE_URL ?>"
+                    class="btn btn-primary">
 
-                    <h3>900cc</h3>
+                    Book Test Ride
 
-                    <span>Engine</span>
+                </a>
 
-                </div>
+                <a
+                    href="<?= BASE_URL ?>contact/"
+                    class="btn btn-outline">
 
-                <div>
+                    Contact Dealer
 
-                    <h3>120 HP</h3>
-
-                    <span>Performance</span>
-
-                </div>
-
-                <div>
-
-                    <h3>ABS</h3>
-
-                    <span>Safety</span>
-
-                </div>
-
-                <div>
-
-                    <h3>6 Speed</h3>
-
-                    <span>Gearbox</span>
-
-                </div>
+                </a>
 
             </div>
 
-            <a
-                href="<?= BOOK_TEST_RIDE_URL ?>"
-                class="btn btn-primary">
+        </div>
 
-                Book Test Ride
+    </div>
 
-            </a>
+</section>
+
+
+<?php include '../includes/footer.php'; ?>
+
+<?php include '../includes/scripts.php'; ?>
+
+<script src="<?= JS ?>bikes.js"></script>
+
+</body>
+</html>
+
+<p>
+
+    Every motorcycle tells a story. Explore the spirit,
+    craftsmanship and performance of Napoleon Bikes.
+
+</p>
+
+        </div>
+
+        <div class="gallery-grid">
+
+            <!-- Hero -->
+            <div class="gallery-item gallery-large">
+                <img
+                    src="<?= IMG ?>gallery/gallery-hero.jpg"
+                    alt="Napoleon Hero Bike"
+                    loading="lazy">
+            </div>
+
+            <!-- Adventure -->
+            <div class="gallery-item">
+                <img
+                    src="<?= IMG ?>gallery/gallery-adventure.jpg"
+                    alt="Napoleon Adventure"
+                    loading="lazy">
+            </div>
+
+            <!-- Performance -->
+            <div class="gallery-item">
+                <img
+                    src="<?= IMG ?>gallery/gallery-performance.jpg"
+                    alt="Napoleon Performance"
+                    loading="lazy">
+            </div>
+
+            <!-- Blue Edition -->
+            <div class="gallery-item">
+                <img
+                    src="<?= IMG ?>gallery/gallery-blue.jpg"
+                    alt="Napoleon Blue Edition"
+                    loading="lazy">
+            </div>
+
+            <!-- Sport -->
+            <div class="gallery-item">
+                <img
+                    src="<?= IMG ?>gallery/gallery-sport.jpg"
+                    alt="Napoleon Sport"
+                    loading="lazy">
+            </div>
+
+            <!-- Racing -->
+            <div class="gallery-item">
+                <img
+                    src="<?= IMG ?>gallery/gallery-racing.jpg"
+                    alt="Napoleon Racing"
+                    loading="lazy">
+            </div>
+
+            <!-- Lineup -->
+            <div class="gallery-item gallery-wide">
+                <img
+                    src="<?= IMG ?>gallery/gallery-lineup.jpg"
+                    alt="Napoleon Collection"
+                    loading="lazy">
+            </div>
 
         </div>
 
@@ -1054,112 +1146,94 @@ id="bikeGrid">
 </section>
 
 <!-- ================================================= -->
-<!-- MOTORCYCLE GALLERY -->
+<!-- TESTIMONIALS -->
 <!-- ================================================= -->
 
-<section class="bike-gallery">
+<section class="bike-testimonials">
 
     <div class="container">
 
         <div class="section-header">
 
             <span class="section-tag">
-
-                Napoleon Gallery
-
+                Rider Reviews
             </span>
 
             <h2>
-
-                Ride Beyond Limits
-
+                Trusted By Thousands Of Riders
             </h2>
 
             <p>
-
-                Every motorcycle tells a story. Explore the spirit,
-                craftsmanship and performance of Napoleon Bikes.
-
+                Hear what riders say about their Napoleon experience.
             </p>
 
         </div>
 
+        <div class="testimonial-grid">
 
-        <div class="gallery-grid">
+            <div class="testimonial-card">
 
-            <!-- Hero -->
+                <div class="testimonial-image">
+                    <img
+                        src="<?= IMG ?>testimonials/rider-1.jpg"
+                        alt="Rahul Sharma"
+                        loading="lazy">
+                </div>
 
-            <div class="gallery-item gallery-large">
+                <div class="stars">★★★★★</div>
 
-                <img
-                    src="<?= IMG ?>gallery/gallery-hero.jpg"
-                    alt="Napoleon Hero Bike">
+                <p>
+                    "The Napoleon Classic 350 exceeded every expectation.
+                    Smooth performance, excellent comfort and incredible road presence."
+                </p>
 
-            </div>
+                <h4>Rahul Sharma</h4>
 
-
-            <!-- Adventure -->
-
-            <div class="gallery-item">
-
-                <img
-                    src="<?= IMG ?>gallery/gallery-adventure.jpg"
-                    alt="Napoleon Adventure">
-
-            </div>
-
-
-            <!-- Performance -->
-
-            <div class="gallery-item">
-
-                <img
-                    src="<?= IMG ?>gallery/gallery-performance.jpg"
-                    alt="Napoleon Performance">
+                <span>Delhi</span>
 
             </div>
 
+            <div class="testimonial-card">
 
-            <!-- Blue Edition -->
+                <div class="testimonial-image">
+                    <img
+                        src="<?= IMG ?>testimonials/rider-2.jpg"
+                        alt="Aman Patel"
+                        loading="lazy">
+                </div>
 
-            <div class="gallery-item">
+                <div class="stars">★★★★★</div>
 
-                <img
-                    src="<?= IMG ?>gallery/gallery-blue.jpg"
-                    alt="Napoleon Blue Edition">
+                <p>
+                    "The Phantom 900 delivers incredible acceleration,
+                    premium styling and confidence on every ride."
+                </p>
 
-            </div>
+                <h4>Aman Patel</h4>
 
-
-            <!-- Sport -->
-
-            <div class="gallery-item">
-
-                <img
-                    src="<?= IMG ?>gallery/gallery-sport.jpg"
-                    alt="Napoleon Sport">
-
-            </div>
-
-
-            <!-- Racing -->
-
-            <div class="gallery-item">
-
-                <img
-                    src="<?= IMG ?>gallery/gallery-racing.jpg"
-                    alt="Napoleon Racing">
+                <span>Mumbai</span>
 
             </div>
 
+            <div class="testimonial-card">
 
-            <!-- Lineup -->
+                <div class="testimonial-image">
+                    <img
+                        src="<?= IMG ?>testimonials/rider-3.jpg"
+                        alt="Karan Singh"
+                        loading="lazy">
+                </div>
 
-            <div class="gallery-item gallery-wide">
+                <div class="stars">★★★★★</div>
 
-                <img
-                    src="<?= IMG ?>gallery/gallery-lineup.jpg"
-                    alt="Napoleon Collection">
+                <p>
+                    "Adventure rides have become effortless.
+                    The handling and reliability are simply outstanding."
+                </p>
+
+                <h4>Karan Singh</h4>
+
+                <span>Bengaluru</span>
 
             </div>
 
@@ -1169,127 +1243,8 @@ id="bikeGrid">
 
 </section>
 
-<div class="testimonial-grid">
-
-    <!-- Card 1 -->
-
-    <div class="testimonial-card">
-
-        <div class="testimonial-image">
-
-            <img
-                src="<?= IMG ?>testimonials/user-1.jpg"
-                alt="Rahul Sharma">
-
-        </div>
-
-        <div class="stars">
-            ★★★★★
-        </div>
-
-        <p>
-
-            "The Napoleon Classic 350 exceeded every expectation.
-            Smooth performance, excellent comfort and incredible road presence."
-
-        </p>
-
-        <h4>
-
-            Rahul Sharma
-
-        </h4>
-
-        <span>
-
-            Delhi
-
-        </span>
-
-    </div>
-
-
-
-    <!-- Card 2 -->
-
-    <div class="testimonial-card">
-
-        <div class="testimonial-image">
-
-            <img
-                src="<?= IMG ?>testimonials/user-2.jpg"
-                alt="Aman Patel">
-
-        </div>
-
-        <div class="stars">
-            ★★★★★
-        </div>
-
-        <p>
-
-            "The Phantom 900 delivers incredible acceleration,
-            premium styling and confidence on every ride."
-
-        </p>
-
-        <h4>
-
-            Aman Patel
-
-        </h4>
-
-        <span>
-
-            Mumbai
-
-        </span>
-
-    </div>
-
-
-
-    <!-- Card 3 -->
-
-    <div class="testimonial-card">
-
-        <div class="testimonial-image">
-
-            <img
-                src="<?= IMG ?>testimonials/user-3.jpg"
-                alt="Karan Singh">
-
-        </div>
-
-        <div class="stars">
-            ★★★★★
-        </div>
-
-        <p>
-
-            "Adventure rides have become effortless.
-            The handling and reliability are simply outstanding."
-
-        </p>
-
-        <h4>
-
-            Karan Singh
-
-        </h4>
-
-        <span>
-
-            Bengaluru
-
-        </span>
-
-    </div>
-
-</div>
-
 <!-- ================================================= -->
-<!-- PREMIUM CALL TO ACTION -->
+<!-- PREMIUM CTA -->
 <!-- ================================================= -->
 
 <section class="bike-cta">
@@ -1301,28 +1256,21 @@ id="bikeGrid">
             <div class="cta-content">
 
                 <span class="section-tag">
-
                     Ready To Ride?
-
                 </span>
 
                 <h2>
-
                     Experience The
                     <span>Napoleon Difference</span>
-
                 </h2>
 
                 <p>
-
-                    Whether you're looking for a timeless classic, a thrilling
-                    sports motorcycle or your next adventure companion,
+                    Whether you're looking for a timeless classic,
+                    a thrilling sports motorcycle or your next adventure companion,
                     there's a Napoleon built just for you.
-
                 </p>
 
             </div>
-
 
             <div class="cta-buttons">
 
@@ -1336,9 +1284,8 @@ id="bikeGrid">
 
                 </a>
 
-
                 <a
-                    href="<?= BASE_URL ?>dealers/"
+                    href="<?= BASE_URL ?>contact/"
                     class="btn btn-outline">
 
                     <i class="ri-map-pin-line"></i>
@@ -1359,17 +1306,23 @@ id="bikeGrid">
 <!-- FAQ -->
 <!-- ================================================= -->
 
-<?php include '../includes/sections/faq.php'; ?>
+<?php require_once __DIR__ . '/../includes/sections/faq.php'; ?>
 
 <!-- ================================================= -->
 <!-- FOOTER -->
 <!-- ================================================= -->
 
-<?php include '../includes/footer.php'; ?>
+<?php require_once __DIR__ . '/../includes/footer.php'; ?>
 
-<?php include '../includes/scripts.php'; ?>
+<!-- ================================================= -->
+<!-- SCRIPTS -->
+<!-- ================================================= -->
 
+<?php require_once __DIR__ . '/../includes/scripts.php'; ?>
+
+<?php if (file_exists(__DIR__ . '/../assets/js/bikes.js')): ?>
 <script src="<?= JS ?>bikes.js"></script>
+<?php endif; ?>
 
 </body>
 </html>
