@@ -4,7 +4,7 @@
 
 <img
 
-src="<?= IMG ?>logo.png"
+src="<?= IMG ?>branding/logo.png"
 
 alt="<?= SITE_NAME; ?>">
 
