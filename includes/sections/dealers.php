@@ -110,7 +110,7 @@
             <div class="dealers-image">
 
                 <img
-                    src="<?= IMG ?>dealer-network.jpg"
+                    src="<?= IMG ?>dealers/dealer-network.jpg"
                     alt="Napoleon Bikes Authorized Dealer Showroom"
                     loading="lazy">
 
