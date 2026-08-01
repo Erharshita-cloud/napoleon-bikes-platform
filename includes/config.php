@@ -3,26 +3,54 @@ declare(strict_types=1);
 
 /*
 |--------------------------------------------------------------------------
-| Napoleon Bikes Platform
-| Configuration File
+| Napoleon Bikes Platform V2
+| Global Configuration
 |--------------------------------------------------------------------------
 */
+
+if (!defined('ROOT_PATH')) {
+    define('ROOT_PATH', dirname(__DIR__));
+}
 
 /*
 |--------------------------------------------------------------------------
-| Website Information
+| Environment
 |--------------------------------------------------------------------------
 */
 
-define(
-    'SITE_NAME',
-    'Napoleon Bikes'
-);
+$host = $_SERVER['HTTP_HOST'] ?? 'localhost';
 
-define(
-    'SITE_TAGLINE',
-    'Ride Beyond Limits'
-);
+$isLocal =
+    str_contains($host, 'localhost') ||
+    str_contains($host, '127.0.0.1');
+
+define('ENVIRONMENT', $isLocal ? 'development' : 'production');
+
+/*
+|--------------------------------------------------------------------------
+| Base URL
+|--------------------------------------------------------------------------
+*/
+
+$scriptName = $_SERVER['SCRIPT_NAME'] ?? '';
+
+$projectFolder = '';
+
+if (preg_match('#^/([^/]+)/#', $scriptName, $matches)) {
+    $projectFolder = '/' . $matches[1];
+}
+
+define('BASE_URL', $projectFolder . '/');
+
+/*
+|--------------------------------------------------------------------------
+| Website
+|--------------------------------------------------------------------------
+*/
+
+define('SITE_NAME', 'Napoleon Bikes');
+
+define('SITE_TAGLINE', 'Ride Beyond Limits');
 
 define(
     'SITE_DESCRIPTION',
@@ -31,7 +59,7 @@ define(
 
 define(
     'SITE_KEYWORDS',
-    'motorcycles,bikes,sports bike,electric bikes,napoleon bikes'
+    'motorcycle,bikes,sport bike,cruiser,adventure,napoleon bikes'
 );
 
 define(
@@ -39,38 +67,9 @@ define(
     'Napoleon Bikes'
 );
 
-
 /*
 |--------------------------------------------------------------------------
-| Environment
-|--------------------------------------------------------------------------
-*/
-
-define(
-    'ENVIRONMENT',
-    $_SERVER['SERVER_NAME'] === 'localhost'
-        ? 'development'
-        : 'production'
-);
-
-
-/*
-|--------------------------------------------------------------------------
-| Base URL
-|--------------------------------------------------------------------------
-| Local XAMPP configuration
-|--------------------------------------------------------------------------
-*/
-
-define(
-    'BASE_URL',
-    '/napoleon-bikes-platform/'
-);
-
-
-/*
-|--------------------------------------------------------------------------
-| Assets
+| Branding
 |--------------------------------------------------------------------------
 */
 
@@ -94,28 +93,90 @@ define(
     ASSETS . 'images/'
 );
 
-/*
-|--------------------------------------------------------------------------
-| Common URLs
-|--------------------------------------------------------------------------
-*/
+define(
+    'VIDEOS',
+    ASSETS . 'videos/'
+);
 
 define(
-    'BOOK_TEST_RIDE_URL',
-    BASE_URL . 'book-test-ride/'
+    'BRANDING_IMG',
+    IMG . 'branding/'
+);
+
+define(
+    'BIKES_IMG',
+    IMG . 'bikes/'
+);
+
+define(
+    'GALLERY_IMG',
+    IMG . 'gallery/'
+);
+
+define(
+    'TESTIMONIAL_IMG',
+    IMG . 'testimonials/'
+);
+
+define(
+    'LOGO',
+    BRANDING_IMG . 'logo.png'
+);
+
+define(
+    'LOGO_WHITE',
+    BRANDING_IMG . 'logo-white.png'
+);
+
+define(
+    'LOGO_ICON',
+    BRANDING_IMG . 'logo-icon.png'
+);
+
+define(
+    'FAVICON',
+    BRANDING_IMG . 'favicon.png'
+);
+
+define(
+    'DEFAULT_OG_IMAGE',
+    LOGO
 );
 
 /*
 |--------------------------------------------------------------------------
-| Database Configuration
+| Theme
 |--------------------------------------------------------------------------
-|
-| Local:
-| localhost / root
-|
-| AWS:
-| Use environment variables
-|
+*/
+
+define('PRIMARY_COLOR', '#E63946');
+define('PRIMARY_DARK', '#C1121F');
+define('SECONDARY_COLOR', '#121214');
+define('ACCENT_COLOR', '#D4AF37');
+
+/*
+|--------------------------------------------------------------------------
+| Routes
+|--------------------------------------------------------------------------
+*/
+
+define('HOME_URL', BASE_URL);
+
+define('ABOUT_URL', BASE_URL . 'about/');
+
+define('BIKES_URL', BASE_URL . 'bikes/');
+
+define('PRICING_URL', BASE_URL . 'pricing/');
+
+define('BOOK_TEST_RIDE_URL', BASE_URL . 'book-test-ride/');
+
+define('CONTACT_URL', BASE_URL . 'contact/');
+
+define('THANK_YOU_URL', BASE_URL . 'thank-you/');
+
+/*
+|--------------------------------------------------------------------------
+| Database
 |--------------------------------------------------------------------------
 */
 
@@ -139,11 +200,26 @@ define(
     getenv('DB_PASS') ?: ''
 );
 
+define(
+    'DB_PORT',
+    getenv('DB_PORT') ?: '3306'
+);
+
+define(
+    'DB_CHARSET',
+    'utf8mb4'
+);
+
 /*
 |--------------------------------------------------------------------------
-| Company Information
+| Company
 |--------------------------------------------------------------------------
 */
+
+define(
+    'COMPANY_NAME',
+    'Napoleon Bikes'
+);
 
 define(
     'COMPANY_EMAIL',
@@ -160,92 +236,123 @@ define(
     'Meerut, Uttar Pradesh, India'
 );
 
+define(
+    'COMPANY_MAP',
+    '#'
+);
+
 /*
 |--------------------------------------------------------------------------
-| Social Media Links
+| Social Links
 |--------------------------------------------------------------------------
 */
 
 $social = [
 
-    'facebook' => '',
+    'facebook' => '#',
 
-    'instagram' => '',
+    'instagram' => '#',
 
-    'linkedin' => '',
+    'linkedin' => '#',
 
-    'youtube' => ''
+    'youtube' => '#',
+
+    'x' => '#'
 
 ];
 
 /*
 |--------------------------------------------------------------------------
-| Navigation Menu
+| Navigation
 |--------------------------------------------------------------------------
 */
 
 $navigation = [
 
-    'Home' => [
-         'url' => BASE_URL,
-         'icon' => 'ri-home-line'
+    [
+        'title' => 'Home',
+        'url' => HOME_URL
     ],
 
-    'About' => [
-        'url' => BASE_URL . 'about/',
-        'icon' => 'ri-information-line'
+    [
+        'title' => 'About',
+        'url' => ABOUT_URL
     ],
 
-    'Bikes' => [
-        'url' => BASE_URL . 'bikes/',
-        'icon' => 'ri-motorbike-line'
+    [
+        'title' => 'Bikes',
+        'url' => BIKES_URL
     ],
 
-     'Pricing' => [
-        'url' => BASE_URL . 'pricing/',
-        'icon' => 'ri-price-tag-3-line'
+    [
+        'title' => 'Pricing',
+        'url' => PRICING_URL
     ],
 
-    'Contact' => [
-        'url' => BASE_URL . 'contact/',
-        'icon' => 'ri-phone-line'
+    [
+        'title' => 'Book Test Ride',
+        'url' => BOOK_TEST_RIDE_URL
+    ],
+
+    [
+        'title' => 'Contact',
+        'url' => CONTACT_URL
     ]
 
 ];
 
 /*
 |--------------------------------------------------------------------------
-| Security / Debug Settings
+| UI
+|--------------------------------------------------------------------------
+*/
+
+define(
+    'ITEMS_PER_PAGE',
+    12
+);
+
+define(
+    'ANIMATION_DURATION',
+    600
+);
+
+/*
+|--------------------------------------------------------------------------
+| Error Reporting
 |--------------------------------------------------------------------------
 */
 
 if (ENVIRONMENT === 'development') {
 
-
     error_reporting(E_ALL);
 
+    ini_set('display_errors', '1');
 
-    ini_set(
-        'display_errors',
-        '1'
-    );
-
-
-}
-
-else {
-
+} else {
 
     error_reporting(0);
 
-
-    ini_set(
-        'display_errors',
-        '0'
-    );
-
+    ini_set('display_errors', '0');
 
 }
 
+/*
+|--------------------------------------------------------------------------
+| Timezone
+|--------------------------------------------------------------------------
+*/
 
-?>
+date_default_timezone_set('Asia/Kolkata');
+
+/*
+|--------------------------------------------------------------------------
+| Session
+|--------------------------------------------------------------------------
+*/
+
+if (session_status() === PHP_SESSION_NONE) {
+
+    session_start();
+
+}
