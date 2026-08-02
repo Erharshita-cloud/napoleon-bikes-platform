@@ -1,136 +1,422 @@
 <?php
 declare(strict_types=1);
 
-
-/**
- * Napoleon Bikes Platform
- * Common Helper Functions
- */
-
-
 /*
 |--------------------------------------------------------------------------
-| Prevent Direct Access
+| Napoleon Bikes Platform V2
+| Global Helper Functions
+|--------------------------------------------------------------------------
+|
+| This file is used by every page.
+| It is loaded after config.php.
+|
+| Homepage
+| Bikes
+| Pricing
+| Contact
+| Book Test Ride
+| Thank You
+|
 |--------------------------------------------------------------------------
 */
 
 if (!defined('BASE_URL')) {
-
-    die(
-        "Direct access not allowed"
-    );
-
+    exit('Configuration not loaded.');
 }
-
-
 
 /*
 |--------------------------------------------------------------------------
-| Start Session
+| URL Helpers
 |--------------------------------------------------------------------------
 */
 
-if(session_status() === PHP_SESSION_NONE){
-
-    session_start();
-
-}
-
-
-
-/*
-|--------------------------------------------------------------------------
-| URL Helper
-|--------------------------------------------------------------------------
-*/
-
+/**
+ * Generate project URL
+ *
+ * Example:
+ * url()
+ * url('bikes/')
+ * url('pricing/')
+ */
 function url(string $path = ''): string
 {
-
-    return BASE_URL . ltrim($path,'/');
-
+    return BASE_URL . ltrim($path, '/');
 }
 
+/**
+ * Generate asset URL
+ *
+ * asset('css/style.css')
+ */
+function asset(string $path = ''): string
+{
+    return ASSETS . ltrim($path, '/');
+}
 
+/**
+ * CSS helper
+ */
+function css(string $file): string
+{
+    return CSS . ltrim($file, '/');
+}
+
+/**
+ * JS helper
+ */
+function js(string $file): string
+{
+    return JS . ltrim($file, '/');
+}
+
+/**
+ * Image helper
+ */
+function img(string $file): string
+{
+    return IMG . ltrim($file, '/');
+}
+
+/**
+ * Bike image helper
+ */
+function bikeImage(string $file): string
+{
+    return BIKES_IMG . ltrim($file, '/');
+}
+
+/**
+ * Gallery helper
+ */
+function galleryImage(string $file): string
+{
+    return GALLERY_IMG . ltrim($file, '/');
+}
+
+/**
+ * Branding helper
+ */
+function brandingImage(string $file): string
+{
+    return BRANDING_IMG . ltrim($file, '/');
+}
+
+/**
+ * Testimonial helper
+ */
+function testimonialImage(string $file): string
+{
+    return TESTIMONIAL_IMG . ltrim($file, '/');
+}
+
+/**
+ * Video helper
+ */
+function video(string $file): string
+{
+    return VIDEOS . ltrim($file, '/');
+}
 
 /*
 |--------------------------------------------------------------------------
-| Asset Helper
+| Output Escaping
 |--------------------------------------------------------------------------
 */
 
-function asset(string $file = ''): string
-{
-
-    return ASSETS . ltrim($file,'/');
-
-}
-
-
-
-/*
-|--------------------------------------------------------------------------
-| Escape Output
-|--------------------------------------------------------------------------
-*/
-
-function e($value): string
-{
+/**
+ * Safe HTML output
+ */
+function e(
+    mixed $value
+): string {
 
     return htmlspecialchars(
-
-        (string)$value,
-
-        ENT_QUOTES,
-
+        (string) $value,
+        ENT_QUOTES | ENT_SUBSTITUTE,
         'UTF-8'
-
     );
 
 }
 
+/**
+ * Attribute output
+ */
+function attr(
+    mixed $value
+): string {
 
+    return htmlspecialchars(
+        (string) $value,
+        ENT_QUOTES,
+        'UTF-8'
+    );
+
+}
 
 /*
 |--------------------------------------------------------------------------
-| Redirect
+| Redirect Helpers
 |--------------------------------------------------------------------------
 */
 
-function redirect(string $page): never
-{
+function redirect(
+    string $location
+): never {
 
-    header(
-        "Location: ".url($page)
-    );
+    if (
+        str_starts_with($location, 'http')
+    ) {
+
+        header(
+            "Location: {$location}"
+        );
+
+    } else {
+
+        header(
+            'Location: ' . url($location)
+        );
+
+    }
 
     exit;
 
 }
 
-
-
 /*
 |--------------------------------------------------------------------------
-| Active Navigation
+| Current Request
 |--------------------------------------------------------------------------
 */
 
-function isActive(string $page): string
+/**
+ * Current request URI
+ */
+function currentUri(): string
 {
+    return parse_url(
+        $_SERVER['REQUEST_URI'] ?? '/',
+        PHP_URL_PATH
+    ) ?? '/';
+}
 
-    $current = basename(
-        $_SERVER['PHP_SELF']
+/**
+ * Current script
+ */
+function currentScript(): string
+{
+    return basename(
+        $_SERVER['SCRIPT_NAME'] ?? ''
+    );
+}
+
+/**
+ * Current directory
+ *
+ * Example:
+ * bikes
+ * pricing
+ * contact
+ */
+function currentDirectory(): string
+{
+    $path = trim(
+        dirname($_SERVER['SCRIPT_NAME'] ?? ''),
+        '/'
     );
 
+    $segments = explode('/', $path);
 
-    return $current === $page
+    return end($segments) ?: '';
+}
+
+/*
+|--------------------------------------------------------------------------
+| Navigation Helpers
+|--------------------------------------------------------------------------
+*/
+
+/**
+ * Homepage active
+ */
+function isHome(): bool
+{
+    return currentScript() === 'index.php'
+        && currentDirectory() !== 'bikes'
+        && currentDirectory() !== 'pricing'
+        && currentDirectory() !== 'contact'
+        && currentDirectory() !== 'book-test-ride';
+}
+
+/**
+ * Generic active state
+ *
+ * Usage:
+ * isActive('bikes')
+ * isActive('pricing')
+ */
+function isActive(
+    string $page
+): string {
+
+    if ($page === 'home') {
+        return isHome() ? 'active' : '';
+    }
+
+    return currentDirectory() === trim($page, '/')
         ? 'active'
         : '';
 
 }
+/*
+|--------------------------------------------------------------------------
+| Request Helpers
+|--------------------------------------------------------------------------
+*/
 
+/**
+ * Check request method
+ */
+function requestMethod(): string
+{
+    return strtoupper($_SERVER['REQUEST_METHOD'] ?? 'GET');
+}
 
+function isGet(): bool
+{
+    return requestMethod() === 'GET';
+}
+
+function isPost(): bool
+{
+    return requestMethod() === 'POST';
+}
+
+function isAjax(): bool
+{
+    return strtolower(
+        $_SERVER['HTTP_X_REQUESTED_WITH'] ?? ''
+    ) === 'xmlhttprequest';
+}
+
+/*
+|--------------------------------------------------------------------------
+| Input Helpers
+|--------------------------------------------------------------------------
+*/
+
+function input(
+    string $key,
+    mixed $default = null
+): mixed {
+
+    return $_POST[$key] ?? $_GET[$key] ?? $default;
+
+}
+
+function old(
+    string $key,
+    mixed $default = ''
+): mixed {
+
+    return $_POST[$key] ?? $default;
+
+}
+
+function has(
+    string $key
+): bool {
+
+    return isset($_POST[$key]) || isset($_GET[$key]);
+
+}
+
+/*
+|--------------------------------------------------------------------------
+| Sanitization
+|--------------------------------------------------------------------------
+*/
+
+function clean(
+    mixed $value
+): string {
+
+    return trim(
+        strip_tags(
+            (string)$value
+        )
+    );
+
+}
+
+/*
+|--------------------------------------------------------------------------
+| Validation
+|--------------------------------------------------------------------------
+*/
+
+function validateRequired(
+    array $data,
+    array $fields
+): array {
+
+    $errors = [];
+
+    foreach ($fields as $field) {
+
+        if (
+            !isset($data[$field]) ||
+            trim((string)$data[$field]) === ''
+        ) {
+
+            $errors[$field] =
+                ucfirst(
+                    str_replace('_', ' ', $field)
+                ) . ' is required.';
+
+        }
+
+    }
+
+    return $errors;
+
+}
+
+function validateEmail(
+    string $email
+): bool {
+
+    return filter_var(
+        $email,
+        FILTER_VALIDATE_EMAIL
+    ) !== false;
+
+}
+
+function validatePhone(
+    string $phone
+): bool {
+
+    return (bool)preg_match(
+        '/^[0-9+\-\s]{8,20}$/',
+        $phone
+    );
+
+}
+
+function validateLength(
+    string $value,
+    int $min,
+    int $max
+): bool {
+
+    $length = mb_strlen(trim($value));
+
+    return
+        $length >= $min &&
+        $length <= $max;
+
+}
 
 /*
 |--------------------------------------------------------------------------
@@ -139,213 +425,169 @@ function isActive(string $page): string
 */
 
 function flash(
-    string $message,
-    string $type='success'
-): void
-{
+    string $type,
+    string $message
+): void {
 
-    $_SESSION['flash']=[
+    $_SESSION['flash'][] = [
 
-        'message'=>$message,
+        'type' => $type,
 
-        'type'=>$type
+        'message' => $message
 
     ];
 
 }
 
+function hasFlash(): bool
+{
+    return !empty($_SESSION['flash']);
+}
 
-
-function showFlash(): void
+function getFlash(): array
 {
 
-    if(isset($_SESSION['flash'])){
+    $messages = $_SESSION['flash'] ?? [];
 
+    unset($_SESSION['flash']);
 
-        $flash=$_SESSION['flash'];
-
-
-        echo '
-
-        <div class="alert alert-'.e($flash['type']).'">
-
-            '.e($flash['message']).'
-
-        </div>
-
-        ';
-
-
-        unset($_SESSION['flash']);
-
-    }
+    return $messages;
 
 }
 
-
-
 /*
 |--------------------------------------------------------------------------
-| Request Helpers
+| Success Helpers
 |--------------------------------------------------------------------------
 */
 
-function isPost(): bool
-{
+function success(
+    string $message
+): void {
 
-    return $_SERVER['REQUEST_METHOD']==='POST';
-
-}
-
-
-
-/*
-|--------------------------------------------------------------------------
-| Required Fields Validation
-|--------------------------------------------------------------------------
-*/
-
-function required(array $fields=[]): array
-{
-
-    $errors=[];
-
-
-    foreach($fields as $field){
-
-
-        if(empty($_POST[$field])){
-
-
-            $errors[]=ucfirst($field)." is required";
-
-
-        }
-
-    }
-
-
-    return $errors;
-
-}
-
-
-
-/*
-|--------------------------------------------------------------------------
-| Clean Input
-|--------------------------------------------------------------------------
-*/
-
-function clean($data): string
-{
-
-    return htmlspecialchars(
-
-        trim((string)$data),
-
-        ENT_QUOTES,
-
-        'UTF-8'
-
+    flash(
+        'success',
+        $message
     );
 
 }
 
+function error(
+    string $message
+): void {
 
-
-/*
-|--------------------------------------------------------------------------
-| Booking ID Generator
-|--------------------------------------------------------------------------
-*/
-
-function generateBookingID(): string
-{
-
-    return "NB-".
-        random_int(100000,999999);
+    flash(
+        'danger',
+        $message
+    );
 
 }
 
+function warning(
+    string $message
+): void {
 
-
-/*
-|--------------------------------------------------------------------------
-| Price Formatter
-|--------------------------------------------------------------------------
-*/
-
-function price($amount): string
-{
-
-    return "₹".
-        number_format((float)$amount);
+    flash(
+        'warning',
+        $message
+    );
 
 }
 
+function info(
+    string $message
+): void {
 
-
-/*
-|--------------------------------------------------------------------------
-| Current Year
-|--------------------------------------------------------------------------
-*/
-
-function year(): string
-{
-
-    return date("Y");
+    flash(
+        'info',
+        $message
+    );
 
 }
 
-
-
 /*
 |--------------------------------------------------------------------------
-| Authentication Helpers
+| Session Helpers
 |--------------------------------------------------------------------------
 */
 
-function isLoggedIn(): bool
-{
+function session(
+    string $key,
+    mixed $default = null
+): mixed {
 
-    return isset($_SESSION['user']);
+    return $_SESSION[$key] ?? $default;
 
 }
 
+function sessionHas(
+    string $key
+): bool {
 
+    return isset($_SESSION[$key]);
 
-function requireLogin(): void
-{
+}
 
-    if(!isLoggedIn()){
+function sessionPut(
+    string $key,
+    mixed $value
+): void {
 
-        redirect('login.php');
+    $_SESSION[$key] = $value;
+
+}
+
+function sessionForget(
+    string $key
+): void {
+
+    unset($_SESSION[$key]);
+
+}
+
+/*
+|--------------------------------------------------------------------------
+| String Helpers
+|--------------------------------------------------------------------------
+*/
+
+function slug(
+    string $text
+): string {
+
+    $text = strtolower($text);
+
+    $text = preg_replace(
+        '/[^a-z0-9]+/',
+        '-',
+        $text
+    );
+
+    return trim(
+        $text,
+        '-'
+    );
+
+}
+
+function limit(
+    string $text,
+    int $length = 120
+): string {
+
+    if (
+        mb_strlen($text) <= $length
+    ) {
+
+        return $text;
 
     }
 
-}
-
-
-
-/*
-|--------------------------------------------------------------------------
-| Debug Helper
-|--------------------------------------------------------------------------
-*/
-
-function dd($data): never
-{
-
-    echo "<pre>";
-
-    print_r($data);
-
-    echo "</pre>";
-
-    die();
+    return
+        mb_substr(
+            $text,
+            0,
+            $length
+        ) . '...';
 
 }
-
-?>
