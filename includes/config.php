@@ -1,13 +1,6 @@
 <?php
 declare(strict_types=1);
 
-/*
-|--------------------------------------------------------------------------
-| Napoleon Bikes Platform V2
-| Global Configuration
-|--------------------------------------------------------------------------
-*/
-
 if (!defined('ROOT_PATH')) {
     define('ROOT_PATH', dirname(__DIR__));
 }
@@ -24,7 +17,10 @@ $isLocal =
     str_contains($host, 'localhost') ||
     str_contains($host, '127.0.0.1');
 
-define('ENVIRONMENT', $isLocal ? 'development' : 'production');
+define(
+    'ENVIRONMENT',
+    $isLocal ? 'development' : 'production'
+);
 
 /*
 |--------------------------------------------------------------------------
@@ -32,15 +28,43 @@ define('ENVIRONMENT', $isLocal ? 'development' : 'production');
 |--------------------------------------------------------------------------
 */
 
-$scriptName = $_SERVER['SCRIPT_NAME'] ?? '';
+$basePath = str_replace(
+    '\\',
+    '/',
+    dirname($_SERVER['SCRIPT_NAME'] ?? '/')
+);
 
-$projectFolder = '';
-
-if (preg_match('#^/([^/]+)/#', $scriptName, $matches)) {
-    $projectFolder = '/' . $matches[1];
+if (
+    $basePath === '.' ||
+    $basePath === '/'
+) {
+    $basePath = '';
 }
 
-define('BASE_URL', $projectFolder . '/');
+define(
+    'BASE_URL',
+    rtrim($basePath, '/') . '/'
+);
+
+/*
+|--------------------------------------------------------------------------
+| Site URL
+|--------------------------------------------------------------------------
+*/
+
+$protocol = (
+    !empty($_SERVER['HTTPS']) &&
+    $_SERVER['HTTPS'] !== 'off'
+)
+    ? 'https://'
+    : 'http://';
+
+define(
+    'SITE_URL',
+    $protocol .
+    ($host ?? 'localhost') .
+    BASE_URL
+);
 
 /*
 |--------------------------------------------------------------------------
@@ -49,7 +73,6 @@ define('BASE_URL', $projectFolder . '/');
 */
 
 define('SITE_NAME', 'Napoleon Bikes');
-
 define('SITE_TAGLINE', 'Ride Beyond Limits');
 
 define(
@@ -67,80 +90,60 @@ define(
     'Napoleon Bikes'
 );
 
+define(
+    'APP_VERSION',
+    '1.0.0'
+);
+
 /*
 |--------------------------------------------------------------------------
-| Branding
+| Assets
 |--------------------------------------------------------------------------
 */
 
-define(
-    'ASSETS',
-    BASE_URL . 'assets/'
-);
+define('ASSETS', BASE_URL . 'assets/');
 
-define(
-    'CSS',
-    ASSETS . 'css/'
-);
+define('CSS', ASSETS . 'css/');
+define('JS', ASSETS . 'js/');
+define('IMG', ASSETS . 'images/');
+define('VIDEOS', ASSETS . 'videos/');
+define('FONTS', ASSETS . 'fonts/');
+define('ICONS', ASSETS . 'icons/');
 
-define(
-    'JS',
-    ASSETS . 'js/'
-);
+define('BRANDING_IMG', IMG . 'branding/');
+define('BIKES_IMG', IMG . 'bikes/');
+define('GALLERY_IMG', IMG . 'gallery/');
+define('TESTIMONIAL_IMG', IMG . 'testimonials/');
 
-define(
-    'IMG',
-    ASSETS . 'images/'
-);
-
-define(
-    'VIDEOS',
-    ASSETS . 'videos/'
-);
-
-define(
-    'BRANDING_IMG',
-    IMG . 'branding/'
-);
-
-define(
-    'BIKES_IMG',
-    IMG . 'bikes/'
-);
-
-define(
-    'GALLERY_IMG',
-    IMG . 'gallery/'
-);
-
-define(
-    'TESTIMONIAL_IMG',
-    IMG . 'testimonials/'
-);
-
-define(
-    'LOGO',
-    BRANDING_IMG . 'logo.png'
-);
-
-define(
-    'LOGO_WHITE',
-    BRANDING_IMG . 'logo-white.png'
-);
-
-define(
-    'LOGO_ICON',
-    BRANDING_IMG . 'logo-icon.png'
-);
-
-define(
-    'FAVICON',
-    BRANDING_IMG . 'favicon.png'
-);
+define('LOGO', BRANDING_IMG . 'logo.png');
+define('LOGO_WHITE', BRANDING_IMG . 'logo-white.png');
+define('LOGO_ICON', BRANDING_IMG . 'logo-icon.png');
+define('FAVICON', BRANDING_IMG . 'favicon.png');
 
 define(
     'DEFAULT_OG_IMAGE',
     LOGO
+);
+
+/*
+|--------------------------------------------------------------------------
+| Storage
+|--------------------------------------------------------------------------
+*/
+
+define(
+    'UPLOAD_PATH',
+    ROOT_PATH . '/uploads/'
+);
+
+define(
+    'LOG_PATH',
+    ROOT_PATH . '/storage/logs/'
+);
+
+define(
+    'CACHE_PATH',
+    ROOT_PATH . '/storage/cache/'
 );
 
 /*
@@ -161,17 +164,11 @@ define('ACCENT_COLOR', '#D4AF37');
 */
 
 define('HOME_URL', BASE_URL);
-
 define('ABOUT_URL', BASE_URL . 'about/');
-
 define('BIKES_URL', BASE_URL . 'bikes/');
-
 define('PRICING_URL', BASE_URL . 'pricing/');
-
 define('BOOK_TEST_RIDE_URL', BASE_URL . 'book-test-ride/');
-
 define('CONTACT_URL', BASE_URL . 'contact/');
-
 define('THANK_YOU_URL', BASE_URL . 'thank-you/');
 
 /*
@@ -210,6 +207,11 @@ define(
     'utf8mb4'
 );
 
+define(
+    'DB_COLLATION',
+    'utf8mb4_unicode_ci'
+);
+
 /*
 |--------------------------------------------------------------------------
 | Company
@@ -243,67 +245,7 @@ define(
 
 /*
 |--------------------------------------------------------------------------
-| Social Links
-|--------------------------------------------------------------------------
-*/
-
-$social = [
-
-    'facebook' => '#',
-
-    'instagram' => '#',
-
-    'linkedin' => '#',
-
-    'youtube' => '#',
-
-    'x' => '#'
-
-];
-
-/*
-|--------------------------------------------------------------------------
-| Navigation
-|--------------------------------------------------------------------------
-*/
-
-$navigation = [
-
-    [
-        'title' => 'Home',
-        'url' => HOME_URL
-    ],
-
-    [
-        'title' => 'About',
-        'url' => ABOUT_URL
-    ],
-
-    [
-        'title' => 'Bikes',
-        'url' => BIKES_URL
-    ],
-
-    [
-        'title' => 'Pricing',
-        'url' => PRICING_URL
-    ],
-
-    [
-        'title' => 'Book Test Ride',
-        'url' => BOOK_TEST_RIDE_URL
-    ],
-
-    [
-        'title' => 'Contact',
-        'url' => CONTACT_URL
-    ]
-
-];
-
-/*
-|--------------------------------------------------------------------------
-| UI
+| Application
 |--------------------------------------------------------------------------
 */
 
@@ -317,6 +259,32 @@ define(
     600
 );
 
+define(
+    'DEFAULT_LANGUAGE',
+    'en'
+);
+
+define(
+    'DEFAULT_TIMEZONE',
+    'Asia/Kolkata'
+);
+
+/*
+|--------------------------------------------------------------------------
+| Security
+|--------------------------------------------------------------------------
+*/
+
+define(
+    'SESSION_NAME',
+    'NAPOLEON_SESSION'
+);
+
+define(
+    'CSRF_TOKEN_NAME',
+    '_token'
+);
+
 /*
 |--------------------------------------------------------------------------
 | Error Reporting
@@ -326,33 +294,13 @@ define(
 if (ENVIRONMENT === 'development') {
 
     error_reporting(E_ALL);
-
     ini_set('display_errors', '1');
 
 } else {
 
     error_reporting(0);
-
     ini_set('display_errors', '0');
 
 }
 
-/*
-|--------------------------------------------------------------------------
-| Timezone
-|--------------------------------------------------------------------------
-*/
-
-date_default_timezone_set('Asia/Kolkata');
-
-/*
-|--------------------------------------------------------------------------
-| Session
-|--------------------------------------------------------------------------
-*/
-
-if (session_status() === PHP_SESSION_NONE) {
-
-    session_start();
-
-}
+date_default_timezone_set(DEFAULT_TIMEZONE);
