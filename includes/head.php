@@ -1,142 +1,147 @@
 <?php
-/**
- * Napoleon Bikes Platform
- * Common Head Section
- */
+declare(strict_types=1);
+
+if (!defined('ROOT_PATH')) {
+    exit('Direct access is not allowed.');
+}
+
+$pageTitle ??= SITE_NAME;
+$pageDescription ??= SITE_DESCRIPTION;
+$pageKeywords ??= SITE_KEYWORDS;
+$pageAuthor ??= SITE_AUTHOR;
+$pageImage ??= DEFAULT_OG_IMAGE;
+$pageUrl ??= SITE_URL;
+
 ?>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0">
+<meta
+    http-equiv="X-UA-Compatible"
+    content="IE=edge"
+>
 
-    <meta
-        http-equiv="X-UA-Compatible"
-        content="IE=edge">
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
-    <title><?= e(SITE_NAME); ?></title>
+<title><?= e($pageTitle) ?></title>
 
-    <meta
-        name="description"
-        content="<?= e(SITE_DESCRIPTION); ?>">
+<meta
+    name="description"
+    content="<?= e($pageDescription) ?>"
+>
 
-    <meta
-        name="keywords"
-        content="<?= e(SITE_KEYWORDS); ?>">
+<meta
+    name="keywords"
+    content="<?= e($pageKeywords) ?>"
+>
 
-    <meta
-        name="author"
-        content="<?= e(SITE_AUTHOR); ?>">
+<meta
+    name="author"
+    content="<?= e($pageAuthor) ?>"
+>
 
-    <meta
-        name="robots"
-        content="index,follow">
+<meta
+    name="robots"
+    content="index,follow"
+>
 
-    <link
-        rel="canonical"
-        href="<?= BASE_URL ?>">
+<meta
+    name="theme-color"
+    content="<?= PRIMARY_COLOR ?>"
+>
 
-    <meta
-        name="theme-color"
-        content="#dc2626">
+<link
+    rel="canonical"
+    href="<?= e($pageUrl) ?>"
+>
 
-    <!-- Open Graph -->
+<link
+    rel="icon"
+    type="image/png"
+    href="<?= FAVICON ?>"
+>
 
-    <meta
-        property="og:title"
-        content="<?= e(SITE_NAME); ?>">
+<link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+>
 
-    <meta
-        property="og:description"
-        content="<?= e(SITE_DESCRIPTION); ?>">
+<link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+>
 
-    <meta
-        property="og:type"
-        content="website">
+<link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+>
 
-    <meta
-        property="og:image"
-        content="<?= IMG ?>branding/logo.png">
-
-    <meta
-        property="og:url"
-        content="<?= BASE_URL ?>">
-
-    <meta
-        property="og:site_name"
-        content="<?= e(SITE_NAME); ?>">
-
-    <!-- Twitter Cards -->
-
-    <meta
-        name="twitter:card"
-        content="summary_large_image">
-
-    <meta
-        name="twitter:title"
-        content="<?= e(SITE_NAME); ?>">
-
-    <meta
-        name="twitter:description"
-        content="<?= e(SITE_DESCRIPTION); ?>">
-
-    <meta
-        name="twitter:image"
-        content="<?= IMG ?>branding/logo.png">
-
-    <!-- Favicons -->
-
-    <link
-        rel="icon"
-        type="image/png"
-        href="<?= IMG ?>branding/favicon.png">
-
-    <link
-        rel="apple-touch-icon"
-        href="<?= IMG ?>branding/logo-icon.png">
-
-    <!-- Google Fonts -->
-
-    <link
-        rel="preconnect"
-        href="https://fonts.googleapis.com">
-
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
-
-    <!-- Font Awesome -->
-
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-
-    <!-- Remix Icons -->
-
-    <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css">
-
-    <!-- Main Stylesheet -->
-
-    <link
-        rel="stylesheet"
-        href="<?= CSS ?>style.css">
-
-<?php if (isset($pageCSS)): ?>
+<link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css"
+    rel="stylesheet"
+>
 
 <link
     rel="stylesheet"
-    href="<?= CSS . $pageCSS; ?>">
+    href="<?= CSS ?>style.css?v=<?= APP_VERSION ?>"
+>
 
-<?php endif; ?>
+<meta
+    property="og:type"
+    content="website"
+>
+
+<meta
+    property="og:title"
+    content="<?= e($pageTitle) ?>"
+>
+
+<meta
+    property="og:description"
+    content="<?= e($pageDescription) ?>"
+>
+
+<meta
+    property="og:image"
+    content="<?= e($pageImage) ?>"
+>
+
+<meta
+    property="og:url"
+    content="<?= e($pageUrl) ?>"
+>
+
+<meta
+    property="og:site_name"
+    content="<?= SITE_NAME ?>"
+>
+
+<meta
+    name="twitter:card"
+    content="summary_large_image"
+>
+
+<meta
+    name="twitter:title"
+    content="<?= e($pageTitle) ?>"
+>
+
+<meta
+    name="twitter:description"
+    content="<?= e($pageDescription) ?>"
+>
+
+<meta
+    name="twitter:image"
+    content="<?= e($pageImage) ?>"
+>
 
 </head>
