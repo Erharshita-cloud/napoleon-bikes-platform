@@ -44,7 +44,7 @@ if (session_status() === PHP_SESSION_NONE) {
 |--------------------------------------------------------------------------
 */
 
-require_once ROOT_PATH . '/includes/database.php';
+$db = Database::connection();
 
 /*
 |--------------------------------------------------------------------------
