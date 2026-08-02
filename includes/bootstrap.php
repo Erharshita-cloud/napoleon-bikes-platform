@@ -62,4 +62,4 @@ require_once ROOT_PATH . '/includes/functions.php';
 
 $navigation = require ROOT_PATH . '/includes/navigation.php';
 
-require_once ROOT_PATH . '/includes/social.php';
+$social = require ROOT_PATH . '/includes/social.php';
