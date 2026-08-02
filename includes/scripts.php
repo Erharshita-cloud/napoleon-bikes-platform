@@ -1,16 +1,15 @@
 <?php
 declare(strict_types=1);
 
-/**
- * ---------------------------------------------------------
- * Napoleon Bikes Platform
- * Common JavaScript Files
- * ---------------------------------------------------------
- */
+if (!defined('ROOT_PATH')) {
+    exit('Direct access is not allowed.');
+}
 ?>
 
-<!-- Main JavaScript -->
 <script
-    src="<?= JS ?>app.js"
-    defer>
-</script>
+    src="<?= JS ?>app.js?v=<?= APP_VERSION ?>"
+    defer
+></script>
+
+</body>
+</html>
