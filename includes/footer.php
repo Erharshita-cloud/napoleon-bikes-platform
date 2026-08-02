@@ -1,12 +1,9 @@
 <?php
 declare(strict_types=1);
 
-/**
- * ---------------------------------------------------------
- * Napoleon Bikes Platform
- * Footer Component
- * ---------------------------------------------------------
- */
+if (!defined('ROOT_PATH')) {
+    exit('Direct access is not allowed.');
+}
 ?>
 
 <footer class="site-footer">
@@ -15,37 +12,60 @@ declare(strict_types=1);
 
         <div class="footer-grid">
 
-            <!-- Logo -->
+            <!-- =======================================================
+                 COMPANY
+            ======================================================== -->
 
-            <div class="footer-logo">
+            <div class="footer-column">
 
-                <img
-                    src="<?= IMG ?>branding/logo.png"
-                    alt="<?= e(SITE_NAME); ?> Logo"
-                    width="60"
-                    height="60">
+                <a
+                    href="<?= HOME_URL ?>"
+                    class="logo"
+                >
 
-                <h2><?= e(SITE_NAME); ?></h2>
+                    <img
+                        src="<?= LOGO_WHITE ?>"
+                        alt="<?= SITE_NAME ?>"
+                        loading="lazy"
+                    >
 
-                <p><?= e(SITE_TAGLINE); ?></p>
+                    <span class="logo-text">
+
+                        <?= SITE_NAME ?>
+
+                    </span>
+
+                </a>
+
+                <p class="text mt-2">
+
+                    <?= SITE_DESCRIPTION ?>
+
+                </p>
 
             </div>
 
-            <!-- Quick Links -->
+            <!-- =======================================================
+                 QUICK LINKS
+            ======================================================== -->
 
-            <div class="footer-links">
+            <div class="footer-column">
 
-                <h3>Quick Links</h3>
+                <h3 class="footer-title">
 
-                <ul>
+                    Quick Links
 
-                    <?php foreach ($navigation as $name => $item): ?>
+                </h3>
+
+                <ul class="footer-links">
+
+                    <?php foreach ($navigation as $item): ?>
 
                         <li>
 
-                            <a href="<?= e($item['url']); ?>">
+                            <a href="<?= e($item['url']) ?>">
 
-                                <?= e($name); ?>
+                                <?= e($item['title']) ?>
 
                             </a>
 
@@ -57,83 +77,78 @@ declare(strict_types=1);
 
             </div>
 
-            <!-- Contact -->
+            <!-- =======================================================
+                 CONTACT
+            ======================================================== -->
 
-            <div class="footer-contact">
+            <div class="footer-column">
 
-                <h3>Contact</h3>
+                <h3 class="footer-title">
 
-                <p><?= e(COMPANY_ADDRESS); ?></p>
+                    Contact
 
-                <p>
+                </h3>
 
-                    <a href="tel:<?= e(COMPANY_PHONE); ?>">
+                <ul class="footer-links">
 
-                        <?= e(COMPANY_PHONE); ?>
+                    <li>
 
-                    </a>
+                        <a href="mailto:<?= COMPANY_EMAIL ?>">
 
-                </p>
+                            <?= COMPANY_EMAIL ?>
 
-                <p>
+                        </a>
 
-                    <a href="mailto:<?= e(COMPANY_EMAIL); ?>">
+                    </li>
 
-                        <?= e(COMPANY_EMAIL); ?>
+                    <li>
 
-                    </a>
+                        <a href="tel:<?= COMPANY_PHONE ?>">
 
-                </p>
+                            <?= COMPANY_PHONE ?>
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <?= COMPANY_ADDRESS ?>
+
+                    </li>
+
+                </ul>
 
             </div>
 
-            <!-- Social Links -->
+            <!-- =======================================================
+                 SOCIAL
+            ======================================================== -->
 
-            <div class="footer-social">
+            <div class="footer-column">
 
-                <h3>Follow Us</h3>
+                <h3 class="footer-title">
 
-                <div class="social-icons">
+                    Follow Us
 
-                    <a
-                        href="<?= e($social['facebook']); ?>"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="Facebook">
+                </h3>
 
-                        <i class="ri-facebook-fill"></i>
+                <div class="social-links">
 
-                    </a>
+                    <?php foreach ($social as $item): ?>
 
-                    <a
-                        href="<?= e($social['instagram']); ?>"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="Instagram">
+                        <a
+                            href="<?= e($item['url']) ?>"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="<?= e($item['label']) ?>"
+                        >
 
-                        <i class="ri-instagram-line"></i>
+                            <i class="<?= e($item['icon']) ?>"></i>
 
-                    </a>
+                        </a>
 
-                    <a
-                        href="<?= e($social['linkedin']); ?>"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="LinkedIn">
-
-                        <i class="ri-linkedin-box-fill"></i>
-
-                    </a>
-
-                    <a
-                        href="<?= e($social['youtube']); ?>"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="YouTube">
-
-                        <i class="ri-youtube-fill"></i>
-
-                    </a>
+                    <?php endforeach; ?>
 
                 </div>
 
@@ -145,11 +160,17 @@ declare(strict_types=1);
 
             <p>
 
-                &copy; <?= year(); ?>
+                © <?= currentYear(); ?>
 
-                <?= e(SITE_NAME); ?>.
+                <?= SITE_NAME ?>
 
-                All Rights Reserved.
+                · All Rights Reserved.
+
+            </p>
+
+            <p>
+
+                <?= SITE_TAGLINE ?>
 
             </p>
 
